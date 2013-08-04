@@ -1,0 +1,10 @@
+
+<h3>Please enter the quantity need to convert to Good Unit</h3>
+<% form_for @cold_store do |f| %>
+ 
+  <p>
+    Quantity<br />
+    <%= text_field_tag :quantity %>
+  </p>
+  <p><%= f.submit "Submit" %></p>
+<% end %>

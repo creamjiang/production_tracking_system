@@ -1,0 +1,52 @@
+<%= link_to 'Back', efficiency_schedules_path %>
+<br /><br />
+<p>
+  <b>Schedule date:</b>
+  <%=h @efficiency_schedule.schedule_date %>
+</p>
+
+<p>
+  <b>Part name:</b>
+  <%=h @efficiency_schedule.part_name %>
+</p>
+
+<p>
+  <b>Shift type:</b>
+  <%=h @efficiency_schedule.shift_type %>
+</p>
+
+<p>
+  <b>Shift:</b>
+  <%=h @efficiency_schedule.shift %>
+</p>
+
+<p>
+  <b>Start time:</b>
+  <%=h @efficiency_schedule.start_time.strftime("%H:%M") %>
+</p>
+
+<p>
+  <b>End time:</b>
+  <%=h @efficiency_schedule.end_time.strftime("%H:%M") %>
+</p>
+
+<p>
+  <b>Operators present:</b>
+  <%=h @efficiency_schedule.operators_present %>
+</p>
+
+<p>
+  <b>Expected Output:</b>
+  <%=h @efficiency_schedule.expected_output %>
+</p>
+<p>
+  <b>Operation status:</b>
+  <%=h @efficiency_schedule.operation_status %>
+</p>
+
+<p>
+  <b>Down reason code:</b>
+  <%=h @efficiency_schedule.down_reason_code %>
+</p>
+
+

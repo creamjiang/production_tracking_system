@@ -1,0 +1,129 @@
+<html>
+<head>
+<meta http-equiv="Content-Language" content="en-us" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>BMC System</title>
+  <%= stylesheet_link_tag 'scaffold', 'keyboard' %>
+  <%= javascript_include_tag 'keyboard', 'events' %>
+
+ <style type="text/css">* { margin:0; padding:0;}
+    #main { width:208px; margin:50px;}
+    .formt { width:208px; height:26px; line-height:26px; text-indent:5px; font-family:verdana, tahoma, sans-serif; font-size:10px; background:#ddd;}
+    #login { width:100%; height:24px; padding-top:11px; padding-left:50px; text-indent:8px; font-size: 12px; color:red; font-weight:100; text-align:center}
+     #div-login { width:100%; height:250px; padding-top:11px; padding-left:20px ;background:#fff;}
+    .formt { display:block; font-weight:800; background:#fff;}
+     #title { width:100%; height:26px; line-height:26px; text-indent:5px; font-family:verdana, tahoma, sans-serif; font-size:12px; background:khaki; }
+    .username,.password {background:#fff;border:1px solid #ccc;color:#000;font-family:verdana, tahoma, sans-serif;font-size: 1em;width:196px;height:35px;margin-left:6px;padding-left:35px;padding-top:5px;line-height:20px;}
+    .location {background:#fff;border:1px solid #ccc;color:#000;font-family:verdana, tahoma, sans-serif;font-size: 2em;width:250px;height:35px;margin-left:6px;padding-left:25px;line-height:20px;}
+    .location { background:url(/images/location.png) no-repeat 10px 10px;}
+    .username { background:url(/images/username.gif) no-repeat 10px 10px;}
+    .password { background:url(/images/password.png) no-repeat 10px 10px;}
+	.select {background:#fff;border:1px solid #ccc;color:#000;font-family:verdana, tahoma, sans-serif;font-size: 1em;width:250px;height:35px;margin-left:6px;padding-left:5px;line-height:20px;}
+
+    #forget a { width:208px; height:20px; line-height:20px; text-indent:3px; font-family:verdana, tahoma, sans-serif; font-size:10px; color:#f60}
+    #button { width:208px; height:28px; }
+    .imgbutton {margin-top:25px; margin-left:10px; width:150px; height:40px }
+</style>
+
+
+<script language="javascript" type="text/javascript">	
+	var k;
+	function postload() {
+		k = new Keyboard();
+		k.attachToAllInputs();
+		document.body.appendChild(k.keyboard);
+
+		/* Tell the keyboard to write to the 'myinput' box */
+		//k.setTargetElement(document.getElementById("myinput"));
+		//document.getElementById("myinput").focus();
+	}
+
+	function onfocusinput(input) {
+		//document.body.appendChild(document.createTextNode(input));
+		//k.setTargetElement(input);
+	}
+
+	addEvent(window, "load", postload);
+	</script>
+	
+
+</head>
+
+<body topmargin="0" leftmargin="0" not_load="postload()">
+
+  <% if flash[:error] %>
+  
+    <h2 id="login">    
+	   <%= image_tag("error.png")%>
+        <%= flash[:error] %>
+    </h2>
+  <% end %>
+
+	 
+ <div id="div-login">
+
+   <% form_tag do -%>
+
+
+<fieldset>
+  <h1 id="title">Login</h1>
+  
+
+<table>
+	<tr>
+		<td><p class="formt">Username</p>
+            <p><input name="name" type="text" class="username" style="font-size: 1.5em;" id="myinput" /></p>
+	    </td>
+		<td><p class="formt">Password</p>
+            <p><input name="password" type="password" class="password" style="font-size: 1.5em;" id="mypassword" /></p>
+	  </td>
+		<td>
+		
+		 
+		    <%  %>
+			 
+			 <% if @machine %>
+			    <input type="hidden" id="machine_id" name="machine[id]" value="<%= @machine.id %>" />
+			 <% else %>
+			    <input type="hidden" id="machine_id" name="machine[id]" value="0" />
+			 <% end %>
+	      
+		</td>
+		
+		<td align="center"><p id="button">
+             
+			 <input class="imgbutton" name="commit" onclick="if (window.hiddenCommit) { window.hiddenCommit.setAttribute('value', this.value); }else { hiddenCommit = document.createElement('input');hiddenCommit.type = 'hidden';hiddenCommit.value = this.value;hiddenCommit.name = this.name;this.form.appendChild(hiddenCommit); }this.setAttribute('originalValue', this.value);this.disabled = true;this.value='Please wait...';result = (this.form.onsubmit ? (this.form.onsubmit() ? this.form.submit() : false) : this.form.submit());if (result == false) { this.value = this.getAttribute('originalValue');this.disabled = false; }return result;" type="submit" value="Login" />
+
+            </p>
+			
+		</td>
+		<td>
+			<% if @machine %>
+			<h4 style="color:green">Machine Info</h4>
+			<b>Machine Number</b> : <%= @machine.machine_number %><br />
+			    <% unless @machine.products.empty? %>
+			     <p style="color:green"><%= AttachedProduct.active_for_machine(@machine.id).size.to_s  %>  product running</p><br />
+			   <% else %>
+                             <p style="color:red">No product running</p><br />
+			   <% end %>
+			<% else %>
+			<h4 style="color:red">
+			Machine is not yet registered in the system !
+			</h4>
+			<% end %>
+		</td>
+	</tr>
+	
+	
+</table>
+   <% end -%>
+      <br/><br/>
+
+</fieldset>
+</div>
+  <script  language="javascript" type="text/javascript">
+     document.all.myinput.focus();
+  </script>
+</body>
+
+</html>

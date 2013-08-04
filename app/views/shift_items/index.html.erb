@@ -1,0 +1,19 @@
+<% title "Shift Items" %>
+
+<table>
+  <tr>
+    <th>Machine</th>
+    <th>Shift</th>
+  </tr>
+  <% for shift_item in @shift_items %>
+    <tr>
+      <td><%=h shift_item.machine_id %></td>
+      <td><%=h shift_item.shift_id %></td>
+      <td><%= link_to "Show", shift_item %></td>
+      <td><%= link_to "Edit", edit_shift_item_path(shift_item) %></td>
+      <td><%= link_to "Destroy", shift_item, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Shift Item", new_shift_item_path %></p>

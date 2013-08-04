@@ -1,0 +1,62 @@
+<h1>Listing material_inputs</h1>
+<%= link_to 'New material_input', new_material_input_path %>
+<br />
+
+<br />
+<% form_for @search do |f| %>
+<table>
+	<tr>
+
+		<th>Material</th>
+		<th>Lot Number</th>
+		<th>Input Date</th>
+
+		<th>Action</th>
+    </tr>		
+	<tr>	
+	
+		<td align="center"> <%= f.select :material_id_equals, Material.all(:order => "name").map {|e| [e.name, e.id]}, {:include_blank => true} %></td>
+		<td align="center"><%= f.text_field :lot_number_equals %></td>
+		<td align="center"> <%= date_select "criteria", "input_date", :default => Date.parse(@search_date) %></td>
+	
+		<td align="center">	<%= f.submit "search" %></td>
+		
+	</tr>
+</table>
+<% end %>
+
+
+<table>
+  <tr>
+    
+    <th>Material</th>
+    <th>Lot number</th>
+    <th>Quantity</th>
+    <th>Uom</th>
+    <th>Start time</th>
+    <th>Finish time</th>
+    <th>Input date</th>
+	<th>Machines</th>
+	<th>Action</th>
+  </tr>
+
+<% @material_inputs.each do |material_input| %>
+  <tr class="<%= cycle("list0", "list1") %>">
+   
+    <td><%=h material_input.material.name %></td>
+    <td><%=h material_input.lot_number %></td>
+    <td align="center"><%=h material_input.quantity %></td>
+    <td align="center"><%=h material_input.uom %></td>
+    <td align="center"><%=h material_input.start_time.localtime.strftime("%d-%m-%Y %H:%M") %></td>
+    <td align="center"><%=h material_input.finish_time.localtime.strftime("%d-%m-%Y %H:%M") %></td>
+    <td align="center"><%=h material_input.input_date %></td>
+	 <td align="center"><%= link_to "Edit", attach_machines_material_input_path(material_input) %></td>
+    <td align="center"><%= link_to 'Show', material_input %>
+    <%= link_to 'Edit', edit_material_input_path(material_input) %>
+    <%= link_to 'Destroy', material_input, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<%= will_paginate @material_inputs %>

@@ -1,0 +1,2 @@
+module BinClearingRecordsHelper
+end

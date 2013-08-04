@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  export_date: 2010-12-20
+  remark: MyString
+  administrator_id: 1
+
+two:
+  export_date: 2010-12-20
+  remark: MyString
+  administrator_id: 1

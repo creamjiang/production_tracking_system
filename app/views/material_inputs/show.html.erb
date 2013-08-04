@@ -1,0 +1,65 @@
+<br />
+<%= link_to 'Edit', edit_material_input_path(@material_input) %> |
+<%= link_to 'Destroy', @material_input, :confirm => 'Are you sure?', :method => :delete %> |
+<%= link_to 'View All', material_inputs_path %> |
+<%= link_to 'New material_input', new_material_input_path %>
+
+<p>
+  <b>Material:</b>
+  <%=h @material_input.material.name %>
+</p>
+
+<p>
+  <b>Lot number:</b>
+  <%=h @material_input.lot_number %>
+</p>
+
+<p>
+  <b>Quantity:</b>
+  <%=h @material_input.quantity %>
+</p>
+
+<p>
+  <b>Uom:</b>
+  <%=h @material_input.uom %>
+</p>
+
+<p>
+  <b>Start time:</b>
+  <%=h @material_input.start_time.localtime %>
+</p>
+
+<p>
+  <b>Finish time:</b>
+  <%=h @material_input.finish_time.localtime %>
+</p>
+
+<p>
+  <b>Input date:</b>
+  <%=h @material_input.input_date %>
+</p>
+
+<br>
+<hr>
+<br>
+
+<h4>Listing Machines | <%= link_to "Edit", attach_machines_material_input_path(@material_input) %></h4>
+
+<table>
+  <tr>
+   
+    <th>Machine Number</th>
+    <th>Asset Number</th>
+	
+  </tr>
+  <% for machine in @material_input.machines %>
+<tr class="<%= cycle("list0", "list1") %>">
+   
+    <td><%=h machine.machine_number %></td>
+	<td><%=h machine.asset_number %></td>
+    </tr>
+  <% end %>
+</table>
+
+
+

@@ -1,0 +1,51 @@
+<h1>Bin Management</h1>
+
+<%= link_to 'New bin', new_bin_path %>
+<br />
+<br />
+<% form_for @search do |f| %>
+<table>
+	<tr>
+		<th>Bin ID</th>
+		<th>Bin Type</th>
+		<th>Bin Status</th>
+		<th>Action</th>
+    </tr>		
+	<tr>	
+		<td align="center">
+	   <%= f.text_field :bin_number_equals %>		
+		</td>
+		
+		<td align="center"> <%= f.select :bin_type_id_equals, BinType.all(:order => "name").map {|d| [d.name, d.id]}, {:include_blank => true} %></td>
+		<td align="center"><%= f.select :bin_status_id_equals, BinStatus.all(:order => "name").map {|c| [c.name, c.id]}, {:include_blank => true} %></td>
+
+		<td align="center">	<%= f.submit "search" %></td>
+		
+	</tr>
+</table>
+<% end %>
+
+<table width="80%">
+  <tr>
+  	<th>Bin ID</th>
+    <th>Bin type</th>
+    <th>Bin status</th>
+    <th>Description</th>
+	<th>Action</th>
+  </tr>
+
+<% @bins.each do |bin| %>
+  <tr class="<%= cycle("list0", "list1")%>">
+  	<td class="action"><%=h bin.bin_number %></td>
+    <td class="action"><%=h bin.bin_type.name %></td>
+    <td class="action"><%=h bin.bin_status.name rescue bin.bin_status_id %></td>
+    <td><%=h bin.description %></td>
+    <td class="action"><%= link_to 'Show', bin %>
+    <%= link_to 'Edit', edit_bin_path(bin) %>
+    <%= link_to 'Destroy', bin, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<%= will_paginate @bins%>

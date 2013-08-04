@@ -1,0 +1,49 @@
+<h1>Listing bin_clearing_records</h1>
+
+<% form_for @search do |f| %>
+<table>
+	<tr>
+		<th>Employee ID</th>
+		<th>Bin ID</th>
+	
+		<th>Action</th>
+    </tr>		
+	<tr>	
+		<td align="center">
+	   <%= f.select :employee_id_equals, Employee.all(:order => "name").map {|d| [d.name, d.id]}, {:include_blank => true } %>		
+		</td>
+		
+		<td align="center"> <%= f.select :bin_id_equals, Bin.all(:order => "bin_number").map {|e| [e.bin_number, e.id]}, {:include_blank => true } %></td>
+		
+
+		<td align="center">	<%= f.submit "search" %></td>
+		
+	</tr>
+</table>
+<% end %>
+<br />
+
+
+<table>
+  <tr>
+    <th>Employee</th>
+    <th>Bin</th>
+	<th>Date</th>
+	<th>Action</th>
+  </tr>
+
+<% @bin_clearing_records.each do |bin_clearing_record| %>
+  <tr class="<%= cycle("list0", "list1")%>">
+    <td><%=h bin_clearing_record.employee.name %></td>
+    <td><%=h bin_clearing_record.bin.bin_number %></td>
+	<td align="center">
+		<%=h bin_clearing_record.created_at.strftime("%d-%m-%Y %H:%M") %>
+	</td>
+    <td class="action"><%= link_to 'Show', bin_clearing_record %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<%= will_paginate @bin_clearing_records %>
+

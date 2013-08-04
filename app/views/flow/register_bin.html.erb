@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<title>Production Tracking System</title>
+		<%= javascript_include_tag :defaults %>
+		<%= stylesheet_link_tag 'keyboard' %>
+        <%= javascript_include_tag 'keyboard', 'events' %>
+
+		<style type="text/css">
+	    .submit_button {margin-top:7px; margin-left:0px; width:150px; height:40px }
+	    .bin_text {background:#fff;border:1px solid #ccc;color:#000;font-family:verdana, tahoma, sans-serif;font-size: 1.5em;width:296px;height:35px;margin-left:6px;padding-left:30px;line-height:20px;}
+       </style>
+		<%= yield(:head) %>
+		
+		<script>
+	var k;
+	function postload() {
+		k = new Keyboard();
+		k.attachToAllInputs();
+		document.body.appendChild(k.keyboard);
+
+		/* Tell the keyboard to write to the 'myinput' box */
+		//k.setTargetElement(document.getElementById("myinput"));
+		//document.getElementById("myinput").focus();
+	}
+
+	function onfocusinput(input) {
+		//document.body.appendChild(document.createTextNode(input));
+		//k.setTargetElement(input);
+	}
+
+	addEvent(window, "load", postload);
+	</script>
+	
+	
+	</head>
+	<body topmargin="0" leftmargin="0" not_onload="postload()">
+	  
+	  
+	  <div style="float:left;width:100px;height:300px;position:relative;">
+	  
+	   <% if is_operator? %>
+	     <%= render :partial => '/layouts/operator_menu'%>
+	   <% elsif is_technician? %>
+	     <%= render :partial => '/layouts/technician_menu'%>
+	   <% elsif is_supervisor? %>
+	     <%= render :partial => '/layouts/supervisor_menu'%>
+	   
+	   <% end %>
+	  
+	  </div>
+	  
+      <div style="float:left;width:85%;text-align:center;">
+	   <%= generate_flash  %>
+	  </div>
+	  
+	   <div style="float:left;width:85%;">
+	   	 
+		<%= render :partial => "bin_register" %>
+	   </div>
+		 
+		
+	</body>
+</html>

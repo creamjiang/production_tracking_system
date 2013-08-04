@@ -1,0 +1,57 @@
+<% content_for :head do %>
+  <%= calendar_date_select_includes 'silver' %>
+<% end %>
+
+<% title "Cold Stores" %>
+
+
+<%= link_to "Manage" , new_cold_store_path %>
+<br /><br/>
+<% form_for @search do |f| %>
+<table>
+	<tr>
+		<th>On Hold Date</th>
+		<th>Product</th>
+		<th>Action</th>
+    </tr>		
+	<tr>	
+		
+		<td align="center"> <%= calendar_date_select_tag :on_hold_date %></td>
+		<td align="center"><%= f.select :product_id_equals, @products.map {|c| [c.part_number + " - " + c.part_name, c.id]}, {:include_blank => true} %></td>
+		<td align="center">	<%= f.submit "search" %></td>
+		
+	</tr>
+</table>
+<% end %>
+<br />
+<br />
+
+
+<h3>
+	Total Quantity : <%= @quantity  %> &nbsp;&nbsp;&nbsp; 
+</h3>
+<table>
+  <tr>
+    <th>Product</th>
+	<th>Machine</th>
+	<th>Employee</th>
+    <th>On Hold Date</th>
+    <th>Quantity</th>
+	<th>Action</th>
+  </tr>
+  <% for cold_store in @cold_stores %>
+    <tr class="<%= cycle("list0", "list1")%>">
+      <td><%=h cold_store.product.part_number + " : " + cold_store.product.part_name rescue "Unknown" %></td>
+      <td><%=h cold_store.procedure_transaction.machine.machine_number + " : " + cold_store.procedure_transaction.machine.asset_number rescue "Unknown" %></td>
+       <td><%=h cold_store.procedure_transaction.employee.name rescue "Unknown" %></td>
+	  <td align="center"><%=h cold_store.on_hold_date rescue "Unknown" %></td>
+      <td align="center"><%=h cold_store.quantity %></td>
+      <td class="action"><%= link_to "Show", cold_store %></td>
+    </tr>
+  <% end %>
+</table>
+
+<br />
+<% unless @cold_stores.empty? %>
+<%= will_paginate @cold_stores  %>
+<% end %>

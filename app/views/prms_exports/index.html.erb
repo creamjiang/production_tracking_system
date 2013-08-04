@@ -1,0 +1,33 @@
+<h1>Listing prms_exports</h1>
+
+<%= link_to 'New prms_export', new_prms_export_path %>
+<br /><br />
+
+<table>
+  <tr>
+    <th>Export date</th>
+    <th>Export Time</th>
+    <th>Remark</th>
+    <th>File</th>
+    <th>Administrator</th>
+    <th>Action</th>
+  </tr>
+
+<% @prms_exports.each do |prms_export| %>
+    <tr class="<%= cycle("list0", "list1")%>">
+    <td align="center"><%=h prms_export.export_date %></td>
+    <td align="center"><%=h prms_export.created_at.strftime("%H:%M:%S") %></td>
+    <td><%=h prms_export.remark %></td>
+    <td align="center"><%= link_to("Download", download_prms_export_path(prms_export)) if prms_export.posted? %></td>
+    
+    <td align="center"><%=h prms_export.administrator.name %></td>
+    <td align="center"><%= link_to 'Show', prms_export %>
+    <% link_to 'Edit', edit_prms_export_path(prms_export) %>
+    <% link_to 'Destroy', prms_export, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= will_paginate @prms_exports %>

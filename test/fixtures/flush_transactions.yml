@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  processing_date: 2010-11-19
+  flush_master_id: 1
+  flush_destination_id: 1
+  quantity: 1
+  administrator_id: 1
+
+two:
+  processing_date: 2010-11-19
+  flush_master_id: 1
+  flush_destination_id: 1
+  quantity: 1
+  administrator_id: 1

@@ -1,0 +1,11 @@
+one:
+  procedure_transaction_id: 1
+  on_hold_date: 2009-11-10
+  converted_date: 2009-11-10
+  status: false
+
+two:
+  procedure_transaction_id: 1
+  on_hold_date: 2009-11-10
+  converted_date: 2009-11-10
+  status: false

@@ -1,0 +1,59 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'report_table' %>
+<% end %>
+
+<div style="float:left;width:45%">
+  <h2>Reject Code Ranking for shift : <%= @shift_name %> </h2>
+</div>
+
+<% for shift in @shifts %>
+ <div style="float:left;font-size:large;">
+  <%= link_to shift.name, :action => "top_5_reject_code", :id => shift.id %> &nbsp;&nbsp;
+ </div>
+<% end %>
+	
+<table style="width:100%">
+  <tr>
+    <td width="50%">
+      <h2>Today(<%= @today %>)</h2>
+      <table style="width:100%;border:1;border-width:thick;">
+        <thead>
+	  <tr>
+	    <th scope="col">Reject Code</th>
+	    <th scope="col">Left Part Reject Quantity</th>
+	    <th scope="col">Right Part Reject Quantity</th>
+	    <th scope="col">Common Part Reject Quantity</th>
+	  </tr>
+	</thead>
+				
+	<tbody>		
+<% total = 0
+   total_left = 0
+   total_right = 0
+   for item in @items
+     total += item.quantity.to_i
+     total_left += item.left_quantity.to_i
+     total_right += item.right_quantity.to_i %>
+
+        <tr>
+          <td><%= item.reject_code + " - " + item.description  %></td>
+          <td align="center"><%= item.left_quantity %></td>
+          <td align="center"><%= item.right_quantity %></td>
+          <td align="center"><%= item.quantity %></td>
+        </tr>
+<% end %>
+         </tbody>
+    <tfoot>
+      <tr>
+        <th scope="row">&nbsp;</th>
+        <td style="text-align:center">total : <%= total_left %></td>
+        <td style="text-align:center">total : <%= total_right %></td>
+        <td style="text-align:center">total : <%= total %></td>
+      </tr>
+    </tfoot>
+ </table>
+			
+    </td>
+  </tr>
+</table>
+	

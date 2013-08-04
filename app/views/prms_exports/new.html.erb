@@ -1,0 +1,66 @@
+<h1>New prms_export</h1>
+<%= link_to 'Back', prms_exports_path %>
+<br /><br />
+<% form_for(@prms_export) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <strong><%= f.label :export_date %></strong> : <%= f.hidden_field :export_date, :value => Date.today  %>  <%= Date.today.strftime("%d-%m-%Y") %>
+  </p>
+  <p>
+    <%= f.label :remark %><br />
+    <%= f.text_area :remark, :size => '120x2' %>
+  </p>
+ 
+ 
+    <%= f.hidden_field :administrator_id, :value => current_user_id %>
+
+  <br />
+  <hr />
+  <br />
+  <table>
+    <tr>
+       <th>No</th>
+      <th>Routing Procedure</th>
+      <th>Product</th>
+      <th>Destination</th>
+      <th>Quantity on hand</th>
+      <th>Quantity export</th>
+    </tr>
+     <% count = 0 %>
+  <% @stocks.each do |p| %>
+    
+    <% attached_product = RoutineProduct.first(:conditions => ["routing_procedure_id = ? and product_id = ?", p.routing_procedure_id, p.product_id]) %>
+   
+     <% warehouse = attached_product.warehouse if attached_product %>
+
+    <% if warehouse %>
+    <% count += 1 %>
+    <%= hidden_field_tag "procedure[#{p.id.to_s}][warehouse_id]", warehouse.id  %>
+   <tr class="<%= cycle("list0", "list1")%>">
+     <td><%= p.id.to_s  %> </td>
+    <td><%= p.routing_procedure_id.to_s + " : " + p.routing_procedure.fullname  %> </td>
+    <td><%= p.product_id.to_s + " : " + p.product.fullname  %> </td>
+    <td>
+      <% if warehouse %>
+    <%= select_tag "procedure[#{p.id.to_s}][destination_id]", options_for_select(warehouse.destinations.map {|c| [c.name + "-" + c.location, c.id]})  %> 
+      <% else %>
+      <h4> warehouse not found : <%= attached_product.warehouse_id %> </h4>
+      <% end %>
+    </td>
+    <td align="center"><%= hidden_field_tag "procedure[#{p.id.to_s}][stock_quantity]", p.balance  %>
+                       <%= p.balance  %>
+    </td>
+    <td align="center"><%= text_field_tag "procedure[#{p.id.to_s}][quantity]", p.balance  %> </td>
+  </tr>
+   <% end %>
+  <% end %>
+  <tr>
+    <td colspan="4"></td>
+    <td align="center"> <%= f.submit('Create') unless count == 0 %></td>
+  </tr>
+
+  </table>
+
+<% end %>
+

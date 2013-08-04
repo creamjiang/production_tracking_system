@@ -1,0 +1,101 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'report_table' %>
+<% end %>
+
+<div style="float:left;width:45%">
+	<h2>Reject Code Ranking for shift : <%= @shift_name %> </h2>
+</div>
+
+	<% for shift in @shifts %>
+	<div style="float:left;font-size:large;">
+	     <%= link_to shift.name, :action => "top_5_down_code", :id => shift.id %> &nbsp;&nbsp;
+    </div>
+	<% end %>
+	
+
+    
+<table style="width:100%">
+	<tr>
+		<td width="50%">
+			<h2>Today(<%= @today %>)</h2>
+            <table style="width:100%;border:1;border-width:thick;">
+              <thead>
+				<tr>
+					<th scope="col">Down Code</th>
+					<th scope="col">Down Quantity</th>
+				</tr>
+				</thead>
+				
+				<tbody>
+				<% 
+			       total = 0
+			       for item in @items 
+			       total += item.quantity.to_i
+			    %>
+				
+				<% reject = MachineDownReason.find(item.machine_down_reason_id) rescue nil %>
+				<% if reject %>
+				  <tr>
+				  	<td><%= reject.code + " - " + reject.description  %></td>
+					<td align="center"><%= item.quantity %></td>
+				  </tr>
+				<% else %>
+				   <tr>
+				  	<td><%= "Not yet define"  %></td>
+					<td align="center"><%= item.quantity %></td>
+				   </tr>
+				<% end %>
+				<% end %>
+				</tbody>
+	    <tfoot> 
+		  <tr>  
+			<th scope="row">&nbsp;</th> 
+			<td style="text-align:center">total : <%= total %></td> 
+		  </tr> 
+	    </tfoot> 
+     </table>
+			
+		</td>
+		
+		<td width="50%">
+				<h2>Yesterday(<%= @yesterday %>) </h2>
+            <table style="width:100%;border:1;border-width:thick;">
+              <thead>
+				<tr>
+					<th scope="col">Down Code</th>
+					<th scope="col">Down Quantity</th>
+				</tr>
+				</thead>
+				
+				<tbody>
+				<% 
+			       total = 0
+			       for item in @yesterday_items 
+			       total += item.quantity.to_i
+			    %>
+				<% reject = MachineDownReason.find(item.machine_down_reason_id) rescue nil %>
+				<% if reject %>
+				  <tr>
+				  	<td><%= reject.code + " - " + reject.description  %></td>
+					<td align="center"><%= item.quantity %></td>
+				  </tr>
+				<% else %>
+				   <tr>
+				  	<td><%= "Not yet define"  %></td>
+					<td align="center"><%= item.quantity %></td>
+				   </tr>
+				<% end %>
+				<% end %>
+				</tbody>
+	    <tfoot> 
+		  <tr>  
+			<th scope="row">&nbsp;</th> 
+			<td style="text-align:center">total : <%= total %></td> 
+		  </tr> 
+	    </tfoot> 
+     </table>
+			
+		</td>
+	</tr>
+</table>
+	

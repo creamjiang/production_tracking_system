@@ -1,0 +1,16 @@
+<% title "Shift Item" %>
+
+<p>
+  <strong>Machine:</strong>
+  <%=h @shift_item.machine_id %>
+</p>
+<p>
+  <strong>Shift:</strong>
+  <%=h @shift_item.shift_id %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_shift_item_path(@shift_item) %> |
+  <%= link_to "Destroy", @shift_item, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", shift_items_path %>
+</p>

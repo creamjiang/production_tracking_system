@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  product_id: 1
+  report_on: 2009-11-13
+  opening_balance: 9.99
+  debit: 9.99
+  credit: 9.99
+  closing_balance: 9.99
+
+two:
+  product_id: 1
+  report_on: 2009-11-13
+  opening_balance: 9.99
+  debit: 9.99
+  credit: 9.99
+  closing_balance: 9.99

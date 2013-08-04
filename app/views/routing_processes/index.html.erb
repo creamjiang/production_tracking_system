@@ -1,0 +1,29 @@
+<h1>Listing processes</h1>
+
+<%= link_to 'New process', new_routing_process_path %>
+<br />
+<br />
+
+<table>
+  <tr>
+    <th>Name</th>
+	
+	<th>Description</th>
+	<th>Action</th>
+   
+  </tr>
+
+<% @processes.each do |process| %>
+  <tr class="<%= cycle("list0", "list1")%>">
+    <td><%=h process.name %></td>
+
+    <td><%=h process.description %></td>
+    <td class="action"><%= link_to 'Show', process %>
+    <%= link_to 'Edit', edit_routing_process_path(process) %>
+    <%= link_to 'Destroy', process, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+

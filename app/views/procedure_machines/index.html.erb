@@ -1,0 +1,24 @@
+<br />
+<%= link_to 'New procedure_machine', new_procedure_machine_path %>
+<br />
+<h1>Listing procedure_machines</h1>
+
+<table>
+  <tr>
+    <th>Routing procedure</th>
+    <th>Machine</th>
+  </tr>
+
+<% @procedure_machines.each do |procedure_machine| %>
+  <tr>
+    <td><%=h procedure_machine.routing_procedure_id %></td>
+    <td><%=h procedure_machine.machine_id %></td>
+    <td><%= link_to 'Show', procedure_machine %></td>
+    <td><%= link_to 'Edit', edit_procedure_machine_path(procedure_machine) %></td>
+    <td><%= link_to 'Destroy', procedure_machine, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+

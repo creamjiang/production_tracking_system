@@ -1,0 +1,56 @@
+<h1>Editing efficiency_schedule</h1>
+
+<% form_for(@efficiency_schedule) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :schedule_date %><br />
+    <%= f.date_select :schedule_date %>
+  </p>
+  <p>
+    <%= f.label :product_id %><br />
+    <%= f.text_field :product_id %>
+  </p>
+  <p>
+    <%= f.label :part_name %><br />
+    <%= f.text_field :part_name %>
+  </p>
+  <p>
+    <%= f.label :shift_type %><br />
+    <%= f.text_field :shift_type %>
+  </p>
+  <p>
+    <%= f.label :shift %><br />
+    <%= f.text_field :shift %>
+  </p>
+  <p>
+    <%= f.label :start_time %><br />
+    <%= f.datetime_select :start_time %>
+  </p>
+  <p>
+    <%= f.label :end_time %><br />
+    <%= f.datetime_select :end_time %>
+  </p>
+  <p>
+    <%= f.label :operators_present %><br />
+    <%= f.text_field :operators_present %>
+  </p>
+  <p>
+    <%= f.label :operation_status %><br />
+    <%= f.text_field :operation_status %>
+  </p>
+  <p>
+    <%= f.label :machine_down_reason_id %><br />
+    <%= f.text_field :machine_down_reason_id %>
+  </p>
+  <p>
+    <%= f.label :down_reason_code %><br />
+    <%= f.text_field :down_reason_code %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @efficiency_schedule %> |
+<%= link_to 'Back', efficiency_schedules_path %>

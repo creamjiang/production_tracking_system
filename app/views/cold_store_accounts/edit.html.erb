@@ -1,0 +1,36 @@
+<h1>Editing cold_store_account</h1>
+
+<% form_for(@cold_store_account) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :product_id %><br />
+    <%= f.text_field :product_id %>
+  </p>
+  <p>
+    <%= f.label :report_on %><br />
+    <%= f.date_select :report_on %>
+  </p>
+  <p>
+    <%= f.label :opening_balance %><br />
+    <%= f.text_field :opening_balance %>
+  </p>
+  <p>
+    <%= f.label :debit %><br />
+    <%= f.text_field :debit %>
+  </p>
+  <p>
+    <%= f.label :credit %><br />
+    <%= f.text_field :credit %>
+  </p>
+  <p>
+    <%= f.label :closing_balance %><br />
+    <%= f.text_field :closing_balance %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @cold_store_account %> |
+<%= link_to 'Back', cold_store_accounts_path %>

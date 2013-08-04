@@ -1,0 +1,34 @@
+<p>
+  <b>Employee number:</b>
+  <%=h @employee.employee_number %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%=h @employee.name %>
+</p>
+
+<p>
+  <b>Department:</b>
+  <%=h @employee.department.name %>
+</p>
+
+<% unless @employee.machines.size.zero? %>
+<p>
+	<b>Attached Machine:</b>
+	<% for emp in @employee.machines %>
+	<%=h emp.machine_number %> <br />
+	<% end %>
+	</p>
+<% end %>
+<p>
+  <b>Remark:</b>
+  <%=h @employee.remark %>
+</p>
+
+
+<%= link_to 'Edit', edit_employee_path(@employee) %> |
+ <%= link_to 'Destroy', @employee, :confirm => 'Are you sure?', :method => :delete %> | 
+<%= link_to 'Change Password', change_password_employee_path(@employee) %> |
+<%= link_to 'View All', employees_path %> |
+<%= link_to 'New employee', new_employee_path %> 

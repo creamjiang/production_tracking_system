@@ -1,0 +1,72 @@
+<%= render '/shared/reject_area' %>
+<%= render :partial => '/shared/header'%>
+
+<div>
+
+<table width="100%">
+  <tr>
+    <td style="width:20%">
+	<%= button_to "Back", {:action => 'index'}, :class => 'back_button' %>
+    </td>
+    <td align="left">
+        <h4 style="color:red">Choose a Reject Area  </h4>
+    </td>
+  </tr>
+</table>
+<hr />
+
+<% if @product.reject_area_category == 4 %>
+    <table style="width:750px;height:320px">
+    <tr>
+      <td class="image1" align="center"><%= button_to "A1", {:action => "select_reject_categories", :id => @attached_product.id, :area_id => "A1"}, :class => 'button', :disabled => true %>
+      </td>
+      <td class="image2" align="center"><%= button_to "A2", {:action => "select_reject_categories", :id => @attached_product.id, :area_id => "A2"}, :class => 'button' %>
+      </td>
+      <td class="image3" align="center"><%= button_to "A3", {:action => "select_reject_categories", :id => @attached_product.id, :area_id => "A3"}, :class => 'button' %>
+      </td>
+      <td class="image4" align="center"><%= button_to "A4", {:action => "select_reject_categories", :id => @attached_product.id, :area_id => "A4"}, :class => 'button', :disabled => true %>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="image5" align="center"><%= button_to "B1", {:action => "select_reject_categories", :id => @attached_product.id, :area_id => "B1"}, :class => 'button', :disabled => true %>
+      </td>
+      <td class="image6" align="center"><%= button_to "B2", {:action => "select_reject_categories", :id => @attached_product.id, :area_id => "B2"}, :class => 'button' %>
+      </td>
+      <td class="image7" align="center"><%= button_to "B3", {:action => "select_reject_categories", :id => @attached_product.id, :area_id => "B3"}, :class => 'button' %>
+      </td>
+      <td class="image8" align="center"><%= button_to "B4", {:action => "select_reject_categories", :id => @attached_product.id, :area_id => "B4"}, :class => 'button', :disabled => true %>
+      </td>
+    </tr>
+
+    </table>
+
+<% elsif @product.reject_area_category == 8 %>
+   <table style="width:750px;height:320px">
+   <tr>
+      <td class="image1" align="center"><%= button_to "A1", {:action => "select_reject_categories", :id => @attached_product.id, :area_id => "A1"}, :class => 'button' %>
+      </td>
+      <td class="image2" align="center"><%= button_to "A2", {:action => "select_reject_categories", :id => @attached_product.id, :area_id => "A2"}, :class => 'button' %>
+      </td>
+      <td class="image3" align="center"><%= button_to "A3", {:action => "select_reject_categories", :id => @attached_product.id, :area_id => "A3"}, :class => 'button' %>
+      </td>
+      <td class="image4" align="center"><%= button_to "A4", {:action => "select_reject_categories", :id => @attached_product.id, :area_id => "A4"}, :class => 'button' %>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="image5" align="center"><%= button_to "B1", {:action => "select_reject_categories", :id => @attached_product.id, :area_id => "B1"}, :class => 'button' %>
+      </td>
+      <td class="image6" align="center"><%= button_to "B2", {:action => "select_reject_categories", :id => @attached_product.id, :area_id => "B2"}, :class => 'button' %>
+      </td>
+      <td class="image7" align="center"><%= button_to "B3", {:action => "select_reject_categories", :id => @attached_product.id, :area_id => "B3"}, :class => 'button' %>
+      </td>
+      <td class="image8" align="center"><%= button_to "B4", {:action => "select_reject_categories", :id => @attached_product.id, :area_id => "B4"}, :class => 'button' %>
+      </td>
+    </tr>
+
+    </table>
+
+<% end %>
+</div>
+<br />

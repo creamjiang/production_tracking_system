@@ -1,0 +1,44 @@
+<% @products.each do |c| %>
+  <% if c.routing_procedure %>
+
+      <div id="main_menu<%= c.id.to_s %>" style="float: left">
+          <%= render :partial => "buttons", :locals => {:c => c} %>
+      </div>
+
+     <!--  <div id="printers<%= c.id.to_s  %>" style="display: none;clear: left">
+         <%# render :partial => "printers", :locals => {:c => c} %>
+      </div> -->
+   <% else %>
+
+       <table style="width: 80%;">
+         <tr>
+           <td>
+           </td>
+
+           <td>
+             <table id="inner" style='background-color:<%= c.product.side == Product::LEFT ? "#5CB3FF" : c.product.side == Product::RIGHT ? "#64E986" : "White" %>;'>
+                <tr>
+                  <td style="width: 120px">
+                    <img src="<%= c.product.avatar.url(:thumb) %>" alt="<%= c.product.part_name %>" />
+                  </td>
+                  <td>
+                    <div id="current_detail_<%= c.id.to_s %>">
+                      <%= render :partial => "attach_product", :locals => {:attach_product => c } %>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2"><%= c.product.part_name %> (<%= c.product.part_number %>)</td>
+                </tr>
+              </table>
+          </td>
+          <td>
+            <p style="color:red">No routing procedure attached !!</p>
+          </td>
+          <td>
+          </td>
+
+        </tr>
+      </table>
+   <% end %>
+<% end %>

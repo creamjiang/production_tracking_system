@@ -1,0 +1,108 @@
+<% render :partial => '/shared/header'%>
+
+<% form_tag :action => "submit_entry" do %>
+ <%= hidden_field_tag "attach_product_id", attach_product_id %>
+ 
+<table style="width: 100%;" border=1>
+  <tr>
+    <td style="background-color:#CCFFCC;text-align:center;">
+       Date : <%= select_tag "t_date", options_for_select(@dates) %>
+       Shift : <%= select_tag "shift_id", options_from_collection_for_select(@shifts, "id", "name") %>
+       Time : <%= select_time %>
+    </td>
+  </tr>
+</table>
+ 
+<% unless is_reviewer? %>
+<table style="width: 100%;" border=1>
+  <tr>
+    <td style="background-color:#CCFFCC;text-align:center;">
+       Accept quantity <%= text_field_tag "accept_quantity" %>
+    </td>
+    <td style="background-color:#E6E6E6;text-align:center;">
+       Hold quantity
+       <%= text_field_tag "hold_quantity"  %>
+    </td>
+  </tr>
+</table>
+<% end %>
+
+<table style="width: 100%;background-color:#FFCCCC;" border=1>
+    <tr>
+   	<td>
+          <table style="width: 100%">
+            <tr>
+              <th style="width:25%;text-align:center">Process </th>
+              <th style="width:25%;text-align:center">Reject Code</th>
+              <th style="width:25%;text-align:center">Reject Area</th>
+              <th style="width:25%;text-align:right">Quantity </th>
+            </tr>
+         <% 1.upto(5) do |i| %>
+                <tr>
+                   <td style="width:25%;text-align:center;">
+                      <%= select("reject", "#{i.to_s}_process_id", processes.map {|p| [p.name, p.id]}, {:include_blank => true }, :onChange => remote_function(:url => {:action => 'show_reject_codes'}, :with => "'id=' + this.value + '&select_id=#{i}&attach_product_id=#{attach_product_id}'") ) %>
+                   </td>
+                   <td valign="bottom" style="width:25%;text-align:center;">
+                     <div id='reject_code_<%= i.to_s %>_for_product_<%= attach_product_id.to_s %>'>
+                       <%= render :partial => 'reject_codes', :locals => {:i => i, :reject_codes => reject_codes, :attach_product_id => attach_product_id} %>
+                     </div>
+                   </td>
+                   <td style="width:25%;text-align:center;">
+                     <% if product.reject_area_category == 4 %>
+                      <%= select_tag "#{i.to_s}_reject_area", options_for_select(["A2","A3","B2","B3"]) %>
+                     <% elsif product.reject_area_category == 8 %>
+                      <%= select_tag "#{i.to_s}_reject_area", options_for_select(["A1","A2","A3","A4","B1","B2","B3","B4"])  %>
+                     <% end %>
+                   </td>
+                   <td style="width:25%;text-align:right;">
+                      <%= text_field_tag "#{i.to_s}_reject_quantity", {}, :size => 5, :maxlength => 5 %>
+                   </td>
+                </tr>
+    
+           <% end %>
+	 </table>
+	</td>
+        <td>
+           <table style="width: 100%">
+             <tr>
+               <th style="width:25%;text-align:left">Process </th>
+               <th style="width:25%;text-align:left">Reject Code</th>
+               <th style="width:25%;text-align:center">Reject Area</th>
+               <th style="width:25%;text-align:right">Quantity </th>
+	     </tr>
+
+             <% 6.upto(10) do |i| %>
+                <tr>
+                   <td style="width:25%;text-align:center;">
+                      <%= select("reject", "#{i.to_s}_process_id", processes.map {|p| [p.name, p.id]}, {:include_blank => true }, :onChange => remote_function(:url => {:action => 'show_reject_codes'}, :with => "'id=' + this.value + '&select_id=#{i}&attach_product_id=#{attach_product_id}'") ) %>
+                   </td>
+                   <td valign="bottom" style="width:25%;text-align:center;">
+                     <div id='reject_code_<%= i.to_s %>_for_product_<%= attach_product_id.to_s %>'>
+                       <%= render :partial => 'reject_codes', :locals => {:i => i, :reject_codes => reject_codes, :attach_product_id => attach_product_id} %>
+                     </div>
+                   </td>
+                   <td style="width:25%;text-align:center;">
+                     <% if product.reject_area_category == 4 %>
+                      <%= select_tag "#{i.to_s}_reject_area", options_for_select(["A2","A3","B2","B3"]) %>
+                     <% elsif product.reject_area_category == 8 %>
+                      <%= select_tag "#{i.to_s}_reject_area", options_for_select(["A1","A2","A3","A4","B1","B2","B3","B4"])  %>
+                     <% end %>
+                   </td>
+                   <td style="width:25%;text-align:right;">
+                      <%= text_field_tag "#{i.to_s}_reject_quantity", {}, :size => 5, :maxlength => 5 %>
+                   </td>
+                </tr>
+             <% end %>
+           </table>
+	</td>
+    </tr>
+</table>
+
+<table width="100%">
+  <tr>
+    <td align=center style="background-color:#CCCCFF;">
+      <%= submit_tag "Submit", {:disable_with => "Please Wait ....."} %>
+    </td>
+  </tr>
+</table>
+<% end %>

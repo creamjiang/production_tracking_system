@@ -1,0 +1,12 @@
+<%= link_to image_tag("home.png", :size => "80x80", :border => 0, :title => "Home"), :action => "index" %>
+  <% if @machine.down %>
+    <% unless @machine.waiting_for_down_reason? %>
+      <%= link_to image_tag("machine_up.png", :size => "80x80", :border => 0, :title => "Machine Up"), {:action => "machine_up"}, :confirm => "Are you sure the machine is ON now?" %>
+    <% end %>
+  <% else %>
+    <%= link_to image_tag("machine_down.png", :size => "80x80", :border => 0, :title => "Machine Down"), :action => "machine_down" %>
+  <% end %>
+        
+<%= link_to image_tag("report.png", :size => "80x80", :border => 0, :title => "Top down code"), :controller => "flow", :action => "top_5_down_code" %>
+<%= link_to image_tag("logout.png", :size => "80x80", :border => 0, :title => "Logout"), :controller => "login", :action => "logout", :machine_id => @machine.id %>
+		

@@ -1,0 +1,31 @@
+
+<% title "Production Reject Report" %>
+
+<%= link_to "Back to Report", :action => "index" %> |
+<%= link_to "General Report", :action => "reject_report", :from => params[:from], :to => params[:to] %> | 
+<%= link_to "Group by Employee", :action => "group_by_employee", :from => params[:from], :to => params[:to] %> | 
+<%= link_to "Group by Reject Code", :action => "group_by_reject_code", :from => params[:from], :to => params[:to] %> | 
+<%= link_to "Export to Excel", :action => "group_by_machine", :from => params[:from], :to => params[:to], :category => "pdf" %>
+
+<br /><br />
+
+<% @transactions.each do |machine, trans | %>
+<h3><%= machine.machine_number %></h3>
+
+<table>
+	<tr>
+		<th>Date</th>
+		<th>Employee</th>
+		<th>Reject Code</th>
+		
+	</tr>
+	<%  trans.each do |t| %>
+	<tr>
+		<td align="center"><%= t.created_at.strftime("%d-%m-%Y %H:%M") %></td>
+		<td align="center"><%= t.employee.employee_number %></td>
+		<td><%= t.reject_code.description %></td>
+		
+	</tr>
+	<% end %>
+</table>
+<% end %>

@@ -1,0 +1,33 @@
+<%= render '/shared/confirm_reject_code' %>
+<%= render :partial => '/shared/header'%>
+
+<table width="100%">
+  <tr>
+    <td style="width:20%">
+	<%= button_to "Back", {:action => 'select_reject_categories', :id => @attached_product.id, :area_id => @reject_area}, :class => 'back_button' %>
+    </td>
+    <td align="left">
+        <h4 style="color:red">Choose a Reject Reason  </h4>
+    </td>
+  </tr>
+</table>
+
+<hr />
+
+<div>
+<table width="100%">
+  <% @reasons.in_groups_of(6, false) do |rs|%>
+    <tr>
+       <% for reason in rs %>
+	  <td align="center" valign="bottom">
+	    <div style="width:100px;padding:0px 10px 0px 10px"><em><%= truncate(reason.description, :length => 10) -%></em></div>
+	       <button type="button" class="button" onclick="gotoPage(<%= reason.id.to_s %>, <%= @attached_product.id.to_s %>);"><%= reason.alias %></button>
+	  </td>
+	<% end %>
+    </tr>
+  <% end %>
+</table>
+<br />
+	
+</div>    
+<br />

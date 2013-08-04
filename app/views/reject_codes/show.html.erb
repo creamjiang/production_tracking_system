@@ -1,0 +1,30 @@
+<p>
+  <b>Code:</b>
+  <%=h @reject_code.code %>
+</p>
+<p>
+  <b>Alias:</b>
+  <%=h @reject_code.alias %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @reject_code.description %>
+</p>
+
+<p>
+  <b>Routing process:</b>
+  <%=h @reject_code.routing_process.name %>
+</p>
+
+<% for photo in @reject_code.photos %>
+  <%= image_tag photo.data.url(:thumb), :alt => "thumb" %>
+<% end %>
+
+<br><br>
+
+<%= link_to 'Edit', edit_reject_code_path(@reject_code) %> |
+<%= link_to 'Destroy', @reject_code, :confirm => 'Are you sure?', :method => :delete %> |
+<%= link_to 'View All', reject_codes_path %> |
+
+<%= link_to 'New reject_code', new_reject_code_path %>

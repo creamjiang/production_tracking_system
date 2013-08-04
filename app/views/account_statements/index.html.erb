@@ -1,0 +1,34 @@
+<h1>Listing account_statements</h1>
+
+<table>
+  <tr>
+    <th>Routing</th>
+    <th>Routing process</th>
+    <th>Routing procedure</th>
+    <th>Product</th>
+    <th>Generic name</th>
+    <th>Opening balance</th>
+    <th>Quantity in</th>
+    <th>Quantity out</th>
+  </tr>
+
+<% @account_statements.each do |account_statement| %>
+  <tr>
+    <td><%=h account_statement.routing_id %></td>
+    <td><%=h account_statement.routing_process_id %></td>
+    <td><%=h account_statement.routing_procedure_id %></td>
+    <td><%=h account_statement.product_id %></td>
+    <td><%=h account_statement.generic_name %></td>
+    <td><%=h account_statement.opening_balance %></td>
+    <td><%=h account_statement.quantity_in %></td>
+    <td><%=h account_statement.quantity_out %></td>
+    <td><%= link_to 'Show', account_statement %></td>
+    <td><%= link_to 'Edit', edit_account_statement_path(account_statement) %></td>
+    <td><%= link_to 'Destroy', account_statement, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New account_statement', new_account_statement_path %>

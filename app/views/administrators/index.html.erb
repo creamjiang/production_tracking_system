@@ -1,0 +1,33 @@
+<h1>Listing administrators</h1>
+
+<%= link_to 'New administrator', new_administrator_path %>
+<br />
+<br />
+
+
+<table>
+  <tr>
+    <th>Employee No</th>
+    <th>Name</th>
+    <th>Login</th>
+     <th>Group</th>
+    <th>Procedure</th>
+    <th>Action</th>
+  </tr>
+
+<% @administrators.each do |administrator| %>
+  <tr class="<%= cycle("list0", "list1") %>">
+     <td><%=h administrator.employee_number %></td>
+    <td><%=h administrator.name %></td>
+    <td><%=h administrator.login %></td>
+	<td><%=h administrator.group_name + " : Level " + administrator.group_position.to_s %></td>
+    <td align="center"><%= link_to "edit", attach_procedure_administrator_path(administrator) %></td>
+	<td class="action"><%= link_to 'Show', administrator %>
+    <%= link_to 'Edit', edit_administrator_path(administrator) %>
+    <%= link_to 'Destroy', administrator, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+

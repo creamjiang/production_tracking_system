@@ -1,0 +1,59 @@
+<h1>Listing products</h1>
+
+<%= link_to 'New product', new_product_path %> 
+<% link_to 'Import', import_csv_products_path, :confirm => "Please make sure the CSV file is in your application public folder and named 'products.csv'\n Check the 'products.sample.csv' for the correct format. " %>
+<br />
+<br />
+
+<% form_for @search do |f| %>
+<table>
+  <tr>
+    <th>Part number</th>
+    <th>Part name</th>
+    <th>Side</th>
+    <th>Generic Name</th>
+    <th>Category</th>
+    <th>Action</th>
+   </tr>		
+   <tr>
+    <td> <%= f.text_field :part_number_like %></td>
+    <td><%= f.text_field :part_name_like %></td>
+    <td> <%= f.select :side_equals, Product::SIDE_CHOICES, {:include_blank => true} %>	</td>
+    <td> <%= f.select :generic_name_equals, ProcedureProduct.all(:order => "generic_name").map {|c| [c.generic_name, c.generic_name]}, {:include_blank => true} %></td>
+    <td> <%= f.select :category_id_equals, Category.all.map {|c| [c.name, c.id]}, {:include_blank => true} %></td>
+    <td align="center">	<%= f.submit "search" %></td>
+   </tr>
+</table>
+<% end %>
+
+<table>
+  <tr>
+    <th>Part number</th>
+    <th>Part name</th>
+    <th>Side</th>
+    <th>Generic Name</th>
+    <th>Category</th>
+    <th>Reject Area</th>
+    
+    <th>Action</th>
+  </tr>
+
+<% @products.each do |product| %>
+  <tr class="<%= cycle("list0", "list1")%>">
+    <td><%=h product.part_number %></td>
+    <td><%=h product.part_name %></td>
+    <td><%=h product.side %></td>
+    <td><%=h product.generic_name %></td>
+    <td><%=h product.category.name rescue "" %></td>
+    <td align="center"><%=h product.reject_area_category %></td>
+    <td class="action"><%= link_to 'Show', product %>
+    <%= link_to 'Edit', edit_product_path(product) %>
+    <%= link_to 'Destroy', product, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+
+<% end %>
+
+</table>
+
+<br />
+<%= will_paginate @products %>

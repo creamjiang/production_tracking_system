@@ -1,0 +1,30 @@
+<h1>Listing cold_store_accounts</h1>
+
+<table>
+  <tr>
+    <th>Product</th>
+    <th>Report on</th>
+    <th>Opening balance</th>
+    <th>Debit</th>
+    <th>Credit</th>
+    <th>Closing balance</th>
+  </tr>
+
+<% @cold_store_accounts.each do |cold_store_account| %>
+  <tr>
+    <td><%=h cold_store_account.product_id %></td>
+    <td><%=h cold_store_account.report_on %></td>
+    <td><%=h cold_store_account.opening_balance %></td>
+    <td><%=h cold_store_account.debit %></td>
+    <td><%=h cold_store_account.credit %></td>
+    <td><%=h cold_store_account.closing_balance %></td>
+    <td><%= link_to 'Show', cold_store_account %></td>
+    <td><%= link_to 'Edit', edit_cold_store_account_path(cold_store_account) %></td>
+    <td><%= link_to 'Destroy', cold_store_account, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New cold_store_account', new_cold_store_account_path %>

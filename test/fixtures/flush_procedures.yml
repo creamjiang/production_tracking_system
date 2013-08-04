@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  routing_procedure_id: 1
+  flushable_id: 1
+
+two:
+  routing_procedure_id: 1
+  flushable_id: 1

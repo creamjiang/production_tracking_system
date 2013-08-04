@@ -1,0 +1,101 @@
+<% content_for :head do %>
+<style type="text/css">
+<!--
+
+.yellowThing {background-color: #FF9; }
+.whiteThing { background-color: #FFF; }
+.redThing { background-color: #F00; }
+//-->
+</style>
+
+<%= javascript_include_tag("smo") %>
+
+<% end %>
+
+<br />
+
+<%= link_to 'Show', @machine %> |
+<%= link_to 'View All', machines_path %>
+<br />
+<p>
+  <b>Machine number:</b>
+  <%=h @machine.machine_number %>
+</p>
+
+<p>
+  <b>Asset number:</b>
+  <%=h @machine.asset_number %>
+</p>
+
+<p>
+  <b>Mac Address:</b>
+  <%=h @machine.mac_address %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @machine.description %>
+</p>
+
+<br />
+<hr>
+<br />
+
+<% form_tag remove_employee_machine_path(@machine) do %>
+<table>
+	<tr>
+		<th><input type="checkbox" name="checkall" onclick="checkUncheckAll(this);"/></th>
+		<th>Employee ID</th>
+		<th>Name</th>
+		<th>Department</th>
+		
+	</tr>
+	
+	<% for emp in @machine.employees %>
+	<tr class="<%= cycle("list0", "list1") %>">
+		<td align="center"><%= check_box_tag "employee["+emp.id.to_s+"][selected]"  %></td>
+		<td><%= emp.employee_number %></td>
+		<td><%= emp.name %></td>
+		<td><%= emp.department.name %></td>
+		
+	</tr>
+	<% end %>
+	
+</table>
+<%= submit_tag "Remove Selected" %>
+<% end %>
+ <br />
+ <hr>
+ <br />
+ 
+ <% form_tag(add_operator_machine_path(@machine)) do %>
+ <table width="80%">
+ 	<tr>
+ 		<th colspan="4" style="color:yellow" align="center">Choose Employee to add</th>
+ 	</tr>
+	<tr>
+		<th><input type="checkbox" name="checkall" onclick="checkUncheckAll(this);"/></th>
+		<th>Employee ID</th>
+		<th>Name</th>
+		<th>Department</th>
+	</tr>
+	<% for e in @employees %>
+	<tr onmouseover="this.className='yellowThing';" onmouseout="this.className='whiteThing';">
+		<td align="center"><%= check_box_tag "employee["+e.id.to_s+"][selected]"  %></td>
+		<td><%= e.employee_number %></td>
+		<td><%= e.name %></td>
+		<td><%= e.department.name %></td>
+	</tr>
+	<% end %>
+	
+ </table>
+ <br />
+ 
+  <% unless @employees.size.zero? %>
+
+ <%= submit_tag "Attach Employee to Machine" %>
+<% end %>
+
+<% end %>
+
+<br />

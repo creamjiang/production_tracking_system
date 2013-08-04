@@ -1,0 +1,63 @@
+<br />
+
+<%= link_to 'Edit Procedures', add_procedure_routing_path(@routing) %> |
+ <%= link_to 'Destroy', @routing, :confirm => 'Are you sure?', :method => :delete %> |
+<%= link_to 'View All', routings_path %> |
+<% if @routing.suspend %>
+  <b style="color:green;"><%= link_to "Enable", enable_routing_path(@routing) %></b>
+<% else %>
+  <b style="color:red;"><%= link_to "Disable", disable_routing_path(@routing) %></b>
+<% end %> |
+
+<%= link_to 'New routing', new_routing_path %>
+
+
+<br />
+
+<p>
+  <b>Name:</b>
+  <%=h @routing.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @routing.description %>
+</p>
+
+<p>
+	<b>Status:</b>
+	<% if @routing.suspend %>
+		  <font style="color:red;">Suspend</font>
+	<% else %>
+		  <font style="color:green;">Available</font>
+	<% end %>
+	</p>
+
+<br />
+<hr />
+<br />
+
+<h1>Listing routing_procedures</h1>
+
+<table>
+  <tr>
+   
+    <th>Process</th>
+    <th>Machines</th>
+    <th>Sequence</th>
+	
+  </tr>
+  <% for routing_procedure in @routing.routing_procedures %>
+<tr class="<%= cycle("list0", "list1") %>">
+   
+    <td><%=h routing_procedure.routing_process.name %></td>
+    <td align="center"><%= link_to "Show", show_machines_routing_path(routing_procedure), :popup => true %></td>
+
+    <td align="center"><%=h routing_procedure.position %></td>
+    </tr>
+  <% end %>
+</table>
+
+<br />
+
+ 

@@ -1,0 +1,9 @@
+<table style="text-align:center;width:100%">
+	  <tr>
+	    <td style="width:100%;text-align:center;">
+               <% flash.each do |name, msg| %>
+	           <%= content_tag :p, msg, :class => "flash_#{name}" %>
+	         <% end  %>
+            </td>
+	  </tr>
+	</table>   

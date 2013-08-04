@@ -1,0 +1,24 @@
+<h1>Editing login_record</h1>
+
+<% form_for(@login_record) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :employee_id %><br />
+    <%= f.text_field :employee_id %>
+  </p>
+  <p>
+    <%= f.label :machine_id %><br />
+    <%= f.text_field :machine_id %>
+  </p>
+  <p>
+    <%= f.label :logout %><br />
+    <%= f.check_box :logout %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @login_record %> |
+<%= link_to 'View All', login_records_path %>

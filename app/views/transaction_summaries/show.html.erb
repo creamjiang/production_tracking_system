@@ -1,0 +1,52 @@
+<% title "Transaction Summary" %>
+
+<p>
+  <strong>Employee:</strong>
+  <%=h @transaction_summary.employee_id %>
+</p>
+<p>
+  <strong>Machine:</strong>
+  <%=h @transaction_summary.machine_id %>
+</p>
+<p>
+  <strong>Product:</strong>
+  <%=h @transaction_summary.product_id %>
+</p>
+<p>
+  <strong>Routing Procedure:</strong>
+  <%=h @transaction_summary.routing_procedure_id %>
+</p>
+<p>
+  <strong>Routing Process:</strong>
+  <%=h @transaction_summary.routing_process_id %>
+</p>
+<p>
+  <strong>Routing:</strong>
+  <%=h @transaction_summary.routing_id %>
+</p>
+<p>
+  <strong>Shift:</strong>
+  <%=h @transaction_summary.shift_id %>
+</p>
+<p>
+  <strong>Good Unit:</strong>
+  <%=h @transaction_summary.good_unit %>
+</p>
+<p>
+  <strong>Reject Unit:</strong>
+  <%=h @transaction_summary.reject_unit %>
+</p>
+<p>
+  <strong>Hold Unit:</strong>
+  <%=h @transaction_summary.hold_unit %>
+</p>
+<p>
+  <strong>Processing Date:</strong>
+  <%=h @transaction_summary.processing_date %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_transaction_summary_path(@transaction_summary) %> |
+  <%= link_to "Destroy", @transaction_summary, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", transaction_summaries_path %>
+</p>

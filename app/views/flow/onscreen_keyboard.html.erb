@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>buttonscreen</title>
+<style type='text/css'>
+.button {
+	font-family:sans-serif;
+	background-color:#444444;
+	font-size:50px;
+	color:white;
+	width:120px; 
+	height:70px; 
+	border:4px solid white;
+	}
+.lcd {
+	font-family:sans-serif;
+	background-color:#FFFFFF;
+	font-size:40px;
+	color:black;
+	border:4px solid white;
+	}
+</style>
+<script type='text/javascript'>
+function addIt(cKey) { d = document.forms[0].elements["number"]; d.value =  (cKey.value=='<') ? d.value.slice(0,-1) : ((cKey.value=='clear') ? "" : d.value+cKey.value); }
+</script>
+</head>
+<body>
+<center><form action=''>
+<input type='text' class=lcd size=12 name="number"></form>
+<br>
+<INPUT class=button type=button value=1 onClick="addIt(this)"><INPUT class=button type=button value=2 onClick="addIt(this)"><INPUT class=button type=button value=3 onClick="addIt(this)"><BR>
+<INPUT class=button type=button value=4 onClick="addIt(this)"><INPUT class=button type=button value=5 onClick="addIt(this)"><INPUT class=button type=button value=6 onClick="addIt(this)"><BR>
+<INPUT class=button type=button value=7 onClick="addIt(this)"><INPUT class=button type=button value=8 onClick="addIt(this)"><INPUT class=button type=button value=9 onClick="addIt(this)"><BR>
+<INPUT class=button type=button value=< onClick="addIt(this)"><INPUT class=button type=button value=0 onClick="addIt(this)"><INPUT class=button type=button value=+ onClick="addIt(this)"><BR>
+<input class=button type='button' value=clear onClick="addIt(this)" style='width:180px'><input class=button type='button' value=call onClick="" style='width:180px; background-color:#009900'><BR>
+</center>
+</body>
+</html>

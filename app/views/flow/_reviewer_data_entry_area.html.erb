@@ -1,0 +1,41 @@
+  <% @products.each do |c| %>
+                  <table style="width: 50%;">
+                    <tr>
+                        <td>
+                           <table id="inner" style='background-color:<%= c.product.side == Product::LEFT ? "#5CB3FF" : c.product.side == Product::RIGHT ? "#64E986" : "White" %>;'>
+                            <tr>
+                              <td style="width: 120px">
+                                <img src="<%= c.product.avatar.url(:thumb) %>" alt="<%= c.product.part_name %>" />
+                              </td>
+                              <td>
+                                <table style="width:100%">
+
+                                  <tr>
+                                    <th>Shift</th>
+                                    <th>Good</th>
+                                    <th>Hold</th>
+                                    <th>Reject</th>
+                                  </tr>
+
+                                <% for ttrans in c.product.today_transactions %>
+                                  <tr align="center">
+                                   <td><%= ttrans.shift_name rescue "Unknown" %> </td>
+                                    <td><%= ttrans.good_unit  %></td>
+                                    <td><%= ttrans.hold_unit  %></td>
+                                    <td><%= ttrans.reject_unit  %></td>
+                                  </tr>
+                                 <% end %>
+
+                                  </table>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td colspan="2"><%= c.product.part_name %>(<%= c.product.part_number %>)</td>
+                              
+                            </tr>
+                          </table>
+                      </td>
+
+                    </tr>
+                  </table>
+	       <% end %>

@@ -1,0 +1,43 @@
+<p>
+  <b>Routing:</b>
+  <%=h @account_statement.routing_id %>
+</p>
+
+<p>
+  <b>Routing process:</b>
+  <%=h @account_statement.routing_process_id %>
+</p>
+
+<p>
+  <b>Routing procedure:</b>
+  <%=h @account_statement.routing_procedure_id %>
+</p>
+
+<p>
+  <b>Product:</b>
+  <%=h @account_statement.product_id %>
+</p>
+
+<p>
+  <b>Generic name:</b>
+  <%=h @account_statement.generic_name %>
+</p>
+
+<p>
+  <b>Opening balance:</b>
+  <%=h @account_statement.opening_balance %>
+</p>
+
+<p>
+  <b>Quantity in:</b>
+  <%=h @account_statement.quantity_in %>
+</p>
+
+<p>
+  <b>Quantity out:</b>
+  <%=h @account_statement.quantity_out %>
+</p>
+
+
+<%= link_to 'Edit', edit_account_statement_path(@account_statement) %> |
+<%= link_to 'Back', account_statements_path %>

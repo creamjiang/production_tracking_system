@@ -1,0 +1,33 @@
+<h1>Editing machine_down_reason</h1>
+
+<% form_for(@machine_down_reason) do |f| %>
+  <%= f.error_messages %>
+  
+  
+  
+    <p>
+    <%= f.label :code %><br />
+    <%= f.text_field :code %>
+  </p>
+  
+    <p>
+    <%= f.label :alias %><br />
+    <%= f.text_field :alias %>
+  </p>
+  
+  <p>
+    <%= f.label :routing_process_id %><br />
+    <%= f.select :routing_process_id, RoutingProcess.all(:order => "name").map {|c| [c.name, c.id]} %>
+  </p>
+
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description, :size => "60x6" %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @machine_down_reason %> |
+<%= link_to 'View All', machine_down_reasons_path %>

@@ -1,0 +1,38 @@
+<h1>Editing department</h1>
+
+<% form_for(@department) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+
+	<% if @department.builtin %>
+	 <%= f.text_field :name, :readonly => true %>
+	<% else %>
+     <%= f.text_field :name %>
+	<% end %>
+   
+  </p>
+  <p>
+    <%= f.label :alias %><br />
+    <%= f.text_field :alias %>
+  </p>
+  <p>
+  	<%= f.label :level %><br />
+	<% if @department.builtin %>
+	<%= f.select :position, @department.position.to_a %>
+	<% else %>
+    <%= f.select :position, (9.downto(1).to_a) %>
+	<% end %>
+  	</p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description, :size => '60x4'  %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @department %> |
+<%= link_to 'View All', departments_path %>

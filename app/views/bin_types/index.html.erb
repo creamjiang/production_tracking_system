@@ -1,0 +1,30 @@
+<h1>Listing bin_types</h1>
+
+<%= link_to 'New bin_type', new_bin_type_path %>
+<br />
+<br />
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+	<th>Bin Barcode Format</th>
+        <th>Product Barcode Format</th>
+        <th>Action</th>
+  </tr>
+
+<% @bin_types.each do |bin_type| %>
+  <tr class="<%= cycle("list0", "list1")%>">
+    <td><%=h bin_type.name %></td>
+    <td><%=h bin_type.description %></td>
+    <td><%=h bin_type.bin_barcode_format %></td>
+    <td><%=h bin_type.product_barcode_format %></td>
+    <td class="action">
+    <%= link_to 'Edit', edit_bin_type_path(bin_type) %>
+    <%= link_to 'Destroy', bin_type, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+

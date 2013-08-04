@@ -1,0 +1,136 @@
+<% content_for :head do %>
+
+<style type="text/css">
+<!--
+
+.yellowThing {background-color: #FF9; }
+.whiteThing { background-color: #FFF; }
+.redThing { background-color: #F00; }
+//-->
+</style>
+
+<%= javascript_include_tag("smo") %>
+<% end %>
+
+<br />
+<%= link_to 'Edit', edit_bin_type_path(@bin_type) %> |
+<%= link_to 'Destroy', @bin_type, :confirm => 'Are you sure?', :method => :delete %> |
+<%= link_to 'View All', bin_types_path %> | 
+<%= link_to 'New bin_type', new_bin_type_path %>
+
+<p>
+  <b>Name:</b>
+  <%=h @bin_type.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @bin_type.description %>
+</p>
+
+<br />
+<hr>
+<br />
+
+
+<% form_tag(:action => "update_loading", :id => @bin_type)do %>
+<table>
+	<tr>
+		<th>Part Number</th>
+		<th>Part Name</th>
+		<th>Category</th>
+		<th>Customer</th>
+		<th>side</th>
+		<th>Max. Load</th>
+		<th>Action</th>
+		
+	</tr>
+	<% for con in @containers %>
+	<tr class="<%= cycle("list0", "list1") %>">
+		<td><%= con.product.part_number %></td>
+		<td><%= con.product.part_name %></td>
+		<td><%= con.product.category.name rescue "" %></td>
+		<td><%= con.product.customer %></td>
+		<td><%= con.product.side %></td>
+		<td align="center"><%= text_field_tag "container[" + con.id.to_s + "][quantity]", con.maximum_load, :size => 5 %></td>
+		<td align="center"><%= link_to "Remove", remove_product_bin_type_path(@bin_type, :container_id => con) %></td>
+		
+	</tr>
+	<% end %>
+	<tr>
+		<td colspan="5"></td>
+	    <td align="center"><%= submit_tag "Update" unless @containers.size.zero? %></td>
+		<td></td>
+	</tr>
+</table>
+ <% end %>
+ <br />
+ <hr>
+ <br />
+ 
+ <% form_for @search do |f| %>
+<table>
+	<tr>
+		<th>Part number</th>
+	    <th>Part name</th>
+	    <th>Side</th>
+        <th>Generic Name</th>
+        <th>Category</th>
+		<th>Action</th>
+    </tr>		
+	<tr>	
+		<td> <%= f.text_field :part_number_like %></td>
+		
+		<td><%= f.text_field :part_name_like %></td>
+		
+		<td> <%= f.select :side_equals, Product::SIDE_CHOICES, {:include_blank => true} %>	</td>
+		<td> <%= f.select :generic_name_equals, ProcedureProduct.all(:order => "generic_name").map {|c| [c.generic_name, c.generic_name]}, {:include_blank => true} %></td>
+		<td> <%= f.select :category_id_equals, Category.all.map {|c| [c.name, c.id]}, {:include_blank => true} %></td>
+		
+		<td align="center">	<%= f.submit "Filter" %></td>
+		
+	</tr>
+</table>
+<% end %>
+
+ 
+ <% form_tag(:action => 'add_bin_type_product', :id => @bin_type) do %>
+ <table>
+ 	<tr>
+ 		<th colspan="6" style="color:yellow" align="center">Available Product to add</th>
+ 	</tr>
+	<tr>
+		<th></th>
+		<th>Part Number</th>
+		<th>Part Name</th>
+		<th>Category</th>
+		<th>Customer</th>
+		<th>Side</th>
+	</tr>
+	<% for e in @products %>
+	<tr onmouseover="this.className='yellowThing';" onmouseout="this.className='whiteThing';">
+		<td><%= check_box_tag "product["+e.id.to_s+"][selected]"  %></td>
+		<td><%= e.part_number %></td>
+		<td><%= e.part_name %></td>
+		<td><%= e.category.name rescue "" %></td>
+		<td><%= e.customer %></td>
+		<td><%= e.side %></td>
+		
+	</tr>
+	<% end %>
+	
+ </table>
+ <br />
+ 
+ <% unless @products.size.zero? %>
+ <input type="checkbox" name="checkall" onclick="checkUncheckAll(this);"/>Select All
+ <br /><br />
+ <%= submit_tag "Add Product to Bin Type" %>
+ <% end %>
+<% end %>
+
+<br />
+
+
+
+

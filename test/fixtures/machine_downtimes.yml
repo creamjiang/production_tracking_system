@@ -1,0 +1,23 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  machine_id: 1
+  employee_id: 1
+  routing_id: 1
+  routing_process_id: 1
+  routing_procedure_id: 1
+  bin_id: 1
+  bin_type_id: 1
+  product_id: 1
+  machine_down_reason_id: 1
+
+two:
+  machine_id: 1
+  employee_id: 1
+  routing_id: 1
+  routing_process_id: 1
+  routing_procedure_id: 1
+  bin_id: 1
+  bin_type_id: 1
+  product_id: 1
+  machine_down_reason_id: 1

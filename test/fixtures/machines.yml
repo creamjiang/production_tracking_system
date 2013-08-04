@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  machine_number: MyString
+  asset_number: MyString
+  description: MyText
+
+two:
+  machine_number: MyString
+  asset_number: MyString
+  description: MyText

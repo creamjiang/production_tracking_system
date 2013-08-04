@@ -1,0 +1,37 @@
+<%= render '/shared/reject_categories' %>
+<%= render :partial => '/shared/header'%>
+
+<div>
+
+<table width="100%">
+  <tr>
+    <td style="width:10%">
+      <%= button_to "Back", {:action => 'select_reject_area', :id => @attached_product.id}, :class => 'back_button' %>
+    </td>
+    <td style="width:15%"><h4 style="margin-left: 10px"> Other Process</h4></td>
+      <% @processes.in_groups_of(6, false) do |pros| %>
+        <% pros.each do |process| %>
+    <td>
+   	<%= button_to process.name, {:action => 'confirm_reject_code', :id => process.id, :attached_id => @attached_product.id, :area_id => @reject_area}, :class => 'button' %>
+    </td>
+	<% end %>
+      <% end %>
+  </tr>
+</table>
+<hr />
+
+<table width="100%">
+   <% @reasons.in_groups_of(6, false) do |rg| %>
+     <tr>
+	<% rg.each do |reason| %>
+	  <td align="center" valign="bottom">
+	    <div style="width:100px;padding:0px 5px 0px 5px"><em><%= truncate(reason.description, :length => 15) -%></em></div>
+	    	<button type="button" class="reject_button" onclick="gotoPage(<%= reason.id.to_s %>, <%= @attached_product.id.to_s %>);"><%= reason.alias %></button>
+	  </td>
+	<% end %>
+     </tr>
+   <% end %>
+</table>
+
+</div>    
+<br />

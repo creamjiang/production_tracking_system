@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  prms_balance_id: 1
+  prms_transfer_item_id: 1
+  quantity: 1
+
+two:
+  prms_balance_id: 1
+  prms_transfer_item_id: 1
+  quantity: 1

@@ -1,0 +1,21 @@
+<h1>Editing process</h1>
+
+<% form_for(@process) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description, :size => '60x4' %>
+  </p>
+
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @process %> |
+<%= link_to 'View All', routing_processes_path %>

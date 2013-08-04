@@ -1,0 +1,33 @@
+<% content_for :head do %>
+<style type="text/css">
+	.button {font-family:verdana, tahoma, sans-serif;font-size: 1em;width:120px;height:50px;line-height:20px;}
+   </style>
+<% end %>
+
+<% if @bin_types.nil? or @bin_types.size.zero? %>
+   <h2 align="center" style="color:red">
+   	There is no bin types in the system <br />
+   </h2>
+<% else %>
+<div>
+	<h2 align="center" style="color:Blue">
+   	Please select a bin type first
+   </h2>
+	<table width="100%">
+		<% @bin_types.in_groups_of(5, false) do |bts| %>
+		<tr>
+			<% for bin_type in bts %>
+			    <td align="center">
+			    	<%= button_to bin_type.name, list_full_bin_path(bin_type), :class => 'button' %>
+			    </td>
+			<% end %>
+		  </tr>
+		<% end %>
+		
+	</table>
+	
+	<br />
+
+</div>
+
+<% end %>

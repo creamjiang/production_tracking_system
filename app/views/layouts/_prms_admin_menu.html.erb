@@ -1,0 +1,17 @@
+<div id="bluemenu" class="bluetabs">
+<ul>
+
+<%  if Setting.first.enable_flush? %>
+  <li><a href="#" rel="dropmenu5_b">PRMS</a></li>
+<% end %>
+
+<li><a href="/logout">Logout</a></li>
+</ul>
+</div>
+
+
+<!--5nd drop down menu -->
+<div id="dropmenu5_b" class="dropmenudiv_b" style="width: 150px;">
+<a href="/prms_exports">Export to PRMS</a>
+</div>
+

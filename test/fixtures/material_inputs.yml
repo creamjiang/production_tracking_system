@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  machine_id: 1
+  material_id: 1
+  lot_number: MyString
+  quantity: 1
+  uom: MyString
+  start_time: 2009-10-30 10:36:03
+  finish_time: 2009-10-30 10:36:03
+  input_date: 2009-10-30
+
+two:
+  machine_id: 1
+  material_id: 1
+  lot_number: MyString
+  quantity: 1
+  uom: MyString
+  start_time: 2009-10-30 10:36:03
+  finish_time: 2009-10-30 10:36:03
+  input_date: 2009-10-30

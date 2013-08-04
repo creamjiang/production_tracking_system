@@ -1,0 +1,109 @@
+<% content_for :head do %>
+
+<style type="text/css">
+<!--
+
+.yellowThing {background-color: #FF9; }
+.whiteThing { background-color: #FFF; }
+.redThing { background-color: #F00; }
+//-->
+</style>
+
+<% end %>
+
+<br />
+<%= link_to "Show",  @material_input %> |
+<%= link_to "View All",  material_inputs_path %>
+<br />
+<p>
+  <b>Material:</b>
+  <%=h @material_input.material.name %>
+</p>
+
+<p>
+  <b>Lot number:</b>
+  <%=h @material_input.lot_number %>
+</p>
+
+<p>
+  <b>Quantity:</b>
+  <%=h @material_input.quantity %>
+</p>
+
+<p>
+  <b>Uom:</b>
+  <%=h @material_input.uom %>
+</p>
+
+<p>
+  <b>Start time:</b>
+  <%=h @material_input.start_time.localtime %>
+</p>
+
+<p>
+  <b>Finish time:</b>
+  <%=h @material_input.finish_time.localtime %>
+</p>
+
+<p>
+  <b>Input date:</b>
+  <%=h @material_input.input_date %>
+</p>
+
+<br />
+<hr>
+<br />
+
+<h1>Listing Machines</h1>
+
+<table>
+  <tr>
+   
+    <th>Machine Number</th>
+    <th>Asset Number</th>
+	<th>Remove</th>
+  </tr>
+  <% for machine in @material_input.machines %>
+<tr class="<%= cycle("list0", "list1") %>">
+   
+    <td><%=h machine.machine_number %></td>
+	<td><%=h machine.asset_number %></td>
+  
+    <td align="center"><%= link_to "Remove", remove_machine_material_input_path(@material_input, :machine_id => machine) %></td>
+    </tr>
+  <% end %>
+</table>
+
+<br />
+<hr>
+<br />
+
+<% form_tag(add_machines_material_input_path(@material_input)) do %>
+ <table>
+ 	<tr>
+ 		<th colspan="5" style="color:yellow" align="center">Choose Machine to add</th>
+ 	</tr>
+	<tr>
+		<th></th>
+		<th>Machine Number</th>
+		<th>Asset Number</th>
+	</tr>
+	<% for e in @machines %>
+	<tr onmouseover="this.className='yellowThing';" onmouseout="this.className='whiteThing';">
+		<td align="center"><%= check_box_tag "machine["+e.id.to_s+"][selected]", e.id  %></td>
+		<td><%= e.machine_number %></td>
+		<td><%= e.asset_number %></td>
+	</tr>
+	<% end %>
+	
+ </table>
+
+ <br />
+ 
+ 
+ <%= submit_tag "Attach Machine to Material Input" %>
+ <% end %>
+
+
+ 
+

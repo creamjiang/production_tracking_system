@@ -1,0 +1,32 @@
+<div align="center">
+  <table width="100%" align="center" style="background-color:LightBlue;border-color:white">
+    <tr>
+	<td align="center">
+  	  <b>User :</b>
+	  <%= current_user_name %>
+	</td>
+	<td>
+           <b>Machine : </b>
+           <%= @machine.machine_number %> -
+           <% if @machine.down %>
+              <font style="color:red">Down</font>
+           <% else %>
+              <font style="color:green">OK</font>
+           <% end %>
+	</td>
+
+	<td align="center">
+	   <b>Processing Date : </b>
+	   <%= get_the_actual_date %>
+	</td>
+	<td>
+	   <b>Shift : </b>
+	   <%= Shift.find(session[:shift_id]).name rescue "<font color=Red>" + "No Shift Attached" + "</font>" %>
+	</td>
+	<td>
+	  <h3 id="jsClock" style="margin:0" align="center"></h3>
+	</td>
+  </tr>
+</table>
+
+</div>

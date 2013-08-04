@@ -1,0 +1,70 @@
+<% content_for :head do %>
+  <%= calendar_date_select_includes 'silver' %>
+<% end %>
+
+<br/>
+<% form_for @search do |f| %>
+<table>
+	<tr>
+		<th>Machine ID</th>
+		<th>Employee ID	</th>
+		<th>Product ID</th>
+		<th>Bin</th>
+		<th>Bin Type</th>
+		<th>Date</th>
+		<th>Action</th>
+    </tr>		
+	<tr>	
+		<td align="center">
+	   <%= f.select :machine_id_equals, Machine.all(:order => "machine_number").map {|c| [c.machine_number, c.id]}, {:include_blank => true} %>		
+		</td>
+		
+		<td align="center">
+			<%= f.select :employee_id_equals, Employee.all(:order => "employee_number").map {|e| [e.employee_number, e.id]}, {:include_blank => true} %>
+			</td>
+		
+		<td align="center">
+	   <%= f.select :product_id_equals, Product.all(:order => "part_number").map {|d| [d.part_number, d.id]}, {:include_blank => true} %>		
+		</td>
+		<td align="center"> <%= f.select :bin_id_equals, Bin.all(:order => "bin_number").map {|g| [g.bin_number, g.id]}, {:include_blank => true} %></td>
+		<td align="center"> <%= f.select :bin_type_id_equals, BinType.all(:order => "name").map {|h| [h.name, h.id]}, {:include_blank => true} %></td>
+		<td align="center"> <%= calendar_date_select_tag "created_at", session[:date] %></td>
+		<td align="center">	<%= f.submit "search" %></td>
+		
+	</tr>
+</table>
+<% end %>
+
+<br />
+<font style="font-size:x-large;">Listing Transactions </font> <em><%= @search_date %></em>
+
+<table>
+  <tr>
+    <th class="link_header"><%= order @search, :by => :employee_id %></th>
+    <th class="link_header"><%= order @search, :by => :product_id %></th>
+    <th class="link_header"><%= order @search, :by => :machine_id %></th>
+    <th class="link_header"><%= order @search, :by => :bin_id %></th>
+    <th class="link_header"><%= order @search, :by => :bin_type_id %></th>
+    <th class="link_header"><%= order @search, :by => :status %></th>
+	<th class="link_header"><%= order @search, :by => :created_at, :as => "Datetime" %></th>
+  </tr>
+
+<% @procedure_transactions.each do |procedure_transaction| %>
+  <tr class="<%= cycle("list0", "list1")%>">
+    <td><%=h procedure_transaction.employee.name %></td>
+    <td><%=h procedure_transaction.product.part_name %></td>
+    <td><%=h procedure_transaction.machine.machine_number %></td>
+    <td><%=h procedure_transaction.bin.bin_number %></td>
+    <td><%=h procedure_transaction.bin_type.name %></td>
+    <td align="center">
+    	 <%=h procedure_transaction.status_name %>
+	</td>
+	<td align="center"><%=h procedure_transaction.created_at.utc.strftime("%d-%m-%Y %H:%M") %></td>
+   </tr>
+<% end %>
+</table>
+
+<br />
+<% unless @procedure_transactions.empty? %>
+<%= will_paginate @procedure_transactions %>
+<% end %>

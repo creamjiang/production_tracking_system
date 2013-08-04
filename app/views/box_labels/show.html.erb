@@ -1,0 +1,43 @@
+<br />
+
+<%= link_to 'View All', box_labels_path %> | 
+<%= link_to 'Print Barcode', print_barcode_box_label_path(@box_label), :confirm => "Are you sure?" %>
+<br />
+
+<p>
+  <b>Label No:</b>
+  <%=h @box_label.code %>
+</p>
+<p>
+  <b>Part No:</b>
+  <%=h @box_label.part_number %>
+</p>
+
+<p>
+  <b>Part Description:</b>
+  <%=h @box_label.description %>
+</p>
+
+<p>
+  <b>Machine ID:</b>
+  <%=h @box_label.machine_number %>
+</p>
+
+<p>
+  <b>Quantity:</b>
+  <%=h @box_label.quantity %>
+</p>
+<p>
+  <b>Boxed datetime:</b>
+  <%=h @box_label.boxed_date_time.strftime("%d-%m-%Y %H:%M")  %>
+</p>
+
+<p>
+  <b>Operator:</b>
+  <%=h @box_label.employee_name %>
+</p>
+
+
+
+<br />
+

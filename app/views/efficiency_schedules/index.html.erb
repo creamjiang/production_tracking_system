@@ -1,0 +1,60 @@
+<% content_for :head do %>
+  <%= calendar_date_select_includes 'silver' %>
+<% end %>
+
+<h1>Listing efficiency_schedules</h1>
+
+<%= link_to 'New efficiency_schedule', new_efficiency_schedule_path %>
+<br /><br />
+<% form_for @search do |f| %>
+<table style="width:80%">
+  <tr>
+    <th>Schedule Date</th>
+    <th>Part Name</th>
+    <th>Status</th>
+    <th>Action</th>
+   </tr>
+   <tr>
+    <td> <%= f.calendar_date_select :schedule_date_equals %></td>
+    <td> <%= f.select :part_name_equals, @attach_products.map {|c| [c.part_name, c.part_name]}%> </td>
+    <td> <%= f.select :operation_status_equals, ["Running", "Shutdown", "Breakdown"].map, {:include_blank => true} %>	</td>
+    <td align="center">	<%= f.submit "search" %></td>
+   </tr>
+</table>
+<% end %>
+
+<br /><br />
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Part name</th>
+    <th>Shift type</th>
+    <th>Shift</th>
+    <th>Start time</th>
+    <th>End time</th>
+    <th>Operators</th>
+    <th>status</th>
+    <th>Output</th>
+    <th>Down code</th>
+    <th>Action</th>
+  </tr>
+
+<% @efficiency_schedules.each do |efficiency_schedule| %>
+  <tr class="<%= cycle("list0", "list1")%>" align="center">
+    <td><%=h efficiency_schedule.schedule_date %></td>
+    <td><%=h efficiency_schedule.part_name %></td>
+    <td><%=h efficiency_schedule.shift_type %></td>
+    <td><%=h efficiency_schedule.shift %></td>
+    <td><%=h efficiency_schedule.start_time.strftime("%H:%M") %></td>
+    <td><%=h efficiency_schedule.end_time.strftime("%H:%M") %></td>
+    <td><%=h efficiency_schedule.operators_present %></td>
+    <td><%=h efficiency_schedule.operation_status %></td>
+    <td><%=h efficiency_schedule.expected_output %></td>
+    <td><%=h efficiency_schedule.down_reason_code %></td>
+    <td><%= link_to 'Show', efficiency_schedule %>
+    <%= link_to 'Destroy', efficiency_schedule, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />

@@ -1,0 +1,63 @@
+<br />
+
+<%= link_to 'Show', @machine %> |
+<%= link_to 'View All', machines_path %>
+<br />
+<p>
+  <b>Machine number:</b>
+  <%=h @machine.machine_number %>
+</p>
+
+<p>
+  <b>Asset number:</b>
+  <%=h @machine.asset_number %>
+</p>
+
+<p>
+  <b>Mac Address:</b>
+  <%=h @machine.mac_address %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @machine.description %>
+</p>
+
+<p>
+  <b>Current Process:</b>
+  <%=h @machine.routing_procedure.routing_process.name rescue "None" %>
+</p>
+
+<br />
+<hr>
+<br />
+
+<% form_tag(update_process_machine_path(@machine)) do %>
+<table>
+  <tr>
+    <th></th>
+    <th>Process Name</th>
+    <th>Description</th>
+    <th>Swapable Processes</th>
+  </tr>
+  
+  <% for pro in @processes %>
+  <tr class="<%= cycle("list0", "list1") %>">
+    <td><%=  %></td>
+    <td><%= pro.name %></td>
+    <td><%= pro.description %></td>  
+    <td align="center"><%= radio_button_tag "process_id", pro.id.to_s, @machine.routing_procedure.routing_process_id == pro.id %></td>  
+  </tr>
+  <% end %>
+  <tr>
+    <td colspan="3"></td>
+    <td align="center">
+      <%= submit_tag("Update") if @processes.size.to_i > 0 %>
+    </td>
+    <td></td>
+  </tr>
+  
+</table>
+<% end %>
+ <br />
+ 

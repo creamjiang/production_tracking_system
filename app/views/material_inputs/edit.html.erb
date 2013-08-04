@@ -1,0 +1,39 @@
+<h1>Editing material_input</h1>
+
+<% form_for(@material_input) do |f| %>
+  <%= f.error_messages %>
+
+  
+  <p>
+    <%= f.label :material_id %><br />
+    <%= f.select :material_id, Material.all(:order => "name").map {|d| [d.name, d.id]} %>
+
+  </p>
+  <p>
+    <%= f.label :lot_number %><br />
+    <%= f.text_field :lot_number %>
+  </p>
+  <p>
+    <%= f.label :quantity %><br />
+    <%= f.text_field :quantity %>
+  </p>
+  <p>
+    <%= f.label :uom %><br />
+    <%= f.text_field :uom %>
+  </p>
+  <p>
+    <%= f.label :start_time %><br />
+    <%= f.datetime_select :start_time %>
+  </p>
+  <p>
+    <%= f.label :finish_time %><br />
+    <%= f.datetime_select :finish_time %>
+  </p>
+
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @material_input %> |
+<%= link_to 'View All', material_inputs_path %>

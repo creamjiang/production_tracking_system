@@ -1,0 +1,87 @@
+<br />
+<%= link_to 'Back', prms_exports_path %> | <%= link_to 'New prms_export', new_prms_export_path %>
+<% unless @prms_export.posted? %>
+  | <%= link_to "Destroy", @prms_export, :confirm => "Are you sure ?", :method => :delete %>
+<% end %>
+
+<p>
+  <b>Export date:</b>
+  <%=h @prms_export.export_date %>
+</p>
+
+<p>
+  <b>Remark:</b>
+  <%=h @prms_export.remark %>
+</p>
+
+<p>
+  <b>Administrator:</b>
+  <%=h @prms_export.administrator.name %>
+</p>
+<% if @prms_export.posted? %>
+  <p>
+    <b>File generated:</b>
+    <%=h link_to "Download", download_prms_export_path(@prms_export) %>
+  </p>
+<% else %>
+  <% unless @prms_export.export_items.empty? %>
+   <p>
+    <%=h link_to "Post items", post_items_prms_export_path(@prms_export), :confirm => "Are you sure you want to post the items ?" %>
+  </p>
+  <% end %>
+<% end %>
+<br/>
+<hr/>
+<br/>
+<% form_tag update_items_prms_export_path(@prms_export) do %>
+<table>
+  <tr>
+    <th>Routing Procedure</th>
+    <th>Product</th>
+    <th>Warehouse</th>
+    <th>Destination</th>
+    <th>Stock</th>
+    <th>Export Qty</th>
+    <th>Status</th>
+
+  </tr>
+
+<% @items.each do |i| %>
+  <tr class="<%= cycle("list0", "list1")%>">
+    <td><%=h i.routing_procedure.fullname %></td>
+    <td><%=h i.product.fullname %></td>
+    <td><%=h i.warehouse.fullname %></td>
+    <td>
+      <% if @prms_export.posted? %>
+        <%=  i.destination.name + "-" + i.destination.location %>
+      <% else %>
+        <%= select_tag "procedure[#{i.id.to_s}][destination_id]", options_for_select(i.warehouse.destinations.map {|c| [c.name + "-" + c.location, c.id]}, i.destination_id)  %>  
+      <% end %>
+     </td>
+    <td align="center"><%=h i.stock_quantity %></td>
+    <td align="center">
+     <% if @prms_export.posted? %>
+        <%= i.export_quantity %>
+      <% else %>
+       <%= text_field_tag "procedure[#{i.id.to_s}][export_quantity]", i.export_quantity, :size => 5  %>
+      <% end %>
+    </td>
+    <td align="center">
+      <% if i.is_valid_quantity? %>
+      <em style="color:green">Valid</em>
+      <% else %>
+      <em style="color:red">Invalid</em>
+      <% end %>
+    </td>
+   
+  </tr>
+<% end %>
+  <tr>
+    <td colspan="5"></td>
+    <td align="center"><%= submit_tag "Update" unless @prms_export.posted? unless @items.empty? %> </td>
+    <td></td>
+  </tr>
+</table>
+<% end %>
+<br />
+

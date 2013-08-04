@@ -1,0 +1,54 @@
+<h1>New efficiency_schedule</h1>
+<%= link_to 'Back', efficiency_schedules_path %>
+<br /><br />
+
+<% form_for(@efficiency_schedule) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :schedule_date %><br />
+    <%= f.date_select :schedule_date %>
+  </p>
+  <p>
+    <%= f.label :attached_product_id, "Part Name" %><br />
+    <%= f.select(:attached_product_id, @attach_products.map {|c| [c.part_name, c.id]},{:include_blank => true}, {:onChange => remote_function(:url => {:action => 'search_reasons'}, :with => "'id=' + this.value")}) %>
+  </p>
+
+  <p>
+    <%= f.label :shift_type %><br />
+    <%= f.select :shift_type, ["2x12", "2x8"].map %>
+  </p>
+  <p>
+    <%= f.label :shift %><br />
+    <%= f.select :shift, ["Morning", "Afternoon", "Night"].map %>
+  </p>
+  <p>
+    <%= f.label :start_time %><br />
+    <%= f.time_select :start_time %>
+  </p>
+  <p>
+    <%= f.label :end_time %><br />
+    <%= f.time_select :end_time %>
+  </p>
+  <p>
+    <%= f.label :operators_present %><br />
+    <%= f.select :operators_present, (1..10).to_a.map %>
+  </p>
+  <p>
+    <%= f.label :expected_output %><br />
+    <%= f.text_field :expected_output %>
+  </p>
+  <p>
+    <%= f.label :operation_status %><br />
+    <%= f.select :operation_status, ["Running", "Shutdown", "Breakdown"].map %>
+  </p>
+  <div id="down_reasons">
+    <%= render :partial => "down_reasons", :locals => {:reasons => @reasons} %>
+  </div>
+  
+
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+

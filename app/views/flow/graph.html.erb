@@ -1,0 +1,12 @@
+<% content_for :head do %>
+  <script type="text/javascript" src="/javascripts/swfobject.js"></script>
+<% end %>
+	
+	<div align="center" style="font-size:35px">
+	<%= link_to  "Pie Chart", :action => "graph", :id => 1 %> | <%= link_to  "Bar Chart", :action => "graph", :id => 2 %>
+	</div>
+	<h4 align="center">Report</h4>
+	
+  <div align="center">
+   <%= @graph %>	
+  </div>

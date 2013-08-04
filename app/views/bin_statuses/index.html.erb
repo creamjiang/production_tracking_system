@@ -1,0 +1,20 @@
+<h1>Listing bin_statuses</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+	<th>Action</th>
+  </tr>
+
+<% @bin_statuses.each do |bin_status| %>
+  <tr class="<%= cycle("list0", "list1")%>">
+    <td><%=h bin_status.name %></td>
+    <td><%=h bin_status.description %></td>
+    <td class="action"><%= link_to 'Show', bin_status %></td>
+  
+   
+  </tr>
+<% end %>
+</table>
+

@@ -1,0 +1,19 @@
+<h1>New bin_clearing_record</h1>
+
+<% form_for(@bin_clearing_record) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :employee_id %><br />
+    <%= f.text_field :employee_id %>
+  </p>
+  <p>
+    <%= f.label :bin_id %><br />
+    <%= f.text_field :bin_id %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'View All', bin_clearing_records_path %>

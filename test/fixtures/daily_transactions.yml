@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  transaction_date: 2010-03-31
+  routing_id: 1
+  routing_process_id: 1
+  product_id: 1
+  generic_name: MyString
+  side: MyString
+  reject_code: MyString
+  quantity: 1
+
+two:
+  transaction_date: 2010-03-31
+  routing_id: 1
+  routing_process_id: 1
+  product_id: 1
+  generic_name: MyString
+  side: MyString
+  reject_code: MyString
+  quantity: 1

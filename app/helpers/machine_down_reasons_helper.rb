@@ -1,0 +1,2 @@
+module MachineDownReasonsHelper
+end

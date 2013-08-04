@@ -1,0 +1,63 @@
+
+<br />
+<%= link_to "Add Routine Product", routine_product_warehouses_path %>
+<br /><br />
+<% form_for @search do |f| %>
+<table>
+	<tr>
+		<th>Routing Procedure</th>
+		<th>Product Part No</th>
+		<th>Product Part name</th>
+                <th>Warehouse</th>
+		<th>Action</th>
+    </tr>
+	<tr>
+		<td align="center">
+	   <%= f.select :routing_procedure_id_equals, RoutingProcedure.all(:joins => [:routing_process], :order => "routing_processes.name").map {|c| [c.fullname, c.id]}, {:include_blank => true} %>
+		</td>
+
+		<td align="center"><%= f.text_field :product_part_number_equals %></td>
+                <td align="center"><%= f.text_field :product_part_name_equals %></td>
+
+		<td align="center">
+	   <%= f.select :warehouse_id_equals, Warehouse.all(:order => "name").map {|d| [d.name, d.id]}, {:include_blank => true} %>
+		</td>
+		<td align="center">	<%= f.submit "search" %></td>
+
+	</tr>
+</table>
+<% end %>
+<br />
+<%= will_paginate @routine_products  %>
+<br />
+<% form_tag update_procedure_warehouses_path do %>
+<table>
+  <tr>
+    <th>Remove<br /><input type="checkbox" name="checkall" onclick="checkUncheckAll(this);"/></th>
+    <th>Routing Procedure</th>
+    <th>Product</th>
+    <th>Warehouse</th>
+    <th>Include Reject Unit</th>
+    <th>Include Reject Status</th>
+  </tr>
+  <% @routine_products.each do |p| %>
+  <tr class="<%= cycle("list0", "list1") %>">
+
+    <td align="center"><%= check_box_tag "item["+p.id.to_s+"][remove]"  %></td>
+    <td><%= p.routing_procedure_id.to_s + " : " + p.routing_procedure.fullname  %> </td>
+    <td><%= p.product_id.to_s + " : " + p.product.fullname  %> </td>
+    <td align="center"><%= select_tag "item[#{p.id.to_s}][warehouse_id]", options_for_select(@warehouses, p.warehouse_id)  %> </td>
+    <td align="center"><%= check_box_tag "item[#{p.id.to_s}][include_reject]", {}, p.reject_include  %> </td>
+    <td align="center"><%=raw p.include_reject_status  %> </td>
+  </tr>
+
+  <% end %>
+  <tr>
+    <td colspan="3"></td>
+    <td align="center"><%= submit_tag("Update") if @routine_products.any?   %> </td>
+    <td colspan="1"></td>
+  </tr>
+</table>
+<% end %>
+
+

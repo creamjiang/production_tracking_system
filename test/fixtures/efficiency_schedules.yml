@@ -1,0 +1,27 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  schedule_date: 2010-12-22
+  product_id: 1
+  part_name: MyString
+  shift_type: MyString
+  shift: MyString
+  start_time: 2010-12-22 15:16:02
+  end_time: 2010-12-22 15:16:02
+  operators_present: 1
+  operation_status: MyString
+  machine_down_reason_id: 1
+  down_reason_code: MyString
+
+two:
+  schedule_date: 2010-12-22
+  product_id: 1
+  part_name: MyString
+  shift_type: MyString
+  shift: MyString
+  start_time: 2010-12-22 15:16:02
+  end_time: 2010-12-22 15:16:02
+  operators_present: 1
+  operation_status: MyString
+  machine_down_reason_id: 1
+  down_reason_code: MyString

@@ -1,0 +1,183 @@
+<html>
+  <head>
+       <!--<script src="/javascripts/jquery.min.js" type="text/javascript"></script>
+       <script src="/javascripts/jquery.jqprint.0.3.js" type="text/javascript"></script>
+       <script type="text/javascript">
+
+      //         $(function() {
+      //             $('#divBarcode').jqprint();
+      //             $("#btnBarcode").click( function() {
+      //                 $('#divBarcode').jqprint();
+      //                 return false;
+      //             });
+      //             $("#btnClose").click( function() {
+      //               window.close();
+      //             });
+      //             window.close();
+      //         });
+
+      //     </script> -->
+
+   <script type="text/javascript" src="/javascripts/jquery-1.7.1.js"></script>
+   <script type="text/javascript" src="/javascripts/html2canvas.js"></script>
+   <script type="text/javascript" src="/javascripts/jquery.plugin.html2canvas.js"></script> 
+   <script type="text/javascript">
+       function findPrinter() {
+         var applet = document.jzebra;
+         if (applet != null) {
+            // Searches for locally installed printer with "zebra" in the name
+            applet.findPrinter("zebra");
+         }
+         // *Note:  monitorFinding() still works but is too complicated and
+         // outdated.  Instead create a JavaScript  function called 
+         // "jzebraDoneFinding()" and handle your next steps there.
+         monitorFinding();
+      }
+
+      // Gets the current url's path, such as http://site.com/example/dist/
+      function getPath() {
+          var path = window.location.href;
+          return path.substring(0, path.lastIndexOf("/")) + "/";
+      }
+
+      function chr(i) {
+         return String.fromCharCode(i);
+      }
+
+      function useDefaultPrinter() {
+         var applet = document.jzebra;
+         if (applet != null) {
+            // Searches for default printer
+            applet.findPrinter();
+         }
+         monitorFinding();
+      }
+
+      function monitorFinding() {
+        var applet = document.jzebra;
+        if (applet != null) {
+           if (!applet.isDoneFinding()) {
+              window.setTimeout('monitorFinding()', 100);
+           } else {
+              var printer = applet.getPrinter();
+              if(printer == null)
+               {alert("Printer not found");}
+           }
+        } else {
+                  alert("Applet not loaded!");
+              }
+            }
+
+    function monitorFinding2() {
+      var applet = document.jzebra;
+      if (applet != null) {
+         if (!applet.isDoneFinding()) {
+            window.setTimeout('monitorFinding2()', 100);
+         } else {
+                  var printersCSV = applet.getPrinters();
+                  var printers = printersCSV.split(",");
+                  for (p in printers) {
+                      alert(printers[p]);
+                  }
+         }
+      } else {
+                alert("Applet not loaded!");
+            }
+          }
+
+    function printBase64Image(base64data) {
+         var applet = document.jzebra;
+         if (applet != null) {
+               applet.findPrinter("zebra");
+               while (!applet.isDoneFinding()) {
+                    // Note, endless while loops are bad practice.
+               }
+
+          var printers = applet.getPrinters().split(",");
+            for (i in printers) {
+              if (printers[i].indexOf("Microsoft XPS") != -1 || 
+                  printers[i].indexOf("PDF") != -1) {
+                  applet.setPrinter(i);      
+                  }
+               }
+               // No suitable printer found, exit
+               if (applet.getPrinter() == null) {
+                   alert("Could not find a suitable printer for printing an image.");
+                   return;
+               }
+
+               // Optional, set up custom page size.  These only work for PostScript printing.
+               // setPaperSize() must be called before setAutoSize(), setOrientation(), etc.
+               //applet.setPaperSize("8.5in", "11.0in");  // US Letter
+               //applet.setAutoSize(true);
+               applet.appendImage(base64data);
+              }
+
+            // Very important for images, uses printPS() insetad of print()
+            // *Note:  monitorAppending2() still works but is too complicated and
+            // outdated.  Instead create a JavaScript  function called 
+            // "jzebraDoneAppending()" and handle your next steps there.
+            monitorAppending2();
+         }
+
+
+
+       function printBarcode() {
+          var applet = document.jzebra;
+            if (applet != null) {
+               applet.findPrinter("zebra");
+               while (!applet.isDoneFinding()) {
+                   // Wait
+               }
+
+               // Sample only: If a PDF printer isn't installed, try the Microsoft XPS Document
+               // Writer.  Replace this with your printer name.
+               var printers = applet.getPrinters().split(",");
+               for (i in printers) {
+                if (printers[i].indexOf("zebra") != -1 ||
+                    printers[i].indexOf("zebra") != -1) {
+                    applet.setPrinter(i);
+                    }
+               }
+               // No suitable printer found, exit
+               if (applet.getPrinter() == null) {
+                   alert("Could not find a suitable printer for an HTML document");
+                   return;
+                   }
+                $("#divBarcode").html2canvas({ 
+                  canvas: hidden_screenshot,
+                  onrendered: function() {printBase64Image($("canvas")[0].toDataURL('image/png'));}
+                  });
+             }
+          }
+   </script>
+
+
+
+  </head>
+  <body>
+
+ <applet name="jzebra" code="jzebra.PrintApplet.class" archive="/jzebra.jar" width="50px" height="50px">
+      <param name="printer" value="zebra">
+   </applet>
+
+
+  <div id="divBarcode">
+    <table>
+      <tr>
+        <th><%= image_tag(@image) %></th>
+      </tr>
+      <tr>
+        <th><%= @name %></th>
+      </tr>
+    </table>
+   
+    
+  </div>
+
+
+  </body>
+  <canvas id="hidden_screenshot" style="display:none;" />
+</html>
+    
+

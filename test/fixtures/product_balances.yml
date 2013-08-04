@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  routing_id: 1
+  routing_process_id: 1
+  routing_procedure_id: 1
+  product_id: 1
+  generic_name: MyString
+  quantity_in: 1
+  quantity_out: 1
+  balance: 1
+
+two:
+  routing_id: 1
+  routing_process_id: 1
+  routing_procedure_id: 1
+  product_id: 1
+  generic_name: MyString
+  quantity_in: 1
+  quantity_out: 1
+  balance: 1

@@ -1,0 +1,25 @@
+one:
+  employee_id: 1
+  machine_id: 1
+  product_id: 1
+  routing_procedure_id: 1
+  routing_process_id: 1
+  routing_id: 1
+  shift_id: 1
+  good_unit: 1
+  reject_unit: 1
+  hold_unit: 1
+  processing_date: 2009-11-11
+
+two:
+  employee_id: 1
+  machine_id: 1
+  product_id: 1
+  routing_procedure_id: 1
+  routing_process_id: 1
+  routing_id: 1
+  shift_id: 1
+  good_unit: 1
+  reject_unit: 1
+  hold_unit: 1
+  processing_date: 2009-11-11

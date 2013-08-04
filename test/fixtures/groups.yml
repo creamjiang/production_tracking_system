@@ -1,0 +1,13 @@
+one:
+  name: MyString
+  alias: MyString
+  description: MyText
+  builtin: false
+  position: 1
+
+two:
+  name: MyString
+  alias: MyString
+  description: MyText
+  builtin: false
+  position: 1

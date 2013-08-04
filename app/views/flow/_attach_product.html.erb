@@ -1,0 +1,18 @@
+<table style="width:100%">
+
+    <tr>
+      <th>Shift</th>
+      <th>Good</th>
+      <th>Hold</th>
+      <th>Reject</th>
+    </tr>
+    <% for d in attach_product.product.today_transactions %>
+     <tr align="center">
+      <td><%= d.shift_name rescue "Unknown" %> </td>
+      <td><%= d.good_unit  %></td>
+      <td><%= d.hold_unit  %></td>
+      <td><%= d.reject_unit  %></td>
+    </tr>
+   <% end %>
+
+</table>

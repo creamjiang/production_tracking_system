@@ -1,0 +1,17 @@
+<p>
+  <b>Name:</b>
+  <%=h @process.name %>
+</p>
+
+
+<p>
+  <b>Description:</b>
+  <%=h @process.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_routing_process_path(@process) %> |
+<%= link_to 'Destroy', @process, :confirm => 'Are you sure?', :method => :delete %> |
+<%= link_to 'View All', routing_processes_path %> |
+
+<%= link_to 'New process', new_routing_process_path %>

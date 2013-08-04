@@ -1,0 +1,22 @@
+<%= render :partial => '/shared/operator'%>
+
+<%= render :partial => '/shared/header'%>
+
+
+<% unless @machine.is_data_entry? %>
+   <ul class="gallery">
+      <% if is_reviewer? %>
+        <%= render :partial => 'reviewer_area'%>
+      <% else %>
+	<%= render :partial => 'operator_area'%>
+      <% end %>
+    </ul>
+
+<% else %>
+    <ul class="gallery">
+      <%= render :partial => 'operator_data_entry_area'%>
+    </ul>
+<% end %>
+
+
+

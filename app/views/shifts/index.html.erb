@@ -1,0 +1,27 @@
+<% title "Shifts" %>
+<p><%= link_to "New Shift", new_shift_path %></p>
+
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Time Start</th>
+    <th>Time End</th>
+    <th>Action</th>
+  </tr>
+  <% for shift in @shifts %>
+    <tr class="<%= cycle("list0", "list1") %>">
+      <td align="center"><%=h shift.name %></td>
+      <td align="center"><%=h shift.time_start.strftime("%H:%M") %></td>
+      <td align="center"><%=h shift.time_end.strftime("%H:%M") %></td>
+   
+      <td align="center"><%= link_to "Show", shift %>
+      <%= link_to "Edit", edit_shift_path(shift) %>
+      <%= link_to "Destroy", shift, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+<br />
+
+<%= will_paginate @shifts %>
+

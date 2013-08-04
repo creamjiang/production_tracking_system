@@ -1,0 +1,48 @@
+<% form_for @transaction_summary do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :employee_id %><br />
+    <%= f.text_field :employee_id %>
+  </p>
+  <p>
+    <%= f.label :machine_id %><br />
+    <%= f.text_field :machine_id %>
+  </p>
+  <p>
+    <%= f.label :product_id %><br />
+    <%= f.text_field :product_id %>
+  </p>
+  <p>
+    <%= f.label :routing_procedure_id %><br />
+    <%= f.text_field :routing_procedure_id %>
+  </p>
+  <p>
+    <%= f.label :routing_process_id %><br />
+    <%= f.text_field :routing_process_id %>
+  </p>
+  <p>
+    <%= f.label :routing_id %><br />
+    <%= f.text_field :routing_id %>
+  </p>
+  <p>
+    <%= f.label :shift_id %><br />
+    <%= f.text_field :shift_id %>
+  </p>
+  <p>
+    <%= f.label :good_unit %><br />
+    <%= f.text_field :good_unit %>
+  </p>
+  <p>
+    <%= f.label :reject_unit %><br />
+    <%= f.text_field :reject_unit %>
+  </p>
+  <p>
+    <%= f.label :hold_unit %><br />
+    <%= f.text_field :hold_unit %>
+  </p>
+  <p>
+    <%= f.label :processing_date %><br />
+    <%= f.date_select :processing_date %>
+  </p>
+  <p><%= f.submit "Submit" %></p>
+<% end %>

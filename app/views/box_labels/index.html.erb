@@ -1,0 +1,55 @@
+<% content_for :head do %>
+  <%= calendar_date_select_includes 'silver' %>
+<% end %>
+
+<h1>Listing Label</h1>
+
+<% form_for @search do |f| %>
+<table>
+	<tr>
+		<th>Label No</th>
+		<th>Part No</th>
+		<th>Machine ID</th>
+		<th>Employee</th>
+		<th>Boxed datetime</th>
+		<th></th>
+    </tr>
+	<tr>
+		<td align="center"> <%= f.text_field :code_equals %></td>
+		<td align="center"> <%= f.text_field :product_part_number_equals %></td>
+		<td align="center"> <%= f.collection_select :machine_id_equals, @machines, :id, :machine_number, {:include_blank => true} %></td>
+		<td align="center"> <%= f.collection_select :employee_id_equals, @employees, :id, :employee_number, {:include_blank => true} %></td>
+		<td align="center"> From <%= f.calendar_date_select :boxed_date_time_gte %> to <%= f.calendar_date_select :boxed_date_time_lte %></td>
+		<td align="center">	<%= f.submit "search" %></td>
+	</tr>
+</table>
+<% end %>
+
+
+<table>
+  <tr>
+    <th>Label No</th>
+    <th>Part No</th>
+    <th>Part description</th>
+    <th>Machine ID</th>
+    <th>Quantity</th>
+    <th>Boxed Time</th>
+    <th>Print</th>
+  </tr>
+
+<% @boxes.each do |box| %>
+  <tr class="<%= cycle("list0", "list1") %>">
+    <td align="center"><%=link_to box.code, box %></td>
+    <td><%=h box.part_number %></td>
+    <td><%=h box.description %></td>
+	<td><%=h box.machine_number %></td>
+    <td align="center"><%=h box.quantity %></td>
+    <td align="center"><%=h box.boxed_date_time.strftime("%d-%m-%Y %H:%M") %></td>
+     <td align="center"><%= link_to "Print", print_barcode_box_label_path(box), :confirm => "Are you sure?" %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<%= will_paginate @boxes %>
+

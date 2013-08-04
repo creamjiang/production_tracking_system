@@ -1,0 +1,33 @@
+<p>
+  <b>Product:</b>
+  <%=h @cold_store_account.product_id %>
+</p>
+
+<p>
+  <b>Report on:</b>
+  <%=h @cold_store_account.report_on %>
+</p>
+
+<p>
+  <b>Opening balance:</b>
+  <%=h @cold_store_account.opening_balance %>
+</p>
+
+<p>
+  <b>Debit:</b>
+  <%=h @cold_store_account.debit %>
+</p>
+
+<p>
+  <b>Credit:</b>
+  <%=h @cold_store_account.credit %>
+</p>
+
+<p>
+  <b>Closing balance:</b>
+  <%=h @cold_store_account.closing_balance %>
+</p>
+
+
+<%= link_to 'Edit', edit_cold_store_account_path(@cold_store_account) %> |
+<%= link_to 'Back', cold_store_accounts_path %>

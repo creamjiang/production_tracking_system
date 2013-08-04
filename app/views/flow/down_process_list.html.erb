@@ -1,0 +1,33 @@
+<% content_for :head do %>
+<style type="text/css">
+  .button {font-family:verdana, tahoma, sans-serif;font-size: 1em;width:120px;height:40px;line-height:20px;}
+</style>
+<% end %>
+
+<%= render '/shared/header'  %>
+
+
+<h2 align="center" style="color:red">Choose a Process</h2>
+<br />
+
+<table width="100%" align="center">
+	<% @processes.in_groups_of(5, false) do |rs| %>
+	<tr>
+<% for p in rs %>
+
+		<td>
+		  <div align="center">
+		  	
+		  <%= button_to p.name, {:action => "down_reason_list", :id => p}, :class => 'button' %>
+
+		  </div>
+		</td>
+<% end %>
+</tr>
+<% end %>
+
+
+</table>
+	<br />
+<%= will_paginate @processes %>
+

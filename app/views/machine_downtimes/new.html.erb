@@ -1,0 +1,47 @@
+<h1>New machine_downtime</h1>
+
+<% form_for(@machine_downtime) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :machine_id %><br />
+    <%= f.text_field :machine_id %>
+  </p>
+  <p>
+    <%= f.label :employee_id %><br />
+    <%= f.text_field :employee_id %>
+  </p>
+  <p>
+    <%= f.label :routing_id %><br />
+    <%= f.text_field :routing_id %>
+  </p>
+  <p>
+    <%= f.label :routing_process_id %><br />
+    <%= f.text_field :routing_process_id %>
+  </p>
+  <p>
+    <%= f.label :routing_procedure_id %><br />
+    <%= f.text_field :routing_procedure_id %>
+  </p>
+  <p>
+    <%= f.label :bin_id %><br />
+    <%= f.text_field :bin_id %>
+  </p>
+  <p>
+    <%= f.label :bin_type_id %><br />
+    <%= f.text_field :bin_type_id %>
+  </p>
+  <p>
+    <%= f.label :product_id %><br />
+    <%= f.text_field :product_id %>
+  </p>
+  <p>
+    <%= f.label :machine_down_reason_id %><br />
+    <%= f.text_field :machine_down_reason_id %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'View All', machine_downtimes_path %>

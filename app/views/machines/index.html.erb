@@ -1,0 +1,78 @@
+<h1>Listing machines</h1>
+
+<% if is_ict_admin? %>
+<%= link_to 'New machine', new_machine_path %>
+<% end %>
+<br />
+<br />
+<% form_for @search do |f| %>
+<table>
+  <tr>
+    <th>Machine number</th>
+    <th>Asset name</th>
+    <th>Mac Address</th>
+    <th>Action</th>
+   </tr>
+   <tr>
+    <td> <%= f.text_field :machine_number_equals %></td>
+    <td><%= f.text_field :asset_number_equals %></td>
+    <td><%= f.text_field :mac_address_equals %></td>
+    <td align="center">	<%= f.submit "search" %></td>
+   </tr>
+</table>
+<% end %>
+<br />
+
+
+<table>
+  <tr>
+    <th>Machine number</th>
+    <th>Asset number</th>
+    <th>Mac Address</th>
+    <th>Data Mode</th>
+    <% unless is_application_admin? or is_supervisor? %>
+      <th>Employees</th>
+    <% end %>
+    <th>Products</th>
+
+    <% unless is_application_admin? or is_supervisor? %>
+      <th>Shifts</th>
+      <% if is_admin? %>
+        <th>Action</th>
+      <% end %>
+    <% end %>
+    
+  </tr>
+
+<% @machines.each do |machine| %>
+  <tr class="<%= cycle("list0", "list1")%>">
+    <td><%=h machine.machine_number %></td>
+    <td><%=h machine.asset_number %></td>
+	<td><%=h machine.mac_address %></td>
+        <td><%=h machine.data_mode %></td>
+
+	<% unless is_application_admin? or is_supervisor? %>
+	  <td align="center"><%= link_to "Edit", attach_employee_machine_path(machine) %></td>
+	<% end %>
+	<td align="center"><%= link_to "Edit", attach_product_machine_path(machine) %></td>
+	
+	<% unless is_application_admin? or is_supervisor? %>
+	  <td align="center"><%= link_to "Edit", attach_shift_machine_path(machine) %></td>
+	  <td class="action"><%= link_to 'Show', machine %>
+      <%= link_to 'Edit', edit_machine_path(machine) %>
+	<% if is_admin? %>
+      <%= link_to 'Destroy', machine, :confirm => 'Are you sure?', :method => :delete %>
+	<% end %>
+	  </td>
+    <% end %>    
+  </tr>
+<% end %>
+
+  <tr>
+    <td colspan="4"></td>
+    <td colspan="3"></td>
+  </tr>
+</table>
+
+<br />
+<%= will_paginate @machines %>

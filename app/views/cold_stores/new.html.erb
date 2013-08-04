@@ -1,0 +1,113 @@
+<% content_for :head do %>
+  <%= calendar_date_select_includes 'silver' %>
+  <style type="text/css">
+
+    img {
+            border: none;
+    }
+
+    /* ---------- gallery styles start here ----------------------- */
+    .gallery {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            width: 90%;
+            padding-left:100px;
+
+    }
+    .gallery li {
+            padding: 10px;
+            margin: 0;
+            float: left;
+            position: relative;
+            width: 180px;
+            height: 130px;
+    }
+    .gallery li:hover img {
+            border-color: #000;
+    }
+    .gallery img {
+            background: #fff;
+            border: solid 1px #888;
+            padding: 5px;
+    }
+</style>
+<% end %>
+<h3>
+ On Hold Bin Management
+</h3>
+
+<% unless is_application_admin? or is_supervisor? %>
+  <%= link_to "Back", cold_stores_url %>
+<% end %>
+<br /><br />
+<fieldset>
+	<legend>Add to Good Unit</legend>
+	
+	<div align="center" style="width:auto;" id="good_area_product">
+	   <% if @good_product %>
+         <%= render :partial => "good_area_product", :locals => {:product => @good_product} %>
+       <% end %>
+	</div>
+<br /><br />
+<% form_tag add_good_unit_cold_stores_path do %>
+
+<table width="50%">
+  <tr>
+    <td>
+    <b>Convert Date</b><br />
+	<%= calendar_date_select_tag "convert_date", Date.today %></td>
+    <td><b>Products</b><br />
+	<%= select("transaction", "attached_product_id", @attach_products.map {|p| [p.product.fullname, p.id]}, {:include_blank => true}, :onChange => remote_function(:url => {:action => 'show_accept_product_photo'}, :with => "'id=' + this.value"))  %></td>
+		
+    <td><b>Quantity</b><br />
+    <%= text_field_tag "good_quantity", {}, :size => 8 %></td>
+
+    <td><br /><%= submit_tag "Convert to Good Unit", :disable_with => "Please wait ..." %></td>
+  </tr>
+</table>
+
+<% end %>
+
+</fieldset>
+
+<br />
+<br />
+<fieldset>
+	<legend>Add to Reject Unit</legend>
+	
+<div align="center" style="width:auto;" id="reject_area_product">
+  <% if @reject_product %>
+     <%= render :partial => "good_area_product", :locals => {:product => @reject_product} %>
+    
+  <% end %>
+</div>
+<br /><br />
+
+
+<% form_tag add_reject_unit_cold_stores_path do %>
+
+<div id="display_area">
+  <% if @photos %>
+    <%= render :partial => "show_photos"  %>
+  <% end %>
+</div>
+
+<table width="50%">
+  <tr>
+    <td><b>Convert Date</b><br />
+	<%= calendar_date_select_tag "convert_date", Date.today %></td>
+				
+    <td><b>Products</b><br />
+	<%= select("transaction", "attached_product_id", @attach_products.map {|p| [p.product.fullname, p.id]}, {:include_blank => true}, :onChange => remote_function(:url => {:action => 'show_reject_product_photo'}, :with => "'id=' + this.value"))  %></td>
+		
+    <td><b>Quantity</b><br />
+    <%= text_field_tag "reject_quantity", {}, :size => 8 %></td>
+
+    <td><br /><%= submit_tag "Convert to Reject Unit", :disable_with => "Please wait ..." %></td>
+   </tr>
+</table>
+
+<% end %>
+
+</fieldset>

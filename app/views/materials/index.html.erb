@@ -1,0 +1,30 @@
+<h1>Listing materials</h1>
+
+<%= link_to 'New material', new_material_path %>
+<br />
+<br />
+
+
+<table>
+  <tr>
+    <th>Raw code</th>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Action</th>
+  </tr>
+
+<% @materials.each do |material| %>
+  <tr class="<%= cycle("list0", "list1")%>">
+    <td><%=h material.raw_code %></td>
+    <td><%=h material.name %></td>
+    <td><%=h material.description %></td>
+   
+    <td class="action"><%= link_to 'Show', material %>
+    <%= link_to 'Edit', edit_material_path(material) %>
+    <%= link_to 'Destroy', material, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+

@@ -1,0 +1,2 @@
+page[:reject].replace_html :partial => 'reject_code', :collection => @reject_codes
+page[:reject].visual_effect :highlight

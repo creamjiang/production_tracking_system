@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  routing_process_id: 1
+  prms_location_id: 1
+  quantity_per_bin: 1
+
+two:
+  routing_process_id: 1
+  prms_location_id: 1
+  quantity_per_bin: 1

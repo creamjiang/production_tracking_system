@@ -1,0 +1,23 @@
+<% content_for :head do %>
+  <%= calendar_date_select_includes 'silver' %>
+<% end %>
+
+<% title "Production Reject Report" %>
+
+<% form_tag :action => "search_reject_report" do %>
+<table>
+	<tr align="center">
+		<th>Date From</th>
+		<th>Date To</th>
+		<th>Action</th>
+	</tr>
+	<tr align="center">
+		<td><%= calendar_date_select_tag "from" %></td>
+		<td><%= calendar_date_select_tag "to" %></td>
+		<td><%= submit_tag "Search" %></td>
+	</tr>
+</table>
+<% end %>
+
+<br />
+<br />

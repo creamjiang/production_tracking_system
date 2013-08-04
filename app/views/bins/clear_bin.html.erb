@@ -1,0 +1,28 @@
+<% content_for :head do%>
+<style type="text/css">
+	.submit_button {margin-top:7px; margin-left:0px; width:150px; height:40px }
+	.bin_text {background:#fff;border:1px solid #ccc;color:#000;font-family:verdana, tahoma, sans-serif;font-size: 2em;width:296px;height:35px;margin-left:6px;padding-left:30px;line-height:20px;}
+</style>
+<% end %>
+
+<br /><br />
+
+<% form_tag :action => "clearing_bin" do %>
+<table align="center">
+	<tr>
+		<td align="center"><h1>Clear Bin</h1></td>
+	</tr>
+	<tr>
+		<td align="center">
+	        <%= text_field "bin", "bin_number", :class => "bin_text" %>		
+		</td>
+	</tr>
+	<tr>
+		<td align="center">
+			<%= submit_tag "submit", :class => "submit_button" %>
+		</td>
+	</tr>
+	
+</table>
+
+<% end %>

@@ -1,0 +1,51 @@
+<h1>Listing machine_downtimes</h1>
+<% form_for @search do |f| %>
+<table>
+	<tr>
+		<th>Machine ID</th>
+		<th>Employee ID	</th>
+		<th>Action</th>
+    </tr>		
+	<tr>	
+		<td align="center">
+	   <%= f.select :machine_id_equals, Machine.all(:order => "machine_number").map {|c| [c.machine_number, c.id]}, {:include_blank => true} %>		
+		</td>
+		
+		<td align="center"> <%= f.select :employee_id_equals, Employee.all(:order => "employee_number").map {|e| [e.employee_number, e.id]}, {:include_blank => true} %></td>
+		
+		<td align="center">	<%= f.submit "search" %></td>
+		
+	</tr>
+</table>
+<% end %>
+
+
+
+
+<table>
+  <tr>
+    <th class="link_header"><%= order @search, :by => :machine_id %></th>
+    <th class="link_header"><%= order @search, :by => :employee_id %></th>
+    <th class="link_header"><%= order @search, :by => :machine_down_reason_id %></th>
+	<th>Down at</th>
+	<th>Up at</th>
+	<th>Period</th>
+  </tr>
+
+<% @machine_downtimes.each do |machine_downtime| %>
+  <tr class="<%= cycle("list0", "list1")%>">
+    <td><%=h machine_downtime.machine.machine_number %></td>
+    <td><%=h machine_downtime.employee.name %></td>
+    <td><%=h machine_downtime.machine_down_reason.description rescue "Not Specified" %></td>
+	<td><%= machine_downtime.created_at.strftime("%d-%m-%Y %H:%M") %>	</td>
+	<td><%= machine_downtime.up_time %>	</td>
+	<td>
+	    <%= machine_downtime.period_of_downtime %>
+	</td>
+    </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= will_paginate @machine_downtimes %>

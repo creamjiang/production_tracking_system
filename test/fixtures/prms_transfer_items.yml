@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  prms_export_id: 1
+  prms_item_id: 1
+  prms_location_id: 1
+  quantity: 1
+  bin_quantity: 1
+
+two:
+  prms_export_id: 1
+  prms_item_id: 1
+  prms_location_id: 1
+  quantity: 1
+  bin_quantity: 1

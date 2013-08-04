@@ -1,0 +1,56 @@
+<table align="center" width="90%" bgcolor="green" cellpadding="10" cellspacing="10">
+    <tr style="background-color:yellow">
+      <td colspan="3" width="50%" align="center" style="font-size:larger;">
+      <font color="red">Machine No </font> - <%= @working_space.machine.machine_number %>
+      <font color="red">Asset No </font> - <%= @working_space.machine.asset_number %><br />
+      <font color="red">Part Number </font> - <%= @working_space.product.part_number %>
+      <font color="red">Part Name </font> - <%= @working_space.product.part_name %> <br />
+      <font color="red">Bin ID </font> - <%= @bin.bin_number %>
+      <%= link_to "Rescan Bin", :action => 'rescan_bin' %>
+      </td>
+    </tr>
+	
+    <tr>
+      <th style="font-size:20px;background-color:LightGreen">Good</th>
+      <th style="font-size:20px;background-color:LightBlue">On Hold</th>
+      <th style="font-size:20px;background-color:Pink">Reject</th>
+    </tr>
+	
+    <tr>
+	<td align="center" style="font-size:80px;background-color:LightGreen;height:50px;">
+          <%= @working_space.good_unit %><br />
+	  <em style="font-size:30px;color:#000099;"><%= @product.good_unit %> : <%= @product.yesterday_good_unit %> : <%= @product.total_good_unit %></em>
+	</td>
+		 
+	<td align="center" style="font-size:80px;background-color:LightBlue;height:50px;">
+	  <%= @working_space.hold_unit %><br />
+	  <em style="font-size:30px;color:#000099;"><%= @product.hold_unit %> : <%= @product.yesterday_hold_unit %> : <%= @product.total_hold_unit %></em>
+	</td>
+			
+	<td align="center"  style="font-size:80px;background-color:Pink;height:50px;">
+	  <%= @working_space.reject_unit %><br />
+	  <em style="font-size:30px;color:#000099;"><%= @product.reject_unit %> : <%= @product.yesterday_reject_unit %> : <%= @product.total_reject_unit %></em>
+	</td>
+	</tr>
+	
+	<tr>
+	  <td align="center" style="background-color:LightGreen">
+	    <%= link_to (image_tag("accept.png", :size => "120x120", :border => 0)), {:action => "accept"}, :id => "accept", :onclick => "running_accept()" %>
+            <div id="accept_running" style="display:none;">
+              <%= image_tag("running.png") %>
+            </div>
+          </td>
+		 
+	 <td align="center" style="background-color:LightBlue">
+	   <%= link_to (image_tag("on-hold.png", :size => "120x120", :border => 0)), {:action => "hold"}, :id => "hold", :onclick => "running_hold()" %>
+	   <div id="hold_running" style="display:none;">
+             <%= image_tag("running.png") %>
+           </div>
+	 </td>
+			
+	 <td align="center" style="background-color:Pink">
+	   <%= link_to (image_tag("reject.png", :size => "120x120", :border => 0)), :action => "select_reject_categories" %>
+	 </td>
+	</tr>
+	
+</table>

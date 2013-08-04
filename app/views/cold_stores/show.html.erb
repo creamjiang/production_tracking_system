@@ -1,0 +1,23 @@
+<% title "Cold Store" %>
+
+<p>
+  <strong>Procedure Transaction:</strong>
+  <%=h @cold_store.procedure_transaction_id %>
+</p>
+<p>
+  <strong>On Hold Date:</strong>
+  <%=h @cold_store.on_hold_date %>
+</p>
+<p>
+  <strong>Converted Date:</strong>
+  <%=h @cold_store.converted_date %>
+</p>
+<p>
+  <strong>Status:</strong>
+  <%=h @cold_store.status_name %>
+</p>
+
+<p>
+
+  <%= link_to "View All", cold_stores_path %>
+</p>

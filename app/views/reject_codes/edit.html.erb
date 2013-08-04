@@ -1,0 +1,51 @@
+<h1>Editing reject_code</h1>
+
+<% form_for(@reject_code, :html => { :multipart => true }) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :code %><br />
+    <%= f.text_field :code %>
+  </p>
+  <p>
+    <%= f.label :alias %><br />
+    <%= f.text_field :alias %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description, :size => '60x4' %>
+  </p>
+  <p>
+    <%= f.label :routing_process_id %><br />
+    <%= f.select :routing_process_id, RoutingProcess.all.map {|c| [c.name, c.id]} %>
+  </p>
+  
+   <p>
+    <%= f.check_box :active %> <%= f.label :active %>
+     <br /></br>
+  </p>
+  
+  <% @reject_code.photos.each do | photo | %>
+  <div class="reject_code_photos">
+    <%= image_tag(photo.data.url(:thumb), :alt => 'thumb') %>
+    <%= check_box_tag "photo_ids[]", photo.id %><em>delete</em>
+  </div>
+<% end unless @reject_code.photos.first.new_record? rescue nil %>
+
+
+<div id="photos">
+  <%= render :partial => 'photo', :collection => @reject_code.photos %>
+</div>
+
+<%= link_to_function "Add Photo" do |page|
+  page.insert_html :bottom, :photos, :partial => 'photo', :object => Photo.new
+end %>
+
+
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @reject_code %> |
+<%= link_to 'View All', reject_codes_path %>

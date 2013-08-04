@@ -1,0 +1,42 @@
+
+
+<%= collection_select(:routing, :name, @routings, :id, :name, {}, :onChange => remote_function(:url => {:action => 'index'}, :with => "'id=' + this.value", :method => :get, :loading => "Element.show('spinner');", :success => "Element.hide('spinner')"))  %>
+
+<br />
+
+<div id="spinner" style="display:none;">
+  <%= image_tag "indicator.gif" %>
+</div>
+   
+ 
+ <br />
+ 
+<h1>Listing routing_procedures</h1>
+
+<table>
+  <tr>
+    <th>Routing</th>
+    <th>Process</th>
+    <th>Machine</th>
+    <th>Employee</th>
+    <th>Sequence</th>
+  </tr>
+<tr class="<%= cycle("list0", "list1")%>">
+    <td><%=h routing_procedure.routing_id %></td>
+    <td><%=h routing_procedure.routing_process_id %></td>
+    <td><%=  %></td>
+    <td><%=  %></td>
+    <td><%=h routing_procedure.position %></td>
+    <td class="action"><%= link_to 'Show', routing_procedure %>
+    <%= link_to 'Edit', edit_routing_procedure_path(routing_procedure) %>
+    <%= link_to 'Destroy', routing_procedure, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+</table>
+
+<br />
+
+<%= link_to 'New routing_procedure', new_routing_procedure_path %>
+
+
+
+

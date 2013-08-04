@@ -1,0 +1,11 @@
+one:
+  generic_name: MyString
+  routing_process_id: 1
+  product_id: 1
+  description: MyText
+
+two:
+  generic_name: MyString
+  routing_process_id: 1
+  product_id: 1
+  description: MyText

@@ -1,0 +1,37 @@
+<% title "Transaction Summaries" %>
+
+<table>
+  <tr>
+    <th>Employee</th>
+    <th>Machine</th>
+    <th>Product</th>
+    <th>Routing Procedure</th>
+    <th>Routing Process</th>
+    <th>Routing</th>
+    <th>Shift</th>
+    <th>Good Unit</th>
+    <th>Reject Unit</th>
+    <th>Hold Unit</th>
+    <th>Processing Date</th>
+  </tr>
+  <% for transaction_summary in @transaction_summaries %>
+    <tr>
+      <td><%=h transaction_summary.employee_id %></td>
+      <td><%=h transaction_summary.machine_id %></td>
+      <td><%=h transaction_summary.product_id %></td>
+      <td><%=h transaction_summary.routing_procedure_id %></td>
+      <td><%=h transaction_summary.routing_process_id %></td>
+      <td><%=h transaction_summary.routing_id %></td>
+      <td><%=h transaction_summary.shift_id %></td>
+      <td><%=h transaction_summary.good_unit %></td>
+      <td><%=h transaction_summary.reject_unit %></td>
+      <td><%=h transaction_summary.hold_unit %></td>
+      <td><%=h transaction_summary.processing_date %></td>
+      <td><%= link_to "Show", transaction_summary %></td>
+      <td><%= link_to "Edit", edit_transaction_summary_path(transaction_summary) %></td>
+      <td><%= link_to "Destroy", transaction_summary, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Transaction Summary", new_transaction_summary_path %></p>

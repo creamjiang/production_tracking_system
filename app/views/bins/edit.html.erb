@@ -1,0 +1,27 @@
+<h1>Editing bin</h1>
+
+<% form_for(@bin) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :bin_number %><br />
+    <%= f.text_field :bin_number %>
+  </p>
+  
+  <p>
+    <%= f.label :bin_type_id %><br />
+    <%= f.select :bin_type_id, BinType.all(:order => 'name').map {|c| [c.name, c.id]} %>
+  </p>
+  
+  
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description, :size => '40x4' %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @bin %> |
+<%= link_to 'View All', bins_path %>

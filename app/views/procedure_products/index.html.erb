@@ -1,0 +1,24 @@
+<br />
+<p><%= link_to "New Generic Name", new_procedure_product_path %></p>
+<br />
+
+<% title "Generic Names" %>
+
+<table>
+  <tr>
+    <th>Generic Name</th>
+    <th>Description</th>
+	 <th>Action</th>
+  </tr>
+  <% for procedure_product in @procedure_products %>
+    <tr class="<%= cycle("list0", "list1") %>">
+      <td><%=h procedure_product.generic_name %></td>
+      <td><%=h procedure_product.description %></td>
+      <td align="center"><%= link_to "Show", procedure_product %>
+      <%= link_to "Edit", edit_procedure_product_path(procedure_product) %>
+      <%= link_to "Destroy", procedure_product, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+

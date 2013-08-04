@@ -1,0 +1,25 @@
+
+<% title "Production Reject Report group by Machine" %>
+
+<br /><br />
+
+<% @transactions.each do |machine, trans | %>
+<h3><%= machine.machine_number %></h3>
+
+<table>
+	<tr>
+		<th>Date</th>
+		<th>Employee</th>
+		<th>Reject Code</th>
+		
+	</tr>
+	<%  trans.each do |t| %>
+	<tr>
+		<td align="center"><%= t.created_at.strftime("%d-%m-%Y %H:%M") %></td>
+		<td align="center"><%= t.employee.employee_number %></td>
+		<td><%= t.reject_code.description %></td>
+		
+	</tr>
+	<% end %>
+</table>
+<% end %>

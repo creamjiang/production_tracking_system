@@ -1,0 +1,41 @@
+
+
+<table style="width: 50%;">
+      <tr>
+
+          <td>
+             <table id="inner" style='background-color:<%= c.product.side == Product::LEFT ? "#5CB3FF" : c.product.side == Product::RIGHT ? "#64E986" : "White" %>;'>
+              <tr>
+                <td style="width: 120px">
+                  <img src="<%= c.product.avatar.url(:thumb) %>" alt="<%= c.product.part_name %>" />
+                </td>
+                <td>
+                   <div id="current_detail_<%= c.id.to_s %>">
+                     <%= render :partial => "attach_product", :locals => {:attach_product => c } %>
+                   </div>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2"><%= c.product.part_name %> (<%= c.product.part_number %>)</td>
+
+              </tr>
+            </table>
+        </td>
+        <td>
+           <%= link_to_function((image_tag("product.png", :size => "100x100", :border => 0)),{}, :onclick => "window.open('/flow/barcode?id='+#{c.id.to_s}+'&category_id=1','barcode','width=1,height=1,left=350,top=1,resizable=no,scrollbars=yes,toolbar=no,status=no')") do |page|
+                   page[("printers"+c.id.to_s).to_sym].visual_effect :slide_up
+                   page[("main_menu"+c.id.to_s).to_sym].visual_effect :slide_down
+                 end
+             %>
+           <%= link_to_function((image_tag("bin.png", :size => "100x100", :border => 0)), {}, :onclick => "window.open('/flow/barcode?id='+#{c.id.to_s}+'&category_id=2','barcode','width=1,height=1,left=350,top=1,resizable=no,scrollbars=yes,toolbar=no,status=no')") do |page|
+                   page[("printers"+c.id.to_s).to_sym].visual_effect :slide_up
+                   page[("main_menu"+c.id.to_s).to_sym].visual_effect :slide_down
+                 end
+             %>
+
+          
+        </td>
+      </tr>
+    </table>
+
+

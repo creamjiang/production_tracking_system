@@ -1,0 +1,28 @@
+<% title "Setting" %>
+
+
+<% form_for(@setting) do |f| %>
+  <%= f.error_messages %>
+<center>
+<table style="width:50%" align="center">
+	<tr>
+		<th>Value</th>
+		<th>Detail</th>
+	</tr>
+	<tr>
+          <td align="center"><%= f.check_box :register_bin_with_scanner %></td>
+		<td align="left"><%= f.label :register_bin_with_scanner %></td>
+		
+	</tr>
+        <tr>
+          <td align="center"><%= f.check_box :enable_flush %></td>
+		<td align="left"><%= f.label :enable_flush %></td>
+		
+	</tr>
+</table>
+
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+  </center>
+<% end %>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  employee_id: 1
+  machine_id: 1
+  logout: false
+
+two:
+  employee_id: 1
+  machine_id: 1
+  logout: false

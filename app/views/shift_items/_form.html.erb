@@ -1,0 +1,12 @@
+<% form_for @shift_item do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :machine_id %><br />
+    <%= f.text_field :machine_id %>
+  </p>
+  <p>
+    <%= f.label :shift_id %><br />
+    <%= f.text_field :shift_id %>
+  </p>
+  <p><%= f.submit "Submit" %></p>
+<% end %>

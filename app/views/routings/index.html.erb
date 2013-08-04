@@ -1,0 +1,48 @@
+<h1>Listing routings</h1>
+
+<%= link_to 'New routing', new_routing_path %>
+<br />
+<br />
+
+
+<table>
+  <tr>
+    <th>Name</th>
+	<th>Description</th>
+	<th>Procedures</th>
+	<th>Status</th>
+    <th>Action</th>
+  </tr>
+
+<% @routings.each do |routing| %>
+  <tr class="<%= cycle("list0", "list1")%>">
+    <td><%=h routing.name %></td>
+    <td><%=h routing.description %></td>
+	<td align="center">
+		<% if routing.suspend %>
+		  <b style="color:red">Disabled</b>
+		<% else %>
+		  <%= link_to "Edit", add_procedure_routing_path(routing)%></td>
+		<% end %>
+	<td align="center">
+		<% if routing.suspend %>
+		  <b style="color:red;">Suspend</b>
+		<% else %>
+		  <b style="color:green;">Available</b>
+		<% end %>
+	</td>
+    <td class="action"><%= link_to 'Show', routing %>
+    <%= link_to 'Edit', edit_routing_path(routing) %>
+    <%= link_to 'Destroy', routing, :confirm => 'Are you sure?', :method => :delete %>
+	 <% if routing.suspend %>
+		  <b style="color:green;"><%= link_to 'Enable', enable_routing_path(routing), {:confirm => "Are you sure you want to enable ?"} %></b>
+		<% else %>
+		  <b style="color:red;"><%= link_to 'Disable', disable_routing_path(routing), {:confirm => "Please make sure the production is not running this routine. Are you sure you want to disable ?"} %></b>
+		<% end %>
+	</td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+

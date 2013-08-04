@@ -1,0 +1,29 @@
+<% title "Groups" %>
+<br />
+<p><%= link_to "New Group", new_group_path %></p>
+<br />
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Alias</th>
+
+    <th>Builtin</th>
+    <th>Level</th>
+	<th>Action</th>
+  </tr>
+  <% for group in @groups %>
+    <tr class="<%= cycle("list0","list1") %>">
+      <td><%=h group.name %></td>
+      <td><%=h group.alias %></td>
+  
+      <td align="center"><%=h group.builtin %></td>
+      <td align="center"><%=h group.position %></td>
+      <td><%= link_to "Show", group %>
+      <%= link_to "Edit", edit_group_path(group) %>
+      <%= link_to "Destroy", group, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+

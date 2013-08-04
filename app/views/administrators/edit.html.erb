@@ -1,0 +1,38 @@
+<h1>Editing administrator</h1>
+<%= link_to 'Show', @administrator %> |
+<%= link_to 'Change Password', change_password_administrator_path(@administrator) %> |
+<%= link_to 'View All', administrators_path %>
+<br />
+
+<% form_for(@administrator) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :employee_number, "Employee No" %><br />
+    <%= f.text_field :employee_number %>
+  </p>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :login %><br />
+    <%= f.text_field :login %>
+  </p>
+  
+  <p>
+  	<%= f.label :group_id %><br />
+    <%= f.select :group_id, Group.all.map {|c| [c.name, c.id]} %>
+  </p>
+  
+  
+
+  <p>
+    <%= f.label :remark %><br />
+    <%= f.text_area :remark, :size => '60x4'  %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+

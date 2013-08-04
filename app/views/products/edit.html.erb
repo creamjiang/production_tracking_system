@@ -1,0 +1,88 @@
+<h1>Editing product</h1>
+<%= link_to 'Show', @product %> |
+<%= link_to 'View All', products_path %>
+<br /><br />
+<% form_for(@product, :html => { :multipart => true }) do |f| %>
+  <%= f.error_messages %>
+
+ 
+  <p>
+    <%= f.label :part_number %><br />
+    <%= f.text_field :part_number %>
+  </p>
+  <p>
+    <%= f.label :part_name %><br />
+    <%= f.text_field :part_name %>
+  </p>
+  
+    <p>
+    <%= f.label :part_description %><br />
+    <%= f.text_field :description  %>
+  </p>
+  
+   <p>
+    <%= f.label :side %><br />
+    <%= f.select :side, Product::SIDE_CHOICES %>
+  </p>
+  
+  <p>
+    <%= f.label :category_id %><br />
+    <%= f.select :category_id, Category.all.map {|c| [c.name, c.id]} %>
+  </p>
+  
+  <p>
+    <%= f.label :generic_name %><br />
+    <%= f.select :generic_name, ProcedureProduct.all(:order => "generic_name").map {|c| [c.generic_name, c.generic_name]} %>
+  </p>
+
+    <p>
+    <%= f.label :reject_area_category %><br />
+    <%= f.select :reject_area_category, [4,8].map %>
+  </p>
+  
+  <p>
+    <%= f.label :customer %><br />
+    <%= f.text_field :customer %>
+  </p>
+  
+  <p>
+    <%= f.label :technology %><br />
+    <%= f.select :technology, Product::TECH_CHOICES %>
+  </p>
+  
+  <p>
+    <%= f.label :processed_parts %><br />
+    <%= f.text_field :processed_parts %>
+  </p>
+  
+  <p>
+    <%= f.label :processed_part_description %><br />
+    <%= f.text_field :processed_part_description %>
+  </p>
+  
+    
+   
+  
+  <p>
+    <%= f.label :prms_description %><br />
+    <%= f.text_field :prms_description %>
+  </p>
+  
+  <p>
+    <%= f.label :prms_description_1 %><br />
+    <%= f.text_field :prms_description_1 %>
+  </p>
+  
+  
+   <p>
+	Image <br />
+	<%= image_tag @product.avatar.url(:thumb) %><br />
+	<%= f.file_field :avatar %>
+	</p>
+	
+
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+

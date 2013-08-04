@@ -1,0 +1,43 @@
+.pagination {
+    padding: 5px;
+    margin: 5px;
+  }
+  .pagination a {
+    padding: 5px 8px 5px 8px;
+    margin: 5px;
+    border: 1px solid #aaaadd;
+    text-decoration: none;
+    color: #000099;
+  }
+  .pagination a:hover, .pagination a:active {
+    border: 1px solid #000099;
+    color: #000;
+  }
+  .pagination span.current {
+    padding: 5px 8px 5px 8px;
+    margin: 5px;
+    border: 1px solid #000099;
+    font-weight: bold;
+    background-color: #000099;
+    color: #FFF;
+  }
+  .pagination span.disabled {
+    padding: 5px 8px 5px 8px;
+    margin: 5px;
+    border: 1px solid #eee;
+    color: #FFF;
+  }
+
+p.flash_warning, p.flash_error {
+  background: lightpink;
+  color: maroon;
+  margin: 0px;
+  padding: 5px 0px 5px 16px; }
+p.flash_notice, p.flash_message {
+  background: #df9;
+  color: darkgreen;
+  margin: 0px;
+  padding: 5px 0px 5px 16px; }
+
+
+

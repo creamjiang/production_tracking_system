@@ -1,0 +1,92 @@
+<% content_for :head do %>
+<style type="text/css">
+
+img {
+	border: none;
+}
+
+/* ---------- gallery styles start here ----------------------- */
+.gallery {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	width: 90%;
+	padding-left:100px;
+
+
+}
+.gallery li {
+	padding: 10px;
+	margin: 0;
+	float: left;
+	position: relative;
+	width: 280px;
+
+}
+.gallery li:hover img {
+	border-color: #000;
+}
+.gallery #inner {
+	background: #fff;
+	border: solid 1px #888;
+	padding: 5px;
+        width: 400px;
+}
+.gallery em {
+	background: #fff url(/images/grey-gradient.gif) repeat-y;
+	color: #000;
+	font-style: normal;
+	padding: 2px 10px 2px 10px;
+	display: block;
+	position: relative;
+	top: 10px;
+	left: 9px;
+        right: 9px;
+	border: 1px solid #999;
+	border-left-color: #888;
+}
+.gallery a {
+	text-decoration: none;
+}
+.gallery a:hover em {
+	background: #ffdb01 url(/images/orange-gradient.gif) repeat-y;
+	border-color: #c25b08;
+}
+
+body {
+	background-color: #CEF6CE;
+}
+
+
+</style>
+
+<script type="text/javascript">
+	function running_accept(num) {
+		document.getElementById("accept_"+num).style.display="none";
+		document.getElementById("accept_running_"+num).style.display="block";
+               //<%# if @machine.is_barcode_mode? %>
+               //window.open('/flow/barcode?id='+num+'&category_id=1','barcode','width=1,height=1,left=350,top=1,resizable=no,scrollbars=yes,toolbar=no,status=no')
+               //<%# end %>
+	}
+
+	function show_accept(num) {
+		document.getElementById("accept_"+num).style.display="block";
+		document.getElementById("accept_running_"+num).style.display="none";
+		playGood();
+	}
+
+	function running_hold(num) {
+		document.getElementById("hold_"+num).style.display="none";
+		document.getElementById("hold_running_"+num).style.display="block";
+
+	}
+
+	function show_hold(num) {
+		document.getElementById("hold_"+num).style.display="block";
+		document.getElementById("hold_running_"+num).style.display="none";
+		playGood();
+	}
+
+</script>
+
+<% end %>

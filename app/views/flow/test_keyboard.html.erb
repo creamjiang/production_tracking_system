@@ -1,0 +1,33 @@
+<html>
+<head>
+	<script src="keyboard.js"></script>
+	<script src="events.js"></script>
+	<script>
+	var k;
+	function postload() {
+		k = new Keyboard();
+		k.attachToAllInputs();
+		document.body.appendChild(k.keyboard);
+
+		/* Tell the keyboard to write to the 'myinput' box */
+		//k.setTargetElement(document.getElementById("myinput"));
+		//document.getElementById("myinput").focus();
+	}
+
+	function onfocusinput(input) {
+		//document.body.appendChild(document.createTextNode(input));
+		//k.setTargetElement(input);
+	}
+
+	addEvent(window, "load", postload);
+	</script>
+	<link rel="stylesheet" href="keyboard.css">
+</head>
+<body not_onload="postload()">
+Focus one of the input boxes below and then use the on-screen keyboard to type. Changing focus on the input fields will change which field gets "typed" into.
+<hr>
+
+Normal: <input type="text" size="30" style="font-size: 2em;" id="myinput"> <br>
+Password: <input type="password" size="30" style="font-size: 2em;" id="mypassword"><br>
+</body>
+</html>

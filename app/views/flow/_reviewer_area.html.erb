@@ -1,0 +1,94 @@
+<% @products.each do |c| %>
+  <% if c.routing_procedure %>
+    <table style="width: 50%;">
+      <tr>
+          <td>
+             <table id="inner" style='background-color:<%= c.product.side == Product::LEFT ? "#5CB3FF" : c.product.side == Product::RIGHT ? "#64E986" : "White" %>;'>
+              <tr>
+                <td style="width: 120px">
+                  <img src="<%= c.product.avatar.url(:thumb) %>" alt="<%= c.product.part_name %>" />
+                </td>
+                <td>
+                  <table style="width:100%">
+
+                    <tr>
+                      <th>Shift</th>
+                      <th>Good</th>
+                      <th>Hold</th>
+                      <th>Reject</th>
+                    </tr>
+
+                  <% for ttrans in c.product.today_transactions %>
+                    <tr align="center">
+                     <td><%= ttrans.shift_name rescue "Unknown" %> </td>
+                      <td><%= ttrans.good_unit  %></td>
+                      <td><%= ttrans.hold_unit  %></td>
+                      <td><%= ttrans.reject_unit  %></td>
+                    </tr>
+                   <% end %>
+
+                    </table>
+                </td>
+              </tr>
+              <tr>
+                <td><%= c.product.part_name %> (<%= c.product.part_number %>)</td>
+                <td></td>
+              </tr>
+            </table>
+        </td>
+
+        <td>
+          <%= link_to (image_tag("reject.png", :size => "100x100", :border => 0)), {:action => "select_reject_categories", :id => c.id} %>
+        </td>
+
+      </tr>
+    </table>
+
+<% else %>
+  <table style="width: 80%;">
+      <tr>
+          <td>
+             <table id="inner" style='background-color:<%= c.product.side == Product::LEFT ? "#5CB3FF" : c.product.side == Product::RIGHT ? "#64E986" : "White" %>;'>
+              <tr>
+                <td style="width: 120px">
+                  <img src="<%= c.product.avatar.url(:thumb) %>" alt="<%= c.product.part_name %>" />
+                </td>
+                <td>
+                  <table style="width:100%">
+
+                    <tr>
+                      <th>Shift</th>
+                      <th>Good</th>
+                      <th>Hold</th>
+                      <th>Reject</th>
+                    </tr>
+
+                  <% for ttrans in c.product.today_transactions %>
+                    <tr align="center">
+                     <td><%= ttrans.shift_name rescue "Unknown" %> </td>
+                      <td><%= ttrans.good_unit  %></td>
+                      <td><%= ttrans.hold_unit  %></td>
+                      <td><%= ttrans.reject_unit  %></td>
+                    </tr>
+                   <% end %>
+
+                    </table>
+                </td>
+              </tr>
+              <tr>
+                <td><%= c.product.part_name %> (<%= c.product.part_number %>)</td>
+                <td></td>
+              </tr>
+            </table>
+        </td>
+
+        <td>
+          <p style="color:red">No Routing Procedure attached !!</p>
+        </td>
+
+      </tr>
+    </table>
+
+
+<% end %>
+<% end %>

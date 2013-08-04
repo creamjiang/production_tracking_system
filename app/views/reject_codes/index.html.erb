@@ -1,0 +1,42 @@
+<h1>Listing reject_codes</h1>
+
+<%= link_to 'New reject_code', new_reject_code_path %>
+<br /><br />
+<% form_for @search do |f| %>
+<table>
+	<tr>
+		<th>Filter by Process</th>
+		<th>Action</th>
+	</tr>
+	<tr>
+		<td align="center">
+			<%= f.select "routing_process_id_equals", @routing_processes.map {|c| [c.name, c.id]}, :include_blank => true %>
+		</td>
+		<td align="center">
+			<%= f.submit "Filter" %>
+		</td>
+	</tr>
+</table>
+
+
+<% end %>
+		
+
+<table>
+  <tr>
+    <th>Code</th>
+	<th>Alias</th>
+    <th>Description</th>
+    <th>Routing process</th>
+	<th>Action</th>
+  </tr>
+  
+<div id="reject">
+<%= render @reject_codes  %>
+</div>
+
+</table>
+
+<br />
+
+<%= will_paginate @reject_codes %>

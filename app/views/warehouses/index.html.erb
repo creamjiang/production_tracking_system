@@ -1,0 +1,26 @@
+<h1>Listing warehouses</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Location</th>
+    <th>Remark</th>
+    <th>Action</th>
+  </tr>
+
+<% @warehouses.each do |warehouse| %>
+   <tr class="<%= cycle("list0", "list1") %>" align="center">
+    <td><%=h warehouse.name %></td>
+    <td><%=h warehouse.location %></td>
+    <td><%=h warehouse.remark %></td>
+    <td><%= link_to 'Show', warehouse %>
+    <%= link_to 'Edit', edit_warehouse_path(warehouse) %>
+    <%= link_to 'Destroy', warehouse, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<%= will_paginate @warehouses %>
+<br />
+<%= link_to 'New warehouse', new_warehouse_path %>

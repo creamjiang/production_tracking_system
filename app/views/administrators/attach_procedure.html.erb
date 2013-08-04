@@ -1,0 +1,101 @@
+<% content_for :head do %>
+<style type="text/css">
+<!--
+
+.yellowThing {background-color: #FF9; }
+.whiteThing { background-color: #FFF; }
+.redThing { background-color: #F00; }
+//-->
+</style>
+
+<%= javascript_include_tag("smo") %>
+
+<% end %>
+
+<br />
+
+<%= link_to 'Show', @administrator %> |
+<%= link_to 'View All', administrators_path %>
+<br />
+
+<p>
+  <b>Name:</b>
+  <%=h @administrator.name %>
+</p>
+
+<p>
+  <b>Login:</b>
+  <%=h @administrator.login %>
+</p>
+
+<p>
+  <b>Group:</b>
+  <%=h @administrator.group.name %>
+</p>
+
+<p>
+  <b>Remark:</b>
+  <%=h @administrator.remark %>
+</p>
+
+<br />
+<hr>
+<br />
+
+
+<table>
+	<tr>
+		<th>Routing</th>
+		<th>Process</th>
+		<th>Action</th>
+		
+	</tr>
+	
+	<% for rp in @administrator.routing_procedures %>
+	<tr class="<%= cycle("list0", "list1") %>">
+		<td><%= rp.routing.name %></td>
+		<td><%= rp.routing_process.name %></td>
+		<td class="action"><%= link_to "Remove", remove_procedure_administrator_path(@administrator, :procedure_id => rp.id) %></td>
+		
+	</tr>
+	<% end %>
+	
+</table>
+ <br />
+ <hr>
+ <br />
+ 
+ <% form_tag(add_procedure_administrator_path(@administrator)) do %>
+ <table width="80%">
+ 	<tr>
+ 		<th colspan="4" style="color:yellow" align="center">Choose Procedure to add</th>
+ 	</tr>
+	<tr>
+		<th></th>
+		<th>Routing</th>
+		<th>Process</th>
+		<th></th>
+	</tr>
+	<% for e in @procedures %>
+	<tr onmouseover="this.className='yellowThing';" onmouseout="this.className='whiteThing';">
+		<td><%= check_box_tag "procedure["+e.id.to_s+"][selected]"  %></td>
+		<td><%= e.routing.name %></td>
+		<td><%= e.routing_process.name %></td>
+		<td></td>
+	</tr>
+	<% end %>
+	
+ </table>
+ <br />
+ 
+  <% unless @procedures.size.zero? %>
+ <input type="checkbox" name="checkall" onclick="checkUncheckAll(this);"/>Select All
+ 
+ <br /><br />
+ <%= submit_tag "Attach Procedure to Administrator" %>
+<% end %>
+
+<% end %>
+
+<br />
+

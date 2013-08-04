@@ -1,0 +1,34 @@
+<h1>Listing machine down reasons</h1>
+
+<%= link_to 'New machine_down_reason', new_machine_down_reason_path %>
+<br />
+<br />
+
+
+<table>
+  <tr>
+  
+  	<th>Code</th>
+	<th>Alias</th>
+		<th>Routing Process</th>
+    <th>Description</th>
+	<th>Action</th>
+  </tr>
+
+<% @machine_down_reasons.each do |machine_down_reason| %>
+  <tr class="<%= cycle("list0", "list1")%>">
+  
+  	<td align="center"><%=h machine_down_reason.code %></td>
+	<td align="center"><%=h machine_down_reason.alias %></td>
+		<td align="center"><%=h machine_down_reason.routing_process.name %></td>
+    <td><%=h machine_down_reason.description %></td>
+    <td class="action"><%= link_to 'Show', machine_down_reason %>
+    <%= link_to 'Edit', edit_machine_down_reason_path(machine_down_reason) %>
+    <%= link_to 'Destroy', machine_down_reason, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<%= will_paginate @machine_down_reasons %>
+

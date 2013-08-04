@@ -1,0 +1,24 @@
+<h1>Editing container</h1>
+
+<% form_for(@container) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :product_id %><br />
+    <%= f.text_field :product_id %>
+  </p>
+  <p>
+    <%= f.label :bin_id %><br />
+    <%= f.text_field :bin_id %>
+  </p>
+  <p>
+    <%= f.label :maximum_load %><br />
+    <%= f.text_field :maximum_load %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @container %> |
+<%= link_to 'Back', containers_path %>

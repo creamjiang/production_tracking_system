@@ -1,0 +1,15 @@
+<p>
+  <b>Routing procedure:</b>
+  <%=h @procedure_machine.routing_procedure_id %>
+</p>
+
+<p>
+  <b>Machine:</b>
+  <%=h @procedure_machine.machine_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_procedure_machine_path(@procedure_machine) %> |
+<%= link_to 'Destroy', @procedure_machine, :confirm => 'Are you sure?', :method => :delete %> |
+<%= link_to 'Back', procedure_machines_path %> |
+<%= link_to 'New procedure_machine', new_procedure_machine_path %>

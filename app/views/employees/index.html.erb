@@ -1,0 +1,53 @@
+<h1>Listing employees</h1>
+<%= link_to 'New employee', new_employee_path %> 
+<br>
+<br />
+<% form_for @search do |f| %>
+<table>
+	<tr>
+		<th>Employee ID</th>
+		<th>Name</th>
+		<th>Department</th>
+		<th>Action</th>
+    </tr>		
+	<tr>	
+		<td align="center">
+	   <%= f.text_field :employee_number_equals %>		
+		</td>
+		
+		<td align="center"> <%= f.text_field :name %></td>
+		<td align="center"><%= f.select :department_id_equals, Department.all(:order => "name").map {|c| [c.name, c.id]}, {:include_blank => true} %></td>
+
+		<td align="center">	<%= f.submit "search" %></td>
+		
+	</tr>
+</table>
+<% end %>
+
+<br />
+
+
+
+<table>
+  <tr>
+    <th>Employee ID</th>
+    <th>Name</th>
+    <th>Department</th>
+    <th>Action</th>
+  </tr>
+
+<% @employees.each do |employee| %>
+  <tr class="<%= cycle("list0", "list1")%>">
+    <td><%=h employee.employee_number %></td>
+    <td><%=h employee.name %></td>
+    <td align="center"><%=h employee.department.name %></td>
+    <td class="action"><%= link_to 'Show', employee %>
+    <%= link_to 'Edit', edit_employee_path(employee) %>
+    <%= link_to 'Destroy', employee, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= will_paginate @employees %>

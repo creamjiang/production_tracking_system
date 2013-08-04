@@ -1,0 +1,68 @@
+<% @products.each do |c| %>
+  <% if c.routing_procedure %>
+    <table style="width: 50%;">
+      <tr>
+         <td>
+             <table id="inner" style='background-color:<%= c.product.side == Product::LEFT ? "#5CB3FF" : c.product.side == Product::RIGHT ? "#64E986" : "White" %>;'>
+                <tr>
+                  <td style="width: 120px">
+                     <%= link_to_remote image_tag(c.product.avatar.url(:thumb)), {}, :onclick => "Effect.toggle('data_entry_#{c.id.to_s}', 'appear')" %>
+                  </td>
+                  <td>
+                    <div id="current_detail_<%= c.id.to_s %>">
+                      <%= render :partial => "attach_product", :locals => {:attach_product => c } %>
+                    </div>
+                  </td>
+                  <td>
+                     <%= link_to_remote image_tag("input.png", :size => "100x100"), {}, :onclick => "Effect.toggle('data_entry_#{c.id.to_s}', 'appear')" %>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2">
+                     <%= link_to_remote (c.product.part_name + " (" + c.product.part_number + ")"), {}, :onclick => "Effect.toggle('data_entry_#{c.id.to_s}', 'appear')" %>
+                  </td>
+                </tr>
+             </table>
+
+            <div id="data_entry_<%= c.id.to_s %>" style='display:none;width:100%'>
+              <%= render :partial => "data_entry", :locals => {:product => c.product, :attach_product_id => c.id, :processes => c.routing_procedure.routing_processes, :reject_codes => []} %>
+            </div>
+
+        </td>
+      </tr>
+    </table>
+
+  <% else %>
+    <table style="width: 80%;">
+      <tr>
+         <td>
+             <table id="inner" style='background-color:<%= c.product.side == Product::LEFT ? "#5CB3FF" : c.product.side == Product::RIGHT ? "#64E986" : "White" %>;'>
+                <tr>
+                  <td style="width: 120px">
+                     <%= image_tag(c.product.avatar.url(:thumb))%>
+                  </td>
+                  <td>
+                    <div id="current_detail_<%= c.id.to_s %>">
+                      <%= render :partial => "attach_product", :locals => {:attach_product => c } %>
+                    </div>
+                  </td>
+                  <td>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2">
+                     <%= (c.product.part_name + " (" + c.product.part_number + ")") %>
+                  </td>
+                </tr>
+             </table>
+
+           
+        </td>
+        <td>
+           <p style="color: red">No routing procedure attached</p>
+        </td>
+      </tr>
+    </table>
+
+  <% end %>
+<% end %>

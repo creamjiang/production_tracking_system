@@ -1,0 +1,1 @@
+<%= select "reject", "#{i.to_s}_reject_code_id_for_product_#{attach_product_id.to_s}", reject_codes.map {|r| [r.description, r.id]} %>

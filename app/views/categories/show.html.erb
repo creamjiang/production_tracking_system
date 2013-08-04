@@ -1,0 +1,15 @@
+<p>
+  <b>Name:</b>
+  <%=h @category.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @category.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_category_path(@category) %> |
+<%= link_to 'Destroy', @category, :confirm => 'Are you sure?', :method => :delete %> |
+<%= link_to 'View All', categories_path %> |
+<%= link_to 'New component', new_category_path %>

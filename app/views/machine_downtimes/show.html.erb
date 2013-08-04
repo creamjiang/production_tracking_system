@@ -1,0 +1,48 @@
+<p>
+  <b>Machine:</b>
+  <%=h @machine_downtime.machine_id %>
+</p>
+
+<p>
+  <b>Employee:</b>
+  <%=h @machine_downtime.employee_id %>
+</p>
+
+<p>
+  <b>Routing:</b>
+  <%=h @machine_downtime.routing_id %>
+</p>
+
+<p>
+  <b>Routing process:</b>
+  <%=h @machine_downtime.routing_process_id %>
+</p>
+
+<p>
+  <b>Routing procedure:</b>
+  <%=h @machine_downtime.routing_procedure_id %>
+</p>
+
+<p>
+  <b>Bin:</b>
+  <%=h @machine_downtime.bin_id %>
+</p>
+
+<p>
+  <b>Bin type:</b>
+  <%=h @machine_downtime.bin_type_id %>
+</p>
+
+<p>
+  <b>Product:</b>
+  <%=h @machine_downtime.product_id %>
+</p>
+
+<p>
+  <b>Machine down reason:</b>
+  <%=h @machine_downtime.machine_down_reason_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_machine_downtime_path(@machine_downtime) %> |
+<%= link_to 'View All', machine_downtimes_path %>

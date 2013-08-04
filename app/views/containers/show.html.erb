@@ -1,0 +1,20 @@
+<p>
+  <b>Product:</b>
+  <%=h @container.product_id %>
+</p>
+
+<p>
+  <b>Bin:</b>
+  <%=h @container.bin_id %>
+</p>
+
+<p>
+  <b>Maximum load:</b>
+  <%=h @container.maximum_load %>
+</p>
+
+
+<%= link_to 'Edit', edit_container_path(@container) %> |
+<%= link_to 'Destroy', @container, :confirm => 'Are you sure?', :method => :delete %> |
+<%= link_to 'Back', containers_path %> | 
+<%= link_to 'New container', new_container_path %>

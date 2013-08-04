@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  bin_type_id: 1
+  bin_status_id: 1
+  description: MyText
+
+two:
+  bin_type_id: 1
+  bin_status_id: 1
+  description: MyText

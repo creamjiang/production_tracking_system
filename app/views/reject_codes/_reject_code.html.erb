@@ -1,0 +1,12 @@
+
+<tr class="<%= cycle("list0", "list1")%>">
+    <td><%=h reject_code.code %></td>
+	<td><%=h reject_code.alias %></td>
+    <td><%=h reject_code.description %></td>
+    <td><%=h reject_code.routing_process.name %></td>
+    <td class="action"><%= link_to 'Show', reject_code %>
+    <%= link_to 'Edit', edit_reject_code_path(reject_code) %>
+    <%= link_to 'Destroy', reject_code, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+
+

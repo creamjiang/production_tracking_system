@@ -1,0 +1,18 @@
+<p>
+  <b>Employee:</b>
+  <%=h @login_record.employee_id %>
+</p>
+
+<p>
+  <b>Machine:</b>
+  <%=h @login_record.machine_id %>
+</p>
+
+<p>
+  <b>Login since:</b>
+  <%=h @login_record.created_at.strftime("%d-%m-%Y %H:%M") %>
+</p>
+
+
+<%= link_to 'Edit', edit_login_record_path(@login_record) %> |
+<%= link_to 'View All', login_records_path %>

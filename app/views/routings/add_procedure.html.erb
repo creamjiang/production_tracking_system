@@ -1,0 +1,102 @@
+<% content_for :head do %>
+
+<style type="text/css">
+<!--
+
+.yellowThing {background-color: #FF9; }
+.whiteThing { background-color: #FFF; }
+.redThing { background-color: #F00; }
+//-->
+</style>
+
+<% end %>
+
+<br />
+<%= link_to 'Show', @routing %> | 
+<%= link_to 'View All', routings_path %>
+
+<br />
+
+<p>
+  <b>Name:</b>
+  <%=h @routing.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @routing.description %>
+</p>
+
+<br />
+<hr/>
+<br />
+
+<h1>Listing routing_procedures</h1>
+
+
+<% form_tag update_sequence_routing_path(@routing) do %>
+<table>
+  <tr>
+   
+    <th>Process</th>
+    <th>Reject Process</th>
+    <th>Machine</th>
+    <th>Sequence</th>
+    
+    <th>Action</th>
+  </tr>
+  <% for routing_procedure in @procedures %>
+<tr class="<%= cycle("list0", "list1") %>">
+   
+    <td><%=h routing_procedure.routing_process.name %></td>
+    <td align="center"><%= link_to "Edit", add_process_routing_path(@routing, :procedure_id => routing_procedure.id) %></td>
+    <td align="center"><%= link_to "Edit", add_machine_routing_path(@routing, :procedure_id => routing_procedure.id) %></td>
+    <td align="center"><%= text_field_tag "procedure["+routing_procedure.id.to_s+"][position]", routing_procedure.position, :size => 5 %></td>
+   
+    <td align="center">	<%= link_to 'Remove', remove_procedure_routing_path(@routing, :procedure_id => routing_procedure.id), {:confirm => "Remove procedure will also remove the attached machine. Are you sure ?"} %>
+    </td>
+    </tr>
+  <% end %>
+  <tr>
+  	<td colspan="3"></td>
+	<td align="center">
+		<% unless @procedures.size.zero? %>
+		<%= submit_tag "Update" %>
+		<% end %>
+		</td>
+  </tr>
+</table>
+
+<% end %>
+
+
+<br />
+<hr/>
+<br />
+
+
+<% form_tag(attach_procedure_routing_path(@routing)) do %>
+ <table>
+ 	<tr>
+ 		<th colspan="5" style="color:yellow" align="center">Choose Process to add</th>
+ 	</tr>
+	<tr>
+		<th></th>
+		<th>Process Name</th>
+		<th>Description</th>
+	</tr>
+	<% for e in @routing_processes %>
+	<tr onmouseover="this.className='yellowThing';" onmouseout="this.className='whiteThing';">
+		<td align="center"><%= check_box_tag "routing_process["+e.id.to_s+"][selected]", e.id  %></td>
+		<td><%= e.name %></td>
+		<td><%= e.description %></td>
+	</tr>
+	<% end %>
+	
+ </table>
+
+ <br />
+ 
+ 
+ <%= submit_tag "Attach Process to Routing" %>
+ <% end %>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  working_state_id: 1
+  procedure_transaction_id: 1
+  box_label_id: 1
+
+two:
+  working_state_id: 1
+  procedure_transaction_id: 1
+  box_label_id: 1

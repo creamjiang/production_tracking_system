@@ -1,0 +1,44 @@
+<h1>Editing account_statement</h1>
+
+<% form_for(@account_statement) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :routing_id %><br />
+    <%= f.text_field :routing_id %>
+  </p>
+  <p>
+    <%= f.label :routing_process_id %><br />
+    <%= f.text_field :routing_process_id %>
+  </p>
+  <p>
+    <%= f.label :routing_procedure_id %><br />
+    <%= f.text_field :routing_procedure_id %>
+  </p>
+  <p>
+    <%= f.label :product_id %><br />
+    <%= f.text_field :product_id %>
+  </p>
+  <p>
+    <%= f.label :generic_name %><br />
+    <%= f.text_field :generic_name %>
+  </p>
+  <p>
+    <%= f.label :opening_balance %><br />
+    <%= f.text_field :opening_balance %>
+  </p>
+  <p>
+    <%= f.label :quantity_in %><br />
+    <%= f.text_field :quantity_in %>
+  </p>
+  <p>
+    <%= f.label :quantity_out %><br />
+    <%= f.text_field :quantity_out %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @account_statement %> |
+<%= link_to 'Back', account_statements_path %>

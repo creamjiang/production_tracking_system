@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  product_id: 1
+  bin_id: 1
+  routing_procedure_id: 1
+  employee_id: 1
+  good_unit: 1
+  reject_unit: 1
+
+two:
+  product_id: 1
+  bin_id: 1
+  routing_procedure_id: 1
+  employee_id: 1
+  good_unit: 1
+  reject_unit: 1

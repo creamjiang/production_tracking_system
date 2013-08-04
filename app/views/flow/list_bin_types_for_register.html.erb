@@ -1,0 +1,80 @@
+<% content_for :head do %>
+<style type="text/css">
+	.button {font-family:verdana, tahoma, sans-serif;font-size: 1em;width:80%;height:80px;line-height:20px;}
+    body {
+	background-color: #E0ECF8;
+}
+</style>
+<% end %>
+
+<div align="center" style="clear">
+	<table width="100%" align="center" style="background-color:LightBlue;border-color:white">
+		<tr>
+			<td align="center">
+				<b>Machine : </b>
+	            <%= @machine.machine_number %> <br />
+	             <b>Asset No : </b>
+	             <%= @machine.asset_number %> <br /> 
+				
+			</td>
+			
+			<td align="center">
+				<table width="100%">
+					<tr>
+						<td>
+							<b>Part No </b> - <%= @product.part_number %> <br />
+			                <b>Part Name</b> - <%= @product.part_name %> <br />
+					    </td>
+						<td>
+							<%=	image_tag @product.avatar.url(:thumb) %>
+						</td>
+					</tr>
+				</table>
+		
+			</td>
+			
+			<td align="center">
+				<b>Processing Date : </b>
+				<%= get_the_actual_date %><br />
+				<b>Current Shift : </b>
+				<%= Shift.find(session[:shift_id]).name rescue "<font color=Red>" + "No Shift Attached" + "</font>" %>
+				<br />
+			</td>
+		</tr>
+	</table>
+
+</div>
+<br />
+
+<% if @bin_types.nil? or @bin_types.size.zero? %>
+   
+   <h2 align="center" style="color:red">
+   	There is no available bin types <br />
+	Plese contact your supervisor
+   </h2>
+
+<% else %>
+
+<div>
+	<h2 align="center" style="color:Blue">
+   	Please select a bin type first
+   </h2>
+   
+	<table width="100%">
+		<% @bin_types.in_groups_of(5, false) do |bts| %>
+		<tr>
+			<% for bin_type in bts %>
+			    <td align="center">
+			    	<%= button_to bin_type.name, {:action => 'select_bin', :id => bin_type}, :class => 'button' %>
+			    </td>
+			<% end %>
+		  </tr>
+		<% end %>
+		
+	</table>
+	
+	<br />
+
+</div>
+
+<% end %>

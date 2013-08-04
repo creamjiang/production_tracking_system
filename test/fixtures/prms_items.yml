@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  export_start_time: 2010-06-09 17:46:17
+  export_end_time: 2010-06-09 17:46:17
+  description: MyText
+
+two:
+  export_start_time: 2010-06-09 17:46:17
+  export_end_time: 2010-06-09 17:46:17
+  description: MyText

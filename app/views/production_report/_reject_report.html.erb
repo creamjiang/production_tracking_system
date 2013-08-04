@@ -1,0 +1,21 @@
+
+<% title "Production Reject Report by general" %>
+<br /><br />
+<table>
+	<tr>
+		<th>Date</th>
+		<th>Machine</th>
+		<th>Employee</th>
+		<th>Reject Code</th>
+		
+	</tr>
+	<% for t in @transactions %>
+	<tr>
+		<td align="center"><%= t.created_at.strftime("%d-%m-%Y %H:%M") %></td>
+		<td align="center"><%= t.machine.machine_number %></td>
+		<td align="center"><%= t.employee.employee_number %></td>
+		<td><%= t.reject_code.description %></td>
+		
+	</tr>
+	<% end %>
+</table>

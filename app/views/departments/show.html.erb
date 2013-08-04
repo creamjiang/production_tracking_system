@@ -1,0 +1,25 @@
+<p>
+  <b>Name:</b>
+  <%=h @department.name %>
+</p>
+
+<p>
+  <b>Alias:</b>
+  <%=h @department.alias %>
+</p>
+
+<p>
+  <b>Level:</b>
+  <%=h @department.position %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @department.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_department_path(@department) %> |
+<%= link_to 'Destroy', @department, :confirm => 'Are you sure?', :method => :delete %> |
+<%= link_to 'View All', departments_path %> |
+<%= link_to 'New department', new_department_path %>

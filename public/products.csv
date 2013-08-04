@@ -1,0 +1,378 @@
+NO,Part Description,Technology,Part Type,Supplier,Part Number,Processed Parts,PRMS Description,PRMS Description 1,ALPHA,ITTYP,S1,S2,Processed Part Description
+1,H / L IJOO,Duraplast,Reflector,,1305321317,1305321319/710,REFLECTOR-RAW                 ,                              ,1J00      ,P,          ,          ,REFLECTOR-METALLIZED LH       
+2,H / L IJOO,Duraplast,Reflector,,1305321318,1305321320/710,REFLECTOR RAW                 ,                              ,1J00      ,M,          ,          ,REFLECTOR-METALLIZED RH       
+3,H / L IJOO,Duraplast,Reflector,,1305321321,1305321323/710,REFLECTOR                     ,                              ,1J00      ,P,          ,          ,REFLECTOR-METALLIZED LH       
+4,H / L IJOO,Duraplast,Reflector,,1305321322,1305321324/710,REFLECTOR                     ,                              ,1J00      ,P,          ,          ,REFLECTOR-METALLIZED RH       
+5,H / L J 25S 626,Duraplast,Reflector,,1305321785,1305321787/710,REFLECTOR LH                  ,                              ,M626      ,P,          ,          ,REFLECTOR-METALLIZED LH       
+6,H / L J 25S 626,Duraplast,Reflector,,1305321786,1305321788/710,REFLECTOR RH                  ,                              ,M626      ,P,          ,          ,REFLECTOR-METALLIZED RH       
+7,H / L J 25S 626,Duraplast,Reflector,,1305321789,1305321791/710,REFLECTOR LH                  ,                              ,M626      ,P,          ,          ,REFLECTOR-METALLIZED LH       
+8,H / L J 25S 626,Duraplast,Reflector,,1305321790,1305321792/710,REFLECTOR RH                  ,                              ,M626      ,P,          ,          ,REFLECTOR-METALLIZED RH       
+9,H / L MAZDA A,Duraplast,Reflector,,1305321728,1305321730/710,RAW REFLECTOR                 ,                              ,M323      ,P,          ,          ,REFLECTOR-METALLIZED LH       
+10,H / L MAZDA A,Duraplast,Reflector,,1305321729,1305321731/710,RAW REFLECTOR                 ,                              ,M323      ,P,          ,          ,REFLECTOR-METALLIZED RH       
+11,H / L MAZDA A,Duraplast,Reflector,,1305321732,1305321734/710,RAW REFLECTOR                 ,                              ,M323      ,M,          ,          ,REFLECTOR-METALLIZED LH       
+12,H / L MAZDA A,Duraplast,Reflector,,1305321733,1305321735/710,RAW REFLECTOR                 ,                              ,M323      ,M,          ,          ,REFLECTOR-METALLIZED RH       
+13,H / L MAZDA C,Duraplast,Reflector,,1305321709,1305321711/710,RAW REFLECTOR                 ,                              ,M323      ,M,          ,          ,REFLECTOR-METALLIZED LH       
+14,H / L MAZDA C,Duraplast,Reflector,,1305321710,1305321712/710,RAW REFLECTOR                 ,                              ,M323      ,M,          ,          ,REFLECTOR-METALLIZED RH       
+15,H / L J39 A,Duraplast,Reflector,,1305322082,1305322086/710,RAW REFLECTOR                 ,                              ,J39A H/L  ,M,          ,          ,REFLECTOR-METALLIZED LH       
+16,H / L J39 A,Duraplast,Reflector,,1305322083,1305322087/710,RAW REFLECTOR                 ,                              ,J39A H/L  ,M,          ,          ,REFLECTOR-METALLIZED RH       
+17,H / L J39 A,Duraplast,Reflector,,1305322084,1305322088/710,RAW REFLECTOR                 ,                              ,J39A H/L  ,P,          ,          ,REFLECTOR-METALLIZED LH       
+18,H / L J39 A,Duraplast,Reflector,,1305322085,1305322089/710,RAW REFLECTOR                 ,                              ,J39A H/L  ,P,          ,          ,REFLECTOR-METALLIZED RH       
+19,FOGLAMP,Duraplast,Reflector,,F014000890,F014000890/710,RAW REFLECTOR LH              ,                              ,J39A F/L  ,P,          ,          ,REFLECTOR-METALLIZED LH       
+20,FOGLAMP,Duraplast,Reflector,,F014000891,F014000891/710,RAW REFLECTOR LH              ,                              ,J39A F/L  ,P,          ,          ,REFLECTOR-METALLIZED RH       
+21,H / L GX,Duraplast,Reflector,,F014000767,F014001691/710,RAW REFLECTOR RH              ,GAMMA SENSITIVE               ,GX HL     ,M,          ,          ,GX H/L METALISED REFLECTOR    
+22,H / L MILLINIUM,Duraplast,Reflector,,F014001854,F014001714/710,BLACK REFLECTOR LH MILLINIUM  ,                              ,1J00      ,P,          ,          ,METALISED BLACK REFLECTOR LH  
+23,H / L MILLINIUM,Duraplast,Reflector,,F014001855,F014001715/710,BLACK REFLECTOR RH MILLINIUM  ,                              ,1J00      ,P,          ,          ,METALISED BLACK REFLECTOR RH  
+24,SUZUKI YB2 H/L ,Duraplast,Reflector,,F014002762,F014002764,RAW REFLECTOR LH              ,                              ,YB2       ,P,          ,          ,REFLECTOR-ALUMINIZED LH       
+25,SUZUKI YB2 H/L ,Duraplast,Reflector,,F014002763,F014002765,RAW REFLECTOR RH              ,                              ,YB2       ,P,          ,          ,"REFLECTOR-ALUMINIZED,RH       "
+26,SRM H/L REFLECTOR,Duraplast,Reflector,,F014004084,F014004084/710,REFLECTOR LH                  ,                              ,SRM       ,B,          ,          ,REFLECTOR LH METALISED        
+27,SRM H/L REFLECTOR,Duraplast,Reflector,,F014004085,F014004085/710,REFLECTOR RH                  ,                              ,OTHER     ,M,          ,          ,REFLECTOR RH MATELISED        
+28,YB2 H/L (BLUE REF),Duraplast,Reflector,,F014003524,F014003457,REFLECTOR ALUMINIZED LH       ,W/O TOP COATING               ,YB2       ,M,          ,          ,REFLECTOR (LH)BLUE VERSION    
+29,YB2 H/L (BLUE REF),Duraplast,Reflector,,F014003525,F014003458,REFLECTOR ALUMINIZED RH       ,W/O TOP COATING               ,YB2       ,M,          ,          ,REFLECTOR (RH)BLUE VERSION    
+30,YPO FOG LAMP ,Duraplast,Reflector,,F014003954,F014003956,REFLECTOR(RAW) LH             ,                              ,YPO       ,P,          ,          ,REFLECTOR ALUMINISED LH       
+31,YPO FOG LAMP ,Duraplast,Reflector,,F014003955,F014003957,REFLECTOR(RAW) RH             ,                              ,YPO       ,P,          ,          ,REFLECTOR ALUMINISED RH       
+32,WRM H/L REFLECTOR,Duraplast,Reflector,,F014003768,F014003768/710,REFLECTOR RAW RHD(LH/RH)      ,                              ,WRM HL    ,P,          ,          ,REFLECTOR MET'L RHD(LH/RH)    
+33,WRM H/L REFLECTOR (UK),Duraplast,Reflector,,F014003769,F014003769/710,REFLECTOR RAW LHD (LH/RH)     ,                              ,WRM HL    ,M,          ,          ,REFLECTOR MET'L LHD(LH/RH)    
+34,EK - WAGON H/L REF,Duraplast,Reflector,,F014004421,F014004421/710,REFLECTOR RAW LH              ,                              ,EK WAGON  ,P,          ,          ,REFLECTOR METALISED LH        
+35,EK - WAGON H/L REF,Duraplast,Reflector,,F014004422,F014004422/710,REFLECTOR RAW RH              ,                              ,EK WAGON  ,P,          ,          ,REFLECTOR METALISED RH        
+36,SUZUKI YH7 F/LAMP,Duraplast,Reflector,,F014005003,F014005005,REFLECTOR LH RAW              ,                              ,YH7FL     ,P,          ,          ,REFLECTOR LH METALISED        
+37,SUZUKI YH7 F/LAMP,Duraplast,Reflector,,F014005004,F014005006,REFLECTOR RH RAW              ,                              ,YH7FL     ,P,          ,          ,REFLECTOR RH METALISED        
+38,YH7 H/LAMP PASSENGER,Duraplast,Reflector,,F014004962,F014004964,REFLECTOR (PV) LH RAW         ,                              ,YH7 HAL   ,P,          ,          ,REFLECTOR (PV) LH METALISED   
+39,YH7 H/LAMP PASSENGER,Duraplast,Reflector,,F014004963,F014004965,REFLECTOR (PV) RH RAW         ,                              ,YH7 HAL   ,P,          ,          ,REFLECTOR (PV) RH METALISED   
+40,YH7 H/LAMP COMMERCIAL,Duraplast,Reflector,,F014004958,F014004960,REFLECTOR (CV) LH RAW         ,                              ,YH7 HAL   ,P,          ,          ,REFLECTOR (CV) LH METALISED   
+41,YH7 H/LAMP COMMERCIAL,Duraplast,Reflector,,F014004959,F014004961,REFLECTOR (CV) RH RAW         ,                              ,YH7 HAL   ,P,          ,          ,REFLECTOR (CV) RH METALISED   
+42,TRM H/L REFLECTOR(RHD),Duraplast,Reflector,,F014005765,F014005769,TRM HL REFLECTOR LH RHD       ,                              ,TRM HL    ,P,          ,          ,TRM HL REF METALISED RHD LH   
+43,TRM H/L REFLECTOR(RHD),Duraplast,Reflector,,F014005766,F014005770,TRM HL REFLECTOR RH RHD       ,                              ,TRM HL    ,P,          ,          ,TRM HL REF METALISED RHD RH   
+44,TRM REFLECTOR(LHD),Duraplast,Reflector,,F014005767,F014005771,TRM HL REFLECTOR LH LHD       ,                              ,TRM HL    ,B,          ,          ,TRM HL REF METALISED LHD LH   
+45,TRM REFLECTOR(LHD),Duraplast,Reflector,,F014005768,F014005772,TRM HL REFLECTOR RH LHD       ,                              ,TRM HL    ,B,          ,          ,TRM HL REF METALISED LHD RH   
+46,YB2 FACE LIFT REFLECTOR,Duraplast,Reflector,,F014005275,F014005277,REFLECTOR RAW LH              ,                              ,YB2 (FACE),B,          ,          ,REFLECTOR METALISED LH        
+47,YB2 FACE LIFT REFLECTOR,Duraplast,Reflector,,F014005276,F014005278,REFLECTOR RAW RH              ,                              ,YB2 (FACE),B,          ,          ,REFLECTOR METALISED RH        
+48,H / L MILLINIUM,Duraplast,Reflector,,F014001854,F014002845,BLACK REFLECTOR LH MILLINIUM  ,                              ,1J00      ,P,          ,          ,METALISED BLACK REFLECTOR LH  
+49,H / L MILLINIUM,Duraplast,Reflector,,F014001855,F014002846,BLACK REFLECTOR RH MILLINIUM  ,                              ,1J00      ,P,          ,          ,METALISED BLACK REFLECTOR RH  
+50,PERODUA D18D H/L REF,Duraplast,Reflector,,F014006364,F014006366,H4 REFLECTOR RAW LH           ,                              ,D18DHL    ,P,          ,          ,H4 REFLECTOR METALISE LH      
+51,PERODUA D18D H/L REF,Duraplast,Reflector,,F014006365,F014006367,H4 REFLECTOR RAW RH           ,                              ,D18DHL    ,P,          ,          ,H4 REFLECTOR METALISE RH      
+52,GMT H/L REF,Duraplast,Reflector,,F014006319,F014006321,REFLECTOR LH RAW              ,                              ,GMT HL    ,P,          ,          ,REFLECTOR LH METALISED        
+53,GMT H/L REF,Duraplast,Reflector,,F014006320,F014006322,REFLECTOR RH RAW              ,                              ,GMT HL    ,P,          ,          ,REFLECTOR RH METALISED        
+54,YK1 H/L REFLECTOR,Duraplast,Reflector,,F014006454,F014006456,REFLECTOR L(RAW)              ,                              ,YK1 HL    ,P,          ,          ,REFLECTOR METALISED           
+55,YK1 H/L REFLECTOR,Duraplast,Reflector,,F014006455,F014006457,REFLECTOR R(RAW)              ,                              ,YK1 HL    ,P,          ,          ,REFLECTOR METALISED           
+56,YH7 HID REF,Duraplast,Reflector,,F014006721,F014006723,REFLECTOR RAW(LH)             ,                              ,YH7 HID   ,P,          ,          ,REFLECTOR METALISED(LH)       
+57,YH7 HID REF,Duraplast,Reflector,,F014006722,F014006724,REFLECTOR RAW(RH)             ,                              ,YH7 HID   ,P,          ,          ,REFLECTOR METALISED(RH)       
+58,CHERRY REF,Duraplast,Reflector,,F014006056,F014006161/CHI,REFLECTOR LH(raw)             ,                              ,S12 H/L   ,P,          ,          ,REFLECTOR METALISED LH        
+59,CHERRY REF,Duraplast,Reflector,,F014006057,F014006162/CHI,REFLECTOR RH(raw)             ,                              ,S12 H/L   ,P,          ,          ,REFLECTOR METALISED RH        
+60,YH7 BLUE REF (PV),Duraplast,Reflector,,,F014007111,         ** not found in PRMS **,,,,,,REFLECTOR BLUE PAINT LH       
+61,YH7 BLUE REF (PV),Duraplast,Reflector,,,F014007112,         ** not found in PRMS **,,,,,,REFLECTOR BLUE PAINT RH       
+62,YH7 F/LAMP (BLUE),Duraplast,Reflector,,,F014006931,         ** not found in PRMS **,,,,,,REFLECTOR BLUE PAINT LH       
+63,YH7 F/LAMP (BLUE),Duraplast,Reflector,,,F014006932,         ** not found in PRMS **,,,,,,REFLECTOR BLUE PAINT RH       
+64,BLM REF,Duraplast,Reflector,,F014007137,F014007139,P2-110 REFLECTOR LH RHD RAW   ,                              ,BLM HL    ,P,          ,          ,P2-110 REF METALISED RHD LH   
+65,BLM REF,Duraplast,Reflector,,F014007138,F014007140,P2-110 REFLECTOR RH RHD RAW   ,                              ,BLM HL    ,P,          ,          ,P2-110 REF METALISED RHD RH   
+66,YB7 HALOGEN ,Duraplast,Reflector,,F014007595,F014007597,REFLECTOR RAW LH              ,                              ,YB7 HAL   ,P,          ,          ,REFLECTOR METALISED LH        
+67,YB7 HALOGEN ,Duraplast,Reflector,,F014007596,F014007598,REFLETOR RAW RH               ,                              ,YH7HAL HL ,P,          ,          ,REFLECTOR METALISED RH        
+68,YB7 HID ,Duraplast,Reflector,,F014007599,F014007601,REFLECTOR RAW LH              ,                              ,          ,P,          ,          ,REFLECTOR METALISED LH        
+69,YB7 HID,Duraplast,Reflector,,F014007600,F014007602,REFLECTOR RAW RH              ,                              ,          ,P,          ,          ,REFLECTOR METALISED RH        
+70,HONDA FOG LAMP,Duraplast,Reflector,,F014007651,F014007653,REFLECTOR-RAW LH              ,                              ,HONDA 2SA ,P,          ,          ,REFLECTOR-METALISED LH        
+71,HONDA FOG LAMP,Duraplast,Reflector,,F014007652,F014007654,REFLECTOR-RAW RH              ,                              ,HONDA 2SA ,P,          ,          ,REFLECTOR-METALISED RH        
+72,T 33 REFLECTOR,Duraplast,Reflector,,4566072200,4566072230/CHI,REFLECTOR (RAW)RH             ,                              ,PEUGEOT T3,P,          ,          ,REFLECTOR (MATELIZED)RH       
+73,T 33 REFLECTOR,Duraplast,Reflector,,4567072200,4567072230/CHI,REFLECTOR (RAW)LH             ,                              ,PEUGOET T3,P,          ,          ,REFLECTOR (MATELIZED)LH       
+74,PROTON MPV,Duraplast,Reflector,,F014008075,F014008077,REFLECTOR RAW LH (LHT)        ,                              ,MPV HL    ,P,          ,REF RAW   ,P620A REF METALISED LH (LHT)  
+75,PROTON MPV,Duraplast,Reflector,,F014008076,F014008078,REFLECTOR RAW RH (LHT)        ,                              ,MPV HL    ,P,          ,REF RAW   ,P620A REF METALISED RH (LHT)  
+76,REF S18 CHERRY,Duraplast,Reflector,,F114000062,F114000060/CHI,REFLECTOR (RAW)LH             ,from ALCN                     ,CHERRY S18,P,          ,          ,S18 REFLECTOR METALIZED LH    
+77,REF S18 CHEERY,Duraplast,Reflector,,F114000063,F114000061/CHI,REFLECTOR (RAW)RH             ,from ALCN                     ,CHERRY S18,P,          ,          ,S18 REFLECTOR METALIZED RH    
+78,D46T HIGH BEAM,Duraplast,Reflector,,F014008256,F014008258,HI BEAM REFLECTOR RAW LH      ,                              ,D46T HL   ,P,          ,REF RAW   ,HI BEAM REFL MET (LH)         
+79,D46T HIGH BEAM,Duraplast,Reflector,,F014008257,F014008259,HI BEAM REFLECTOR RAW RH      ,                              ,D46T HL   ,P,          ,REF RAW   ,HI BEAM REFL MET (RH)         
+80,REFLECTOR,Duraplast,Reflector,,F014007906,F014007908,REFLECTOR RHD LH RAW          ,                              ,B299      ,P,          ,          ,REFLECTOR RHD LH METALISED    
+81,REFLECTOR,Duraplast,Reflector,,F014007907,F014007909,REFLECTOR RHD RH RAW          ,                              ,B299      ,P,          ,          ,REFLECTOR RHD RH METALISED    
+82,YW1 HIGH BEAM,Duraplast,Reflector,,F014007737,F014007739,REFLECTOR H/BEAM RAW LH       ,                              ,YW1       ,P,          ,          ,REFLECTOR H/BEAM METAL LH     
+83,YW1 HIGH BEAM,Duraplast,Reflector,,F014007738,F014007740,REFLECTOR H/BEAM RAW RH       ,                              ,YW1       ,P,          ,          ,REFLECTOR H/BEAM METAL RH     
+84,YW1 F/T/S,Duraplast,Reflector,,F014007749,F014007751,REFLECTOR RAW LH (FTS)        ,                              ,YW1       ,P,          ,          ,REFLECTOR METALISED(FTS)      
+85,YW1 F/T/S,Duraplast,Reflector,,F014007750,F014007752,REFLECTOR RAW RH(FTS)         ,                              ,YW1       ,P,          ,          ,REFLECTOR METALISED(FTS)      
+86,  L38,Duraplast,Reflector,,1305323193,1305323195/CHI,REFLECTOR RAW LH              ,                              ,L38 ALCN  ,P,          ,          ,REFLECTOR METALISED LH        
+87, L38,Duraplast,Reflector,,1305323194,1305323196/CHI,REFLECTOR RAW RH              ,                              ,L38 ALCN  ,P,          ,          ,REFLECTOR METALISED RH        
+1,YB2 LENS HARD COATED,ThermoPlastic,Lens,,F014002760,F014003336,LENS                          ,GAMMA SENSITIVE               ,YB2       ,M,          ,LENS      ,LENS HARDCOATED               
+2,YB2 LENS HARD COATED,ThermoPlastic,Lens,,F014002761,F014003337,LENS                          ,GAMMA SENSITIVE               ,YB2       ,M,          ,LENS      ,LENS HARDCOATED               
+3,WRM LEN HARD COATED,ThermoPlastic,Lens,,F014003544,F014004333,OUTER LENS LH                 ,                              ,WRM HL    ,M,PAYU      ,LENS      ,OUTER LENS LH HARDCOAT        
+4,WRM LEN HARD COATED,ThermoPlastic,Lens,,F014003545,F014004334,OUTER LENS RH                 ,                              ,WRM HL    ,M,PAYU      ,LENS      ,OUTER LENS RH HARDCOAT        
+5,EK - WAGON LENS,ThermoPlastic,Lens,,F014004415,F014004413,OUTER LENS RAW LH             ,                              ,EK WAGON  ,B,          ,          ,OUTER LENS COATED LH          
+6,EK - WAGON LENS,ThermoPlastic,Lens,,F014004416,F014004414,OUTER LENS RAW RH             ,                              ,EK WAGON  ,B,          ,          ,OUTER LENS COATED RH          
+7,SRM LENS,ThermoPlastic,Lens,,F014004082,F014004871,LENS LH                       ,                              ,SRM HL    ,M,          ,MF01      ,OUTER LENS LH HARDCOAT        
+8,SRM LENS,ThermoPlastic,Lens,,F014004083,F014004872,LENS RH                       ,                              ,SRM HL    ,M,          ,MF01      ,OUTER LENS RH HARDCOAT        
+9,J56 LENS,ThermoPlastic,Lens,,F014005867,F014002482/710,LENS - OUTER ECE(RAW)LH       ,                              ,J56       ,M,          ,LENS RAW  ,LENS(OUTER-ECE-LH)            
+10,J56 LENS,ThermoPlastic,Lens,,F014005868,F014002483/710,LENS - OUTER ECE(RAW)RH       ,                              ,J56       ,M,          ,LENS RAW  ,LENS(OUTER-ECE-RH)            
+11,J56 LENS,ThermoPlastic,Lens,,F014005869,F014002484/710,LENS - OUTER SAE (RAW)LH      ,                              ,J56       ,M,          ,LENS RAW  ,LENS(OUTER-USA LH)            
+12,J56 LENS,ThermoPlastic,Lens,,F014005870,F014002485/710,LENS - OUTER SAE (RAW)RH      ,                              ,J56       ,M,          ,LENS RAW  ,LENS(OUTER-USA RH)            
+13,SUZUKI F/L YH7 LENS,ThermoPlastic,Lens,,F014004995,F014004997,LENS LH RAW                   ,                              ,YH7FL     ,B,          ,          ,LENS LH HARDCOATED            
+14,SUZUKI F/L YH7 LENS,ThermoPlastic,Lens,,F014004996,F014004998,LENS RH RAW                   ,                              ,YH7FL     ,B,          ,          ,LENS RH HARDCOATED            
+15,YH7 LENS (CV),ThermoPlastic,Lens,,F014004954,F014004956,LENS (CV) LH RAW              ,                              ,YH7 HAL   ,B,          ,          ,LENS (CV) LH HARDCOATED       
+16,YH7 LENS (CV),ThermoPlastic,Lens,,F014004955,F014004957,LENS (CV) RH RAW              ,                              ,YH7 HAL   ,B,          ,          ,LENS (CV) RH HARDCOATED       
+17,YH7 LENS (PV),ThermoPlastic,Lens,,F014004966,F014004968,LENS (PV) LH RAW              ,                              ,YH7 HAL   ,B,          ,          ,LENS (PV) LH HARDCOATED       
+18,YH7 LENS (PV),ThermoPlastic,Lens,,F014004967,F014004969,LENS (PV) RH RAW              ,                              ,YH7 HAL   ,B,          ,          ,LENS (PV) RH HARDCOATED       
+19,YB2 FACE LIFT LENS,ThermoPlastic,Lens,,F014005271,F014005273,OUTER LENS LH                 ,                              ,YB2 (FACE),B,          ,          ,OUTER LENS COATED LH          
+20,YB2 FACE LIFT LENS,ThermoPlastic,Lens,,F014005272,F014005274,OUTER LENS RH                 ,                              ,YB2 (FACE),B,          ,          ,OUTER LENS COATED RH          
+21,TRM LENS,ThermoPlastic,Lens,,F014005759,F014005761,TRM HL LENS(CLEAR) LH         ,                              ,TRM HL    ,M,          ,          ,TRM HL LENS(HARD COAT) LH     
+22,TRM LENS,ThermoPlastic,Lens,,F014005760,F014005762,TRM HL LENS(CLEAR) RH         ,                              ,TRM HL    ,M,          ,          ,TRM HL LENS(HARD COAT) RH     
+23,ANTI FOG LENS,ThermoPlastic,Lens,,F014002482/710,F014005224,LENS(OUTER-ECE-LH)            ,GAMMA SENSITVE-REDSPOT COATED ,J56       ,M,          ,LENS      ,OUTER LENS-RH(ANTI FOG COATING
+24,ANTI FOG LENS,ThermoPlastic,Lens,,F014002483/710,F014005223,LENS(OUTER-ECE-RH)            ,GAMMA SENSITIVE-REDSPOT COATED,J56       ,M,          ,LENS      ,OUTER LENS-LH(ANTI FOG COATING
+25,ANTI FOG LENS (ECE),ThermoPlastic,Lens,,F014002484/710,F014006185,LENS(OUTER-USA LH)            ,GAMMA SENSITIVE-REDSPOT COATED,J56       ,M,          ,LENS      ,OUTER LENS-LH(ANTI FOG COATING
+26,ANTI FOG LENS (USA),ThermoPlastic,Lens,,F014002485/710,F014006186,LENS(OUTER-USA RH)            ,GAMMA SENSITIVE-REDSPOT COATED,J56       ,M,          ,LENS      ,OUTER LENS-RH(ANTI FOG COATING
+27,PERODUA D18D LENS,ThermoPlastic,Lens,,F014006360,F014006362,OUTER LENS RAW LH             ,                              ,D18D HL   ,M,          ,LENS RAW  ,OUTER LENS COATED LH          
+28,PERODUA D18D LENS,ThermoPlastic,Lens,,F014006361,F014006363,OUTER LENS RAW RH             ,                              ,D18D HL   ,M,          ,LENS RAW  ,OUTER LENS COATED RH          
+29,GMT LENS,ThermoPlastic,Lens,,F014006299,F014006301,LENS LH RAW                   ,                              ,GMT HL    ,M,          ,MF01      ,LENS LH HARDCOATED            
+30,GMT LENS,ThermoPlastic,Lens,,F014006300,F014006302,LENS RH RAW                   ,                              ,GMT HL    ,M,          ,MF01      ,LENS RH HARDCOATED            
+31,YK1 LENS,ThermoPlastic,Lens,,F014006450,F014006452,LENS L(RAW)                   ,                              ,YK1 HL    ,B,          ,          ,LENS COATED                   
+32,YK1 LENS,ThermoPlastic,Lens,,F014006451,F014006453,LENS R(RAW)                   ,                              ,YK1 HL    ,B,          ,          ,LENS COATED                   
+33,MAZDA J39A LENS,ThermoPlastic,Lens,,1305630305,1305630307,LENS LH RAW                   ,GAMMA SENSITIVE               ,M323      ,M,          ,          ,LENS                          
+34,MAZDA J39A LENS,ThermoPlastic,Lens,,1305630306,1305630308,LENS RH RAW                   ,GAMMA SENSITIVE               ,M323      ,M,          ,          ,LENS                          
+35,MAZDA A LENS,ThermoPlastic,Lens,,1305615040,1305615044,LENSE LHD LH (RAW)            ,GAMMA SENSITIVE               ,M323      ,M,          ,          ,LENSE LH                      
+36,MAZDA A LENS,ThermoPlastic,Lens,,1305615041,1305615045,LENSE LHD RH (RAW)            ,GAMMA SENSITIVE               ,M323      ,M,          ,          ,LENSE RH                      
+37,MAZDA A LENS,ThermoPlastic,Lens,,1305615042,1305615046,LENSE RHD LH (RAW)            ,GAMMA SENSITIVE               ,M323      ,M,          ,          ,LENSE LH                      
+38,MAZDA A LENS,ThermoPlastic,Lens,,1305615043,1305615047,LENSE RHD RH (RAW)            ,GAMMA SENSITIVE               ,M323      ,M,          ,          ,LENSE RH                      
+37,YKI HID LENS,ThermoPlastic,Lens,,F014007206,F014007208,OUTER LENS-RAW                ,                              ,YK1 HL    ,P,          ,          ,OUTER LENS COATED LH          
+38,YKI HID LENS,ThermoPlastic,Lens,,F014007207,F014007209,OUTER LENS-RAW RH             ,                              ,YK1 HID   ,B,          ,          ,OUTER LENS COATED RH          
+39,YK1 HID ANTI FOG LENS,ThermoPlastic,Lens,,F014007210,F014007120,OUTER LENS ANTIFOG LH         ,                              ,YK1 HID   ,M,          ,LENS ANTIF,OUTER LENS ASSY LH            
+40,YK1 HID ANTI FOG LENS,ThermoPlastic,Lens,,F014007211,F014007121,OUTER LENS ANTIFOG RH         ,                              ,YK1 HID   ,M,          ,LENS ANTIF,OUTER LENS ASSY RH            
+41,BLM LENS,ThermoPlastic,Lens,,F014007129,F014007131,P2-110 LENS(RAW) LH           ,                              ,BLM HL    ,M,          ,LENS RAW  ,P2-110 LENS(HARD COAT) LH     
+42,BLM LENS,ThermoPlastic,Lens,,F014007130,F014007132,P2-110 LENS(RAW) RH           ,                              ,BLM HL    ,M,          ,LENS RAW  ,P2-110 LENS(HARD COAT) RH     
+43,YH7 HID ANTI FOG LENS,ThermoPlastic,Lens,,F014004968,F014006711,LENS (PV) LH HARDCOATED       ,                              ,YH7 HAL   ,B,          ,CONSIGN   ,OUTER LENS LH(A/FOG COAT)     
+44,YH7 HID ANTI FOG LENS,ThermoPlastic,Lens,,F014004969,F014006712,LENS (PV) RH HARDCOATED       ,                              ,YH7 HAL   ,B,          ,CONSIGN   ,OUTER LENS RH(A/FOG COAT)     
+45,YB7 HAL LENS,ThermoPlastic,Lens,,F014007578,F014007580,OUTER LENS RAW LH             ,                              ,YB7 HID HL,M,          ,          ,OUTER LENS H/COATED           
+46,YB7 HAL LENS,ThermoPlastic,Lens,,F014007579,F014007581,OUTER LENS RAW RH             ,                              ,YB7 HID HL,M,          ,          ,OUTER LENS H/COATED           
+47,YB7 HID ANTI FOG LENS,ThermoPlastic,Lens,,F014007580,F014007582,OUTER LENS H/COATED           ,                              ,YB7 HAL   ,M,          ,          ,OUTER LENS A/FOG LH           
+48,YB7 HID ANTI FOG LENS,ThermoPlastic,Lens,,F014007581,F014007583,OUTER LENS H/COATED           ,                              ,YB7 HAL   ,M,          ,          ,OUTER LENS A/FOG RH           
+49,MPV OUTER LENS,ThermoPlastic,Lens,,F014008069,F014008071,LENS RAW LH                   ,                              ,MPV HL    ,M,          ,LENS RAW  ,P620A LENS-HARD COATED LH     
+50,MPV OUTER LENS,ThermoPlastic,Lens,,F014008070,F014008072,LENS RAW RH                   ,                              ,MPV HL    ,M,          ,LENS RAW  ,P620A LENS-HARD COATED RH     
+51,LEN L38,ThermoPlastic,Lens,,1305630730,1305630732/CHI,LENS RAW LH                   ,                              ,L38 ALCN  ,M,          ,          ,LENS HARDCOATED LH            
+52,LEN L38,ThermoPlastic,Lens,,1305630731,1305630733/CHI,LENS RAW RH                   ,                              ,L38 ALCN  ,M,          ,          ,LENS HARDCOATED RH            
+53,FORD B299 LENS,ThermoPlastic,Lens,,F014007902,F014007904,OUTER LENS LH-RAW             ,                              ,B299      ,M,          ,          ,OUTER LENS LH-COATED          
+54,FORD B299 LENS,ThermoPlastic,Lens,,F014007903,F014007905,OUTER LENS RH-RAW             ,                              ,B299      ,M,          ,          ,OUTER LENS RH-COATED          
+55,D46T PERODUA,ThermoPlastic,Lens,,F014008241,F014008243,LENS RAW LH                   ,                              ,OTHER     ,M,          ,LENS RAW  ,LENS-HARD COATED LH           
+56,D46T PERODUA,ThermoPlastic,Lens,,F014008242,F014008244,LENS RAW RH                   ,                              ,OTHER     ,M,          ,LENS RAW  ,LENS-HARD COATED RH           
+57,LENS B12,ThermoPlastic,Lens,,F114000226,F114000224,LENS RAW LH                   ,                              ,B12 ALCN  ,P,          ,          ,LENS HARDCOATED LH            
+58,LENS B12,ThermoPlastic,Lens,,F114000227,F114000225,LENS RAW RH                   ,                              ,B12 ALCN  ,P,          ,          ,LENS HARDCOATED RH            
+59,LENS T73,ThermoPlastic,Lens,,44710711,F114000768,Lens Raw LH                   ,                              ,T73 ALCN  ,P,          ,          ,Lens Lacquered LH             
+60,LENS T73,ThermoPlastic,Lens,,44700711,F114000769,Lens Raw RH                   ,                              ,T73 ALCN  ,P,          ,          ,Lens Lacquered RH             
+62,YW1 LENS (ECE),ThermoPlastic,Lens,,F014007705,F014007711,LENS RAW LH                   ,                              ,YW1 H/L   ,M,          ,          ,LENS HARDCOATED LH            
+63,YW1 LENS (ECE),ThermoPlastic,Lens,,F014007706,F014007712,LENS RAW RH                   ,                              ,YW1       ,M,          ,          ,LENS HARDCOATED RH            
+64,YW1 LENS (SAE HAL),ThermoPlastic,Lens,,F014007707,F014007713,LENS RAW LH                   ,                              ,YW1       ,M,          ,          ,LENS HARDCOATED LH            
+65,YW1 LENS (SAE HAL),ThermoPlastic,Lens,,F014007708,F014007714,LENS RAW RH                   ,                              ,YW1       ,M,          ,          ,LENS HARCOATED RH             
+66,YW1 LENS (ECE- ANTI FOG),ThermoPlastic,Lens,,F014007711,F014007956,LENS HARDCOATED LH            ,                              ,YW1       ,M,          ,          ,LENS ANTIFOG LH(HID)          
+67,YW1 LENS (ECE- ANTI FOG),ThermoPlastic,Lens,,F014007712,F014007957,LENS HARDCOATED RH            ,                              ,YW1       ,M,          ,          ,LENS ANTIFOG RH(HID)          
+68,YW1 LENS (SAE HID),ThermoPlastic,Lens,,F014007709,F014007715,LENS RAW LH                   ,                              ,YW1       ,M,          ,          ,LENS HARDCOATED LH            
+69,YW1 LENS (SAE HID),ThermoPlastic,Lens,,F014007710,F014007716,LENS RAW RH                   ,                              ,YW1       ,B,          ,          ,LENS HARCOATED RH             
+70,YW1 LENS (SAE HID- ANTI FOG),ThermoPlastic,Lens,,F014007715,F014007958,LENS HARDCOATED LH            ,                              ,YW1       ,M,          ,          ,LENS ANTIFOG LH(HID)          
+71,YW1 LENS (SAE HID- ANTI FOG),ThermoPlastic,Lens,,F014007716,F014007959,LENS HARCOATED RH             ,                              ,YW1       ,M,          ,          ,LENS ANTIFOG RH(HID)          
+72,YW1 HALOGEN LENS,ThermoPlastic,Lens,,F014007709,F014007946,LENS RAW LH                   ,                              ,YW1       ,M,          ,          ,LENS HARDCOATED LH            
+73,YW1 HALOGEN LENS,ThermoPlastic,Lens,,F014007710,F014007947,LENS RAW RH                   ,                              ,YW1       ,B,          ,          ,LENS HARDCOATED RH            
+74,YW1 LENS,ThermoPlastic,Lens,,F014007707,F014007944,LENS RAW LH                   ,                              ,YW1       ,M,          ,          ,LENS HARDCOATED LH            
+75,YW1 LENS,ThermoPlastic,Lens,,F014007708,F014007945,LENS RAW RH                   ,                              ,YW1       ,M,          ,          ,LENS HARDCOATED RH            
+76,YW1 LENS,ThermoPlastic,Lens,,F014007711,F014007948,LENS HARDCOATED LH            ,                              ,YW1       ,M,          ,          ,LENS HARDCOATED LH            
+77,YW1 LENS,ThermoPlastic,Lens,,F014007712,F014007949,LENS HARDCOATED RH            ,                              ,YW1       ,M,          ,          ,LENS HARDCOATED RH            
+78,YW1 SAE LENS,ThermoPlastic,Lens,,F014007713,F014007950,LENS HARDCOATED LH            ,                              ,YW1       ,M,          ,          ,LENS HARDCOATED LH            
+79,YW1SAE LENS,ThermoPlastic,Lens,,F014007714,F014007951,LENS HARCOATED RH             ,                              ,YW1       ,M,          ,          ,LENS HARDCOATED RH            
+80,YW1 SAE LENS,ThermoPlastic,Lens,,F014007715,F014007952,LENS HARDCOATED LH            ,                              ,YW1       ,M,          ,          ,LENS HARDCOATED LH            
+81,YW1SAE LENS,ThermoPlastic,Lens,,F014007716,F014007953,LENS HARCOATED RH             ,                              ,YW1       ,M,          ,          ,LENS HARDCOATED RH            
+82,YW1 HID ANTI FOG,ThermoPlastic,Lens,,F014007944,F014007954,LENS HARDCOATED LH            ,                              ,YW1       ,M,          ,          ,LENS ANTIFOG LH(ECE)          
+83,YW1 ANTI  HID FOG,ThermoPlastic,Lens,,F014007945,F014007955,LENS HARDCOATED RH            ,                              ,YW1       ,M,          ,          ,LENS ANTIFOG RH(ECE)          
+84,YW1 ANTI FOG,ThermoPlastic,Lens,,F014007948,F014007956,LENS HARDCOATED LH            ,                              ,YW1       ,M,          ,          ,LENS ANTIFOG LH(HID)          
+85,YW1 ANTI FOG,ThermoPlastic,Lens,,F014007949,F014007957,LENS HARDCOATED RH            ,                              ,YW1       ,M,          ,          ,LENS ANTIFOG RH(HID)          
+86,YW1 ANTI FOG,ThermoPlastic,Lens,,F014007952,F014007958,LENS HARDCOATED LH            ,                              ,YW1       ,M,          ,          ,LENS ANTIFOG LH(HID)          
+87,YW1 ANTI FOG,ThermoPlastic,Lens,,F014007953,F014007959,LENS HARDCOATED RH            ,                              ,YW1       ,M,          ,          ,LENS ANTIFOG RH(HID)          
+88,L38,ThermoPlastic,Lens,,1305630734,1305630736,LENS RAW LH                   ,                              ,L38 ALCN  ,P,          ,          ,LENS HARDCOATED LH            
+89,L38,ThermoPlastic,Lens,,1305630735,1305630737,LENS RAW RH                   ,                              ,L38 ALCN  ,P,          ,          ,LENS HARDCOATED RH            
+1,MINI PES,ThermoPlastic,Metal Reflector,,1305300109,1305300110/710,REFLECTOR (RAW)               ,                              ,PES       ,B,          ,          ,REFLECTOR (METALIZED IN-HOUSE)
+2,OPEL,ThermoPlastic,Metal Reflector,,1305310014,1305310015/710,REFLECTOR (RAW)               ,GAMMA SENSITIVE               ,PES       ,B,          ,          ,REFLECTOR (COATED)            
+3,PROWLER,ThermoPlastic,Metal Reflector,,1305300162,1305300163/710,REFLECTOR (RAW)               ,                              ,PES       ,B,          ,          ,REFLECTOR (METALIZED IN-HOUSE)
+4,MAZDA SHEILD,ThermoPlastic,Metal Reflector,,1305540244,1305540246/710,LIGHT SHIELD (RAW)            ,ABDECKRAHMEN                  ,PES       ,B,          ,          ,LIGHT SHIELD                  
+5,MAZDA SHEILD,ThermoPlastic,Metal Reflector,,1305540245,1305540247/710,LIGHT SHIELD (RAW)            ,ABDECKRAHMEN                  ,PES       ,B,          ,          ,LIGHT SHIELD                  
+6,BACK UP CC1,ThermoPlastic,Metal Reflector,,1315320159,1315320161/710,RAW REFLECTOR                 ,GAMMA SENSITIVE               ,CC1       ,B,          ,          ,REFLECTOR                     
+7,BACK UP CC1,ThermoPlastic,Metal Reflector,,1315320160,1315320162/710,RAW REFLECTOR                 ,GAMMA SENSITIVE               ,CC1       ,B,          ,          ,REFLECTOR                     
+8,REAR COMBI,ThermoPlastic,Metal Reflector,,1315320131,1315320097/710,REFLECTOR (RAW)               ,GAMMA SENSITIVE               ,CC1       ,B,          ,          ,REFLECTOR                     
+9,REAR COMBI,ThermoPlastic,Metal Reflector,,1315320132,1315320098/710,REFLECTOR (RAW)               ,GAMMA SENSITIVE               ,1J00      ,B,          ,          ,REFLECTOR                     
+10,H / L SAGA,ThermoPlastic,Metal Reflector,,1305363082,1305363084/710,RAW REFLECTOR                 ,RAW REFLECTOR                 ,LM        ,B,          ,          ,REFLECTOR (metalised)         
+11,H / L SAGA,ThermoPlastic,Metal Reflector,,1305363083,1305363085/710,RAW REFLECTOR                 ,RAW REFLECTOR                 ,LM        ,B,          ,          ,REFLECTOR                     
+12,H / L CC3,ThermoPlastic,Metal Reflector,,1305353118,1305353119/710,RAW REFLECTOR                 ,                              ,CC2/3     ,B,          ,          ,REFLECTOR-METALLIZED LH       
+13,H / L CC3,ThermoPlastic,Metal Reflector,,1305353120,1305353121/710,RAW REFLECTOR                 ,                              ,CC2/3     ,B,          ,          ,REFLECTOR-METALLIZED RH       
+14,PES UNIT,ThermoPlastic,Metal Reflector,,F014003706,F014003706/710,REFLECTOR RAW                 ,                              ,GX HL     ,B,          ,          ,REFLECTOR(METALISE)           
+15,SUZUKI,ThermoPlastic,Metal Reflector,,F014001623,F014001856/710,REFLECTOR LH                  ,GAMMA SENSITIVE               ,SUZUKI    ,B,          ,          ,REFLECTOR-METALLIZED LH       
+16,SUZUKI,ThermoPlastic,Metal Reflector,,F014001624,F014001857/710,REFLECTOR RH                  ,GAMMA SENSITIVE               ,SUZUKI    ,B,          ,          ,REFLECTOR-METALLIZED RH       
+17,VIPER,ThermoPlastic,Metal Reflector,,1305300104,1305300105/710,REFLECTOR (RAW)               ,GAMMA SENSITIVE               ,PES       ,B,          ,          ,REFLECTOR (METALIZED IN-HOUSE)
+18,J54L F/LAMP,ThermoPlastic,Metal Reflector,,F014002275,F014002275/710,REFLECTOR (RAW)               ,GAMMA SENSITIVE               ,J54L F/L  ,B,          ,          ,REFLECTOR METALLIZED          
+19,J56 F/LAMP,ThermoPlastic,Metal Reflector,,1305300215,F014002575,FOG LAMP RAW REFLECTOR        ,GAMMA SENSITIVE               ,GX        ,B,          ,          ,MAT. REFLECTOR                
+20,J56 F/LAMP,ThermoPlastic,Metal Reflector,,1305300123,1305300124,REFLECTOR (RAW)               ,GAMMA SENSITIVE               ,GX        ,B,          ,          ,REFLECTOR (METALISED)         
+21, MJ56 LOW BEAM,ThermoPlastic,Metal Reflector,,F014003044,F014003044/710,REFLECTOR                     ,                              ,J56       ,B,          ,          ,REFLECTOR METALISED           
+22,J56 HI BEAM,ThermoPlastic,Metal Reflector,,F014002490,F014004053,REFLECTOR-LH                  ,GAMMA SENSITIVE(METAL PART)   ,J56       ,B,          ,          ,REFLECTOR LH-METALISED(POWDER)
+23,J56 HI BEAM,ThermoPlastic,Metal Reflector,,F014002491,F014004054,REFLECTOR-RH                  ,GAMMA SENSITIVE(METAL PART)   ,J56       ,B,          ,          ,REFLECTOR RH-METALISED(POWDER)
+24,ISUZU F/LAMP,ThermoPlastic,Metal Reflector,,F014004040,F014004040/710,REFLECTOR                     ,                              ,ISUZU 728 ,B,          ,          ,REFLECTOR METALIZE            
+25,PES UNIT,ThermoPlastic,Metal Reflector,,1305300156,1305300157/710,RAW REFLECTOR                 ,GAMMA SENSITIVE               ,M323      ,B,          ,          ,METALISED REFLECTOR           
+26,LIT METAL REFLECTOR,ThermoPlastic,Metal Reflector,,1305300258,1305300260,         ** not found in PRMS **,,,,,,REFLECTOR LIT                 
+27,LIT METAL REFLECTOR,ThermoPlastic,Metal Reflector,,1305300259,1305300261,         ** not found in PRMS **,,,,,,REFLECTOR                     
+28,SRM PES 200,ThermoPlastic,Metal Reflector,,1305310150,1305310149,RAW REFLECTOR                 ,                              ,SRM24     ,B,          ,          ,METALISED REFLECTOR           
+29,SRM PES 200,ThermoPlastic,Metal Reflector,,1305310148,1305310151,RAW REFLECTOR                 ,                              ,SRM24     ,B,          ,          ,METALISED REFLECTOR           
+30,SRM PES 200,ThermoPlastic,Metal Reflector,,1305310270,1305310271,RAW REFLECTOR                 ,NEW RIVET                     ,SRM HL    ,B,          ,          ,METALISED REFLECTOR           
+1,BEZEL J39A,ThermoPlastic,Bezel,D/F,1305540284/001,1305540286/710,BEZEL LACQUERED               ,GAMMA SENSITIVE               ,J39A H/L  ,M,          ,          ,BEZEL ALUMINISED              
+2,BEZEL J39A,ThermoPlastic,Bezel,D/F,1305540285/001,1305540287/710,BEZEL LACQUERED               ,                              ,J39A H/L  ,M,          ,          ,BEZEL ALUMINIZED              
+3,REAR FINISHER,ThermoPlastic,Reflector,PDI,1315106112,1315106116/710,RAW REFLECTOR                 ,GAMMA SENSITIVE               ,M323      ,B,          ,          ,REFLECTOR HOUSING (metalised) 
+4,REAR FINISHER,ThermoPlastic,Reflector,PDI,1315106113,1315106117/710,RAW REFLECTOR                 ,GAMMA SENSITIVE               ,M323      ,B,          ,          ,REFLECTOR HOUSING             
+5,REAR FINISHER,ThermoPlastic,Reflector,PDI,1315106114,1315106118/710,RAW REFLECTOR                 ,GAMMA SENSITIVE               ,M323      ,B,          ,          ,REFLECTOR HOUSING (metalised) 
+6,REAR FINISHER,ThermoPlastic,Reflector,PDI,1315106115,1315106119/710,RAW REFLECTOR                 ,                              ,M323      ,B,          ,          ,REFLECTOR HOUSING (metalised) 
+7,YAMAHA 5BU,ThermoPlastic,Reflector,BANGI,F014000446,F014000446/710,REFLECTOR HOUSING             ,                              ,YAMAHA 5BU,B,          ,          ,REFLECTOR HOUSING WITH COATING
+8,YAMAHA 4UL,ThermoPlastic,Reflector,BANGI,F014000008,F014000008/710,REFLECTOR HOUSING             ,                              ,YAMAHA 4UL,B,          ,          ,REFLECTOR HOUSING WITH COATING
+9,F / T 1JOO ( M ),ThermoPlastic,Housing,SUN,F014001839,F014001712/710,RAW HOUSING MILLINIUM         ,                              ,1J00      ,B,          ,CONSIGN   ,METALISED HOUSING LH          
+10,F / T 1JOO ( M ),ThermoPlastic,Housing,SUN,F014001840,F014001713/710,RAW HOUSING MILLINIUM         ,                              ,1J00      ,B,          ,CONSIGN   ,METALISED HOUSING RH          
+11,CORNERING,ThermoPlastic,Housing,PDI,1315104004,9300001520/710,LAMP HOUSING                  ,                              ,1J00      ,B,          ,          ,HOUSING-METALIZED             
+12,CORNERING,ThermoPlastic,Housing,PDI,1315104005,9300001521/710,LAMP HOUSING                  ,                              ,1J00      ,B,          ,          ,HOUSING-METALIZED             
+13,F / T CC3,ThermoPlastic,Housing,BANGI,1315106027,9300001489/710,LIGHT HOUSING (RAW)           ,                              ,CC2/3     ,B,          ,          ,HOUSING (ALUMINIZED)          
+14,F / T CC3,ThermoPlastic,Housing,BANGI,1315106028,9300001490/710,LIGHT HOUSING (RAW)           ,                              ,CC2/3     ,B,          ,          ,HOUSING (ALUMINIZED)          
+15,F / T 1JOO,ThermoPlastic,Housing,SUN,1315113053,1315113055/710,LAMP HOUSING (RAW)            ,                              ,1J00      ,B,          ,          ,LAMP HOUSING (COATED)         
+16,F / T 1JOO,ThermoPlastic,Housing,SUN,1315113054,1315113056/710,LAMP HOUSING (RAW)            ,                              ,1J00      ,B,          ,          ,REFLECTOR (COATED)            
+17,BEZEL J25S,ThermoPlastic,Bezel,PDI,F014001060,F014001062/710,"RAW BEZEL, LH                 ",GAMMA SENSITIVE               ,J25S H/L  ,B,          ,          ,BEZEL METALLIZED LH           
+18,BEZEL J25S,ThermoPlastic,Bezel,PDI,F014001061,F014001063/710,"RAW BEZEL, RH                 ",GAMMA SENSITIVE               ,J25S H/L  ,B,          ,          ,BEZEL METALLIZED RH           
+19,F / COMBI GX,ThermoPlastic,Bezel,S/DALE,F014001471,F014001689/710,BEZEL LH                      ,GAMMA SENSITIVE               ,GX        ,B,          ,CONSIGN   ,GX F/C METALISED BEZEL LH     
+20,F / COMBI GX,ThermoPlastic,Bezel,S/DALE,F014001472,F014001690/710,BEZEL RH                      ,GAMMA SENSITIVE               ,GX        ,B,          ,CONSIGN   ,GX F/C METALISED BEZEL RH     
+21,HMSL GX,ThermoPlastic,Housing,PROFE,F014000874,F014001674/710,HOUSING                       ,GAMMA SENSITIVE               ,GX        ,B,          ,          ,METALISED HOUSING             
+22,BEZEL H / L GX,ThermoPlastic,Bezel,PDI,F014000771,F014001687/710,BEZEL LH                      ,GAMMA SENSITIVE               ,GX HL     ,B,          ,          ,GX H/L METALISED BEZEL LH     
+23,BEZEL H / L GX,ThermoPlastic,Bezel,PDI,F014000772,F014001688/710,BEZEL RH                      ,GAMMA SENSITIVE               ,GX        ,B,          ,          ,GX H/L METALISED BEZEL RH     
+24,J56 BEZEL ,ThermoPlastic,Bezel,D/F,F014002523,F014002525,BEZEL-LH (RAW)                ,                              ,J56       ,M,          ,BEZEL RAW ,BEZEL-LH(ALUMINISED)          
+25,J56 BEZEL ,ThermoPlastic,Bezel,D/F,F014002524,F014002526,BEZEL-RH (RAW)                ,                              ,J56       ,M,          ,BEZEL RAW ,BEZEL-RH(ALUMINISED)          
+26,J56 BEZEL ,ThermoPlastic,Reflector,CPI,F014002582,F014002495,REFLECTOR(FTS-RAW PART)       ,GAMMA SENSITIVE               ,J56       ,B,          ,          ,REFLECTOR(FTS)                
+27,YB2 FTS,ThermoPlastic,Reflector,PDI,F014002766,F014002768,REFLECTOR(FTS)                ,GAMMA SENSITIVE               ,YB2       ,B,          ,          ,"REFLECTOR(FTS)ALUMINIZED,LH   "
+28,YB2 FTS,ThermoPlastic,Reflector,PDI,F014002767,F014002769,REFLECTOR(FTS)                ,GAMMA SENSITIVE               ,YB2       ,B,          ,          ,"REFLECTOR FTS-ALUMINIZED,RH   "
+29,J56Z FTS,ThermoPlastic,Reflector,CPI,F014002582/001,F014002495/001,REFLECTOR(FTS-RAW PART)       ,GAMMA SENSITIVE               ,J56       ,B,          ,          ,REFLECTOR(FTS)-NEW            
+30,GUN METALLIC J56,ThermoPlastic,Bezel,D/F,F014002523,F014003019,BEZEL-LH (RAW)                ,                              ,J56       ,M,          ,BEZEL RAW ,BEZEL SPORT-LH(METALISED)     
+31,GUN METALLIC J56,ThermoPlastic,Bezel,D/F,F014002524,F014003020,BEZEL-RH (RAW)                ,                              ,J56       ,M,          ,BEZEL RAW ,BEZEL SPORT-RH(METALISED)     
+32,F/T SIGNAL PERODUA,ThermoPlastic,Housing,JUKEN,F014003027,F014002437,HOUSING (ASSY)                ,                              ,FTS       ,B,          ,          ,HOUSING(METALLISED)           
+33,HMSL PERODUA,ThermoPlastic,Housing,JUKEN,F014002752,F014002753/010,Housing D18A-Perodua          ,                              ,D18A      ,B,          ,          ,D18A HOUSING PACKING HMSL     
+34,J56 STAINLESS STEEL,ThermoPlastic,Bezel,D/F,F014002523,F014003527,BEZEL-LH (RAW)                ,                              ,J56       ,M,          ,BEZEL RAW ,BEZEL (LH) STAINLESS STEEL    
+35,J56 STAINLESS STEEL,ThermoPlastic,Bezel,D/F,F014002524,F014003528,BEZEL-RH (RAW)                ,                              ,J56       ,M,          ,BEZEL RAW ,BEZEL (RH) STAINLESS STEEL    
+36,DUMMY FOG LAMP,ThermoPlastic,,CPI,F014003687,F014003929,CAP-LH DUMMY FOGLAMP          ,                              ,J56       ,B,          ,          ,CAP DUMMY (METALISE) LH       
+37,DUMMY FOG LAMP,ThermoPlastic,,CPI,F014003688,F014003930,CAP-RH DUMMY FOGLAMP          ,                              ,J56       ,B,          ,          ,CAP DUMMY (METALISE) RH       
+38,CLEARENCE,ThermoPlastic,Housing,PDI,1305230067,1305230069/710,HOUSING (RAW)                 ,                              ,LM        ,B,          ,          ,HOUSING-METALIZED             
+39,CLEARENCE,ThermoPlastic,Housing,PDI,1305230068,1305230070/710,HOUSING (RAW)                 ,                              ,LM        ,B,          ,          ,HOUSING-METALIZED             
+40,HMSL PERODUA,ThermoPlastic,Housing,JUKEN,F014002752,F014002753/IN1,Housing D18A-Perodua          ,                              ,D18A      ,B,          ,          ,COVER STOP LAMP(INDONESIA)    
+41,HMSL PERODUA,ThermoPlastic,Housing,JUKEN,F014002752,F014002753/IN3,Housing D18A-Perodua          ,                              ,D18A      ,B,          ,          ,COVER STOP LAMP(INDONESIA)    
+42,FTS MILINIUM 44F,ThermoPlastic,,SUNPLS,F014004368,F014004370/710,FTS LH M44 Black out Millinium,                              ,1J00      ,P,          ,          ,M44 Blackout Housing LH       
+43,FTS MILINIUM 44F,ThermoPlastic,,SUNPLS,F014004369,F014004371/710,FTS RH M44 Blackout Millinium ,                              ,1J00      ,P,          ,          ,M44 Blackout Housing RH       
+44,WRM 44 FTS,ThermoPlastic,Reflector,SUNPLS,F014003547,F014003547/710,FTS REFLECTOR                 ,                              ,WRM       ,B,          ,CONSIGN   ,METALISED FTS REFLECTOR       
+45,HOUSING WRM 44 LH,ThermoPlastic,Housing,D/F,F014003764,F014003764/710,HOUSING LH                    ,                              ,WRM       ,B,PAYU      ,          ,HOUSING METALISED-LH W/O LWR  
+46,HOUSING WRM 44 RH,ThermoPlastic,Housing,D/F,F014003765,F014003765/710,HOUSING RH                    ,                              ,WRM       ,B,PAYU      ,          ,HOUSING METALISED-RH W/O LWR  
+47,HOUSING WRM 44 LH (LWR) ,ThermoPlastic,Housing,D/F,F014003766,F014003766/710,HOUSING LH (WITH LWR)         ,                              ,WRM       ,B,PAYU      ,          ,HOUSING METALISED-LH W LWR    
+48,HOUSING WRM 44 RH (LWR),ThermoPlastic,Housing,D/F,F014003767,F014003767/710,HOUSING RH (WITH LWR)         ,                              ,WRM       ,B,PAYU      ,          ,HOUSING METALISED-RH W LWR    
+49,J56 BEZEL TITANIUM,ThermoPlastic,Bezel,D/F,F014002523,F014003599,BEZEL-LH (RAW)                ,                              ,J56       ,M,          ,BEZEL RAW ,BEZEL LH-TITANIUM             
+50,J56 BEZEL TITANIUM,ThermoPlastic,Bezel,D/F,F014002524,F014003600,BEZEL-RH (RAW)                ,                              ,J56       ,M,          ,BEZEL RAW ,BEZEL RH-TITANIUM J56         
+51,SPORT VERSION,ThermoPlastic,Bezel,D/F,F014002523,F014003019,BEZEL-LH (RAW)                ,                              ,J56       ,M,          ,BEZEL RAW ,BEZEL SPORT-LH(METALISED)     
+52,SPORT VERSION,ThermoPlastic,,D/F,F014004524,F014003020,STICKER(BOX)                  ,                              ,WRM       ,B,          ,          ,BEZEL SPORT-RH(METALISED)     
+53,SRM RIM,ThermoPlastic,,PDI,F014004619,F014004619/710,RIM LH(LOW BEAM)              ,                              ,SRM HL    ,B,          ,          ,RIM LH METALISED(LO BEAM)     
+54,SRM RIM,ThermoPlastic,,PDI,F014004620,F014004620/710,RIM RH(LO BEAM)               ,                              ,SRM HL    ,B,          ,          ,RIM RH METALISED(LO BEAM)     
+55,EK - WAGON BEZEL,ThermoPlastic,Bezel,D/F,F014004417,F014004417/710,BEZEL RAW LH                  ,                              ,EK WAGON  ,M,          ,          ,BEZEL METALISED LH            
+56,EK - WAGON BEZEL,ThermoPlastic,Bezel,D/F,F014004418,F014004418/710,BEZEL RAW RH                  ,                              ,EK WAGON  ,M,          ,          ,BEZEL METALISED RH            
+57,SRM FTS,ThermoPlastic,Bezel,CPI,F014004092,F014004092/710,BEZEL FTS LH                  ,                              ,SRM HL    ,B,          ,          ,BEZEL FTS LH METALISED        
+58,SRM FTS,ThermoPlastic,Bezel,CPI,F014004093,F014004093/710,BEZEL FTS RH                  ,                              ,SRM HL    ,B,          ,          ,BEZEL FTS RH METALISED        
+59,SRM REAR COMBI,ThermoPlastic,Housing,CPI,F014004113,F014004113/710,HOUSING ASSY-LH               ,HOUSING + THREADED BOLT       ,SRM24RC   ,B,          ,          ,HOUSING ASSY(METALISED)-LH    
+60,SRM REAR COMBI,ThermoPlastic,Housing,CPI,F014004114,F014004114/710,HOUSING ASSY-RH               ,HOUSING + THREADED BOLT       ,SRM24RC   ,B,          ,          ,HOUSING ASSY(METALISED)-RH    
+61,BEZEL (BLACK MATT),ThermoPlastic,Bezel,D/F,F014004734,F014005234,BEZEL(RAW)-LH                 ,J56S-MINOR CHANGE             ,J56       ,M,          ,BEZEL RAW ,Bezel SS Sputtering-LH        
+62,BEZEL (BLACK MATT),ThermoPlastic,Bezel,D/F,F014004735,F014005235,BEZEL(RAW)-RH                 ,J56S-MINOR CHANGE             ,J56       ,M,          ,BEZEL RAW ,Bezel SS Sputtering-RH        
+63,BEZEL BLACK,ThermoPlastic,Bezel,D/F,F014002523,F014004785,BEZEL-LH (RAW)                ,                              ,J56       ,M,          ,BEZEL RAW ,BEZEL LH(AL+BLACK MAT PAINT)  
+64,BEZEL BLACK,ThermoPlastic,Bezel,D/F,F014002524,F014004786,BEZEL-RH (RAW)                ,                              ,J56       ,M,          ,BEZEL RAW ,BEZEL RH(AL+BLACK MAT PAINT)  
+65,J56 H/L BEZEL TITANIUM,ThermoPlastic,Bezel,D/F,F014004734,F014004767,BEZEL(RAW)-LH                 ,J56S-MINOR CHANGE             ,J56       ,M,          ,BEZEL RAW ,BEZEL(TITANIUM)-LH            
+66,J56 H/L BEZEL TITANIUM,ThermoPlastic,Bezel,D/F,F014004735,F014004768,BEZEL(RAW)-RH                 ,J56S-MINOR CHANGE             ,J56       ,M,          ,BEZEL RAW ,BEZEL(TITANIUM)-RH            
+67,TRM BEZEL,ThermoPlastic,Bezel,LEK SUN,F014006348,F014006350,RAW BEZEL LH(2ND OPTION)      ,                              ,TRM HL    ,M,          ,MF01      ,BEZEL METALISE LH(OUTSOURCE)  
+68,TRM BEZEL,ThermoPlastic,Bezel,LEK SUN,F014006349,F014006351,RAW BEZEL RH(2ND OPTION)      ,                              ,TRM HL    ,M,          ,MF01      ,BEZEL METALISE RH(OUTSOURCE)  
+69,HIGH BEAM RING (S/STEEL),ThermoPlastic,Rim,D/F,F014004718,F014004720,RIM H/BEAM-LH(RAW)            ,                              ,J56       ,B,          ,          ,RIM H/BEAM-LH(SS SPUTTERING)  
+70,HIGH BEAM RING (S/STEEL),ThermoPlastic,Rim,D/F,F014004719,F014004721,RIM H/BEAM-RH(RAW)            ,                              ,J56       ,B,          ,          ,RIM H/BEAM-RH(SS SPUTTERING)  
+71,LOW BEAM RING (S/STEEL),ThermoPlastic,Rim,D/F,F014004730,F014004732,RIM L/BEAM-LH(RAW)            ,                              ,J56       ,B,          ,          ,RIM L/BEAM-LH(SS SPUTTERING)  
+72,LOW BEAM RING (S/STEEL),ThermoPlastic,Rim,D/F,F014004731,F014004733,RIM L/BEAM-RH(RAW)            ,                              ,J56       ,B,          ,          ,RIM L/BEAM-RH(SS SPUTTERING)  
+73,J56 FOG LAMP RING,ThermoPlastic,Rim,D/F,F014004726,F014004728,RIM FOGLAMP-LH(RAW)           ,                              ,J56       ,B,          ,          ,RIM FOGLAMP-LH(SS SPUTTERING) 
+74,J56 FOG LAMP RING,ThermoPlastic,Rim,D/F,F014004727,F014004729,RIM FOGLAMP-RH(RAW)           ,                              ,J56       ,B,          ,          ,RIM FOGLAMP-RH(SS SPUTTERING) 
+75,J56 FRONT TURN SIGNAL,ThermoPlastic,Rim,D/F,F014004722,F014004724,RIM FTS-LH(RAW)               ,                              ,J56       ,B,          ,          ,RIM FTS-LH(SS SPUTTERING)     
+76,J56 FRONT TURN SIGNAL,ThermoPlastic,Rim,D/F,F014004723,F014004725,RIM FTS-RH(RAW)               ,                              ,J56       ,B,          ,          ,RIM FTS-RH(SS SPUTTERING)     
+77,YH7(PV) H/L BEZEL,ThermoPlastic,Bezel,PROF,F014004950,F014004952,BEZEL LH                      ,                              ,YH7 HAL   ,M,          ,MF01      ,BEZEL LH METALISED            
+78,YH7(PV) H/L BEZEL,ThermoPlastic,Bezel,PROF,F014004951,F014004953,BEZEL RH                      ,                              ,YH7 HAL   ,M,          ,          ,BEZEL RH METALISED            
+79,YH7(CV) F/T/S ,ThermoPlastic,Reflector,PDI,F014005916,F014005917,FTS/POS REFLECTOR (CV) LH RAW ,                              ,YH7HL     ,B,          ,          ,FTS/POS REFLECTOR (CV) LH MAT.
+80,YH7(CV) F/T/S ,ThermoPlastic,Reflector,PDI,F014005918,F014005919,FTS/POS REFLECTOR (CV) RH RAW ,                              ,YH7HL     ,B,          ,FTS MET   ,FTS/POS REFLECTOR (CV) RH MAT.
+81,YH7(PV) F/T/S REF,ThermoPlastic,Reflector,PROF,F014005920,F014005921,FTS/POS REFLECTOR (PV) LH RAW ,                              ,YH7HL     ,B,          ,          ,FTS/POS REFLECTOR (PV) LH MAT.
+82,YH7(PV) F/T/S REF,ThermoPlastic,Reflector,PROF,F014005922,F014005923,FTS/POS REFLECTOR (PV) RH RAW ,                              ,YH7HL     ,B,          ,FTS MET   ,FTS/POS REFLECTOR (PV) RH MAT.
+83,TRM H/L BEZEL ,ThermoPlastic,Bezel,D/F,F014005773,F014005775,TRM HL BEZEL RAW LH           ,                              ,TRM HL    ,B,          ,          ,TRM HL BEZEL METALISED LH     
+84,TRM H/L BEZEL ,ThermoPlastic,Bezel,D/F,F014005774,F014005776,TRM HL BEZEL RAW RH           ,                              ,TRM HL    ,B,          ,          ,TRM HL BEZEL METALISED RH     
+85,WRM H/L NEW BEZEL,ThermoPlastic,Bezel,D/F,F014004831,F014004831/710,BEZEL LH                      ,                              ,WRM HL    ,M,PAYU      ,MF01      ,BEZEL LH METALISED            
+86,WRM H/L NEW BEZEL,ThermoPlastic,Bezel,D/F,F014004832,F014004832/710,BEZEL RH                      ,                              ,WRM HL    ,M,PAYU      ,MF01      ,BEZEL RH METALISED            
+87,M/CH DUMMY CAP (S/STEEL),ThermoPlastic,,LKT,F014005097,F014005848,CAP DUMMY-LH(FOGLAMP)         ,raw dummy cap                 ,J56S      ,B,          ,          ,CAP DUMMY-LH(SS SPUTTERING)   
+88,M/CH DUMMY CAP (S/STEEL),ThermoPlastic,,LKT,F014005098,F014005849,CAP DUMMY-RH(FOGLAMP)         ,raw dummy cap                 ,J56S      ,B,          ,          ,CAP DUMMY-RH(SS SPUTTERING)   
+89,YB2 FACE LIFT F/T/S,ThermoPlastic,Reflector,PDI,F014005280,F014005282,REFLECTOR RAW FTS RH          ,                              ,YB2 (FACE),B,          ,          ,REFLECTOR METAL.FTS RH        
+90,YB2 FACE LIFT F/T/S,ThermoPlastic,Reflector,PDI,F014005279,F014005281,REFLECTOR RAW FTS LH          ,                              ,YB2 (FACE),B,          ,          ,REFLECTOR METAL.FTS LH        
+91,TRM REAR COMBI,ThermoPlastic,Housing,PROF,F014005806,F014005806/710,HOUSING ASSY-LH               ,                              ,TRM44     ,B,          ,          ,HOUSING METALISED             
+92,TRM REAR COMBI,ThermoPlastic,Housing,PROF,F014005807,F014005807/710,HOUSING ASSY-RH               ,                              ,TRM44     ,B,          ,          ,HOUSING METALISED             
+93,GX ENHANCEMENT BEZEL (L),ThermoPlastic,Bezel,LEK SUN,F014006113,F014006115,BEZEL LH                      ,                              ,GX HL     ,B,          ,          ,BEZEL LH METALIZED            
+94,GX ENHANCEMENT BEZEL (R),ThermoPlastic,Bezel,LEK SUN,F014006114,F014006116,BEZEL RH                      ,                              ,GX HL     ,B,          ,          ,BEZEL RH METALIZED            
+95,GX ENHANCEMENT R/COMBI (L) W/FOG,ThermoPlastic,Housing,,F014006485,F014006481,HOUSING ASSY W/O FOG LH       ,                              ,GX RC ENH ,B,          ,          ,"RC METALISED HOUSING,LH W/OFOG"
+96,GX ENHANCEMENT R/COMBI (R) W/FOG,ThermoPlastic,Housing,,F014006486,F014006482,HOUSING ASSY W/O FOG RH       ,                              ,GX RC ENH ,B,          ,          ,"RC METALISED HOUSING,RH W/OFOG"
+97,PERODUA BEZEL D18D,ThermoPlastic,Bezel,,F014006388,F014006390,BEZEL RAW LH                  ,                              ,D18D HL   ,M,          ,BEZEL RAW ,BEZEL METALISE LH             
+98,PERODUA BEZEL D18D,ThermoPlastic,Bezel,,F014006389,F014006391,BEZEL RAW RH                  ,                              ,D18D HL   ,M,          ,BEZEL RAW ,BEZEL METALISE RH             
+99,YK1 BEZEL,ThermoPlastic,Bezel,,F014006458,F014006460,BEZEL LH(RAW)                 ,                              ,YK1       ,M,          ,BEZEL RAW ,BEZEL METALISED(L)            
+100,YK1 BEZEL,ThermoPlastic,Bezel,,F014006459,F014006461,BEZEL RH(RAW)                 ,                              ,YK1       ,M,          ,BEZEL RAW ,BEZEL METALISED(R)            
+101,Minor change black matt,ThermoPlastic,Bezel,,F014004734,F014005767,BEZEL(RAW)-LH                 ,J56S-MINOR CHANGE             ,J56       ,M,          ,BEZEL RAW ,TRM HL REFLECTOR LH LHD       
+102,Minor change black matt,ThermoPlastic,Bezel,,F014004735,F014005768,BEZEL(RAW)-RH                 ,J56S-MINOR CHANGE             ,J56       ,M,          ,BEZEL RAW ,TRM HL REFLECTOR RH LHD       
+103,GMT BEZEL,ThermoPlastic,Bezel,,F014006303,F014006305,BEZEL LH RAW                  ,                              ,GMT HL    ,B,          ,          ,BEZEL LH METALISED            
+104,GMT BEZEL,ThermoPlastic,Bezel,,F014006304,F014006306,BEZEL RH RAW                  ,                              ,GMT HL    ,B,          ,          ,BEZEL RH METALISED            
+105,ENCHANCEMENT DUMMY CAP,ThermoPlastic,,LKT,F014006264,F014006266,DUMMY CAP(RAW)                ,                              ,GX FC     ,B,          ,          ,DUMMY CAP(METALISED)          
+106,ENCHANCEMENT DUMMY CAP,ThermoPlastic,,LKT,F014006265,F014006267,DUMMY CAP(RAW)                ,                              ,GX FC     ,B,          ,          ,DUMMY CAP(METALISED)          
+107,PERODUA FTS DI8D,ThermoPlastic,Reflector,,F014006368,F014006370,FTS REFLECTOR RAW LH          ,                              ,D18DHL    ,B,          ,          ,FTS REFLECTOR METALISE LH     
+108,PERODUA FTS DI8D,ThermoPlastic,Reflector,,F014006369,F014006371,FTS REFLECTOR RAW RH          ,                              ,D18DHL    ,B,          ,          ,FTS REFLECTOR METALISE RH     
+109,GX REAR COMBI,ThermoPlastic,Housing,CPI,F014006483,F014006479,R/C HOUSING ASSY LH           ,                              ,GX RC ENH ,B,          ,          ,"RC METALISED HOUSING,LH W/FOG "
+110,GX REAR COMBI,ThermoPlastic,Housing,CPI,F014006484,F014006480,R/C HOUSING ASSY RH           ,                              ,GX RC ENH ,B,          ,          ,"RC METALISED HOUSING,RH W/FOG "
+111,F/T SIGNAL PERODUA,ThermoPlastic,Housing,JUKEN,F014003027,F014006732,HOUSING (ASSY)                ,                              ,FTS       ,B,          ,          ,HOUSING TOPCOAT W METALISED   
+112,GX REAR COMBI (WF),ThermoPlastic,Housing,CPI,F014001555,F014001685/710,HOUSING ASSY W/O FOG LH       ,                              ,GX        ,B,          ,          ,GX R/C M.HOUSING LH W/O FOG   
+113,GX REAR COMBI,ThermoPlastic,Housing,CPI,F014001556,F014001686/710,HOUSING ASSY W/O FOG RH       ,                              ,GX        ,B,          ,          ,GX R/C M.HOUSING RH W/O FOG   
+114,GX REAR COMBI (WOF),ThermoPlastic,Housing,CPI,F014001476,F014001683/710,R/C HOUSING ASSY LH           ,GAMMA SENSITIVE               ,GX        ,B,          ,          ,GX R/C M.HOUSING W/ FOG LH    
+115,GX REAR COMBI (WOF),ThermoPlastic,Housing,CPI,F014001477,F014001684/710,R/C HOUSING ASSY RH           ,GAMMA SENSITIVE               ,GX        ,B,          ,          ,GX R/C M.HOUSING W/ FOG RH    
+116,MZ REAR LAMP,ThermoPlastic,Reflector,,F014004378,F014005025,REFLECTOR HOUSING(ASSY)       ,                              ,REAR LAMP ,B,          ,          ,REFLECTOR HOUSING(METALISED)  
+117,MZ REAR LAMP,ThermoPlastic,Reflector,,F014004340,F014004641,REFLECTOR                     ,                              ,MZ        ,B,          ,          ,REFLECTOR METALISED           
+118,YKI HID BEZEL,ThermoPlastic,Bezel,,F014006956,F014006958,BEZEL LH                      ,                              ,YK1 HL    ,M,          ,          ,BEZEL METALISED LH            
+119,YKI HID BEZEL,ThermoPlastic,Bezel,,F014006957,F014006959,BEZEL RH                      ,                              ,YK1 HID   ,M,          ,          ,BEZEL METALISED RH            
+120,YK1 TUBUS,ThermoPlastic,,,F014006946,F014006948,TUBUS LH                      ,                              ,YK1 HID   ,B,          ,          ,TUBUS METALISED LH            
+121,YK1 TUBUS,ThermoPlastic,,,F014006947,F014006949,TUBUS RH                      ,                              ,YK1 HID   ,B,          ,          ,TUBUS METALISED RH            
+122,YK1 HID F/T/S,ThermoPlastic,Reflector,,F014006952,F014006954,REFLECTOR FTS LH              ,                              ,YK1 HL    ,B,          ,          ,REFLECTOR FTS METAL LH        
+123,YK1 HID F/T/S,ThermoPlastic,Reflector,,F014006953,F014006955,REFLECTOR FTS RH              ,                              ,YK1 HID   ,B,          ,          ,REFLECTOR FTS METAL RH        
+124,YH7 HID F/T/S,ThermoPlastic,Reflector,,F014006725,F014006727,REFLECTOR FTS RAW(LH)         ,                              ,YH7 HID   ,B,          ,          ,REFLECTOR FTS METALISED(LH)   
+125,YH7 HID F/T/S,ThermoPlastic,Reflector,,F014006726,F014006728,REFLECTOR FTS RAW(RH)         ,                              ,YH7 HID   ,B,          ,          ,REFLECTOR FTS METALISED(RH)   
+126,BLM F/T/S,ThermoPlastic,Reflector,,F014007141,F014007143,P2-110 FTS REFL RAW LH        ,                              ,BLM HL    ,B,          ,          ,P2-110 FTS REFL METALISED LH  
+127,BLM F/T/S,ThermoPlastic,Reflector,,F014007142,F014007144,P2-110 FTS REFL RAW RH        ,                              ,BLM HL    ,B,          ,          ,P2-110 FTS REFL METALISE RH   
+128,YB7 HAL F/T/S,ThermoPlastic,Reflector,,F014007603,F014007605,REFLETOR FTS RAW LH           ,                              ,YB7       ,B,          ,          ,REFLECTOR FTS METALISED LH    
+129,YB7 HAL F/T/S,ThermoPlastic,Reflector,,F014007604,F014007606,REFLETOR FTS RAW RH           ,                              ,YB7 HAL   ,B,          ,          ,REFLECTOR FTS METALISED RH    
+130,YB7 BEZEL,ThermoPlastic,Bezel,,F014007588,F014007590,BEZEL RAW LH                  ,                              ,YB7 HID HL,M,          ,          ,BEZEL METALISED LH            
+131,YB7 BEZEL,ThermoPlastic,Bezel,,F014007589,F014007591,BEZEL RAW RH                  ,                              ,YB7 HID HL,M,          ,          ,BEZEL METALISED RH            
+132,YH7 HID BEZEL,ThermoPlastic,Bezel,,F014006717,F014006719,BEZEL LH(RAW)                 ,                              ,YH7 HID   ,M,          ,MF01      ,BEZEL METALIZE(LH)            
+133,YH7 HID BEZEL,ThermoPlastic,Bezel,,F014006718,F014006720,BEZEL RH(RAW)                 ,                              ,YH7 HID   ,M,          ,MF01      ,BEZEL METALIZE(RH)            
+134,BLM REAR COMBI,ThermoPlastic,Housing,SUPPLIER,F014007298,F014007300,HOUSING LH (RAW)              ,                              ,BLM RC    ,B,          ,          ,HOUSING METALISED LH          
+135,BLM REAR COMBI,ThermoPlastic,Housing,SUPPLIER,F014007299,F014007301,HOUSING RH (RAW)              ,                              ,BLM RC    ,B,          ,          ,HOUSING METALISED RH          
+136,BLM HMSL,ThermoPlastic,Reflector,CPI,F014007267,F014007268,REFLECTOR RAW                 ,                              ,BLM HMSL  ,B,          ,          ,REFLECTOR METALISED           
+137,MPV REAR COMBI,ThermoPlastic,Housing,,F014008096,F014008094,HOUSING RAW LH                ,                              ,MPV RC    ,B,          ,RAW       ,P620A HOUSING LH METALISED    
+138,MPV REAR COMBI,ThermoPlastic,Housing,,F014008097,F014008095,HOUSING RAW RH                ,                              ,MPV RC    ,B,          ,RAW       ,P620A HOUSING RH METALISED    
+139,MPV BEZEL,ThermoPlastic,Bezel,,F014008087,F014008089,BEZEL RAW LH                  ,                              ,MPV HL    ,M,          ,BEZEL RAW ,P620A BEZEL METALISED LH      
+140,MPV BEZEL,ThermoPlastic,Bezel,,F014008088,F014008090,BEZEL RAW RH                  ,                              ,MPV HL    ,M,          ,BEZEL RAW ,P620A BEZEL METALISED RH      
+141,BEZEL BLACK,ThermoPlastic,Housing,,F014008096,F014007249,HOUSING RAW LH                ,                              ,MPV RC    ,B,          ,RAW       ,BEZEL BLACK PAINTED LH        
+142,BEZEL BLACK,ThermoPlastic,Housing,,F014008097,F014007250,HOUSING RAW RH                ,                              ,MPV RC    ,B,          ,RAW       ,BEZEL BLACK PAINTED RH        
+143,YW1 TUBUS (S/STEEL),ThermoPlastic,,,F014007731,F014007733,TUBUS RAW LH                  ,                              ,YW1 H/L   ,M,          ,          ,TUBE METALLISED LH            
+144,YW1 TUBUS (S/STEEL),ThermoPlastic,,,F014004732,F014007734,RIM L/BEAM-LH(SS SPUTTERING)  ,STAINLESS STEEL SPUTTERING    ,J56       ,M,          ,RIM MET   ,TUBE METALLISED RH            
+145,MPV F/T/S REFLECTOR,ThermoPlastic,Reflector,,F014008083,F014008085,FTS REFLECTOR RAW LH          ,                              ,MPV HL    ,B,          ,FTS RAW   ,P620A FTS REF METALISED LH    
+146,MPV F/T/S REFLECTOR,ThermoPlastic,Reflector,,F014008084,F014008086,FTS REFLECTOR RAW RH          ,                              ,MPV HL    ,B,          ,FTS RAW   ,P620A FTS REF METALISED RH    
+147,D46 F/T/S,ThermoPlastic,Reflector,,F014008260,F014008262,FTS REFLECTOR RAW LH          ,                              ,D46T HL   ,B,          ,FTS RAW   ,FTS REF METALISED LH          
+148,D46 F/T/S,ThermoPlastic,Reflector,,F014008261,F014008263,FTS REFLECTOR RAW RH          ,                              ,D46T HL   ,B,          ,FTS RAW   ,FTS REF METALISED RH          
+149,D46 BEZEL,ThermoPlastic,Bezel,,F014008384,F014008386,BEZEL RAW LH                  ,                              ,OTHER     ,M,          ,BEZEL RAW ,BEZEL METALISED LH            
+150,D46 BEZEL,ThermoPlastic,Bezel,,F014008385,F014008387,BEZEL RAW RH                  ,                              ,OTHER     ,M,          ,BEZEL RAW ,BEZEL METALISED RH            
+151,BEZEL CAP MEATALIZED,ThermoPlastic,,,F014007914,F014007910,BEZEL CAP METALISED LH        ,                              ,B299      ,M,          ,          ,BEZEL LH                      
+152,BEZEL CAP MEATALIZED,ThermoPlastic,,,F014007915,F014007911,BEZEL CAP METALISED RH        ,                              ,B299      ,M,          ,          ,BEZEL RH                      
+153,BEZEL CAP ,ThermoPlastic,,,F014007912,F014007913,BEZEL CAP RAW LH              ,                              ,B299      ,M,          ,          ,BEZEL CAP RAW RH              
+154,BEZEL CAP,ThermoPlastic,,,F014007914,F014007915,BEZEL CAP METALISED LH        ,                              ,B299      ,M,          ,          ,BEZEL CAP METALISED RH        
+155,F/T/S REFLECTOR,ThermoPlastic,Reflector,,F014007916,F014007917,FTS REFLECTOR RAW LH          ,                              ,B299      ,B,          ,          ,FTS REFLECTOR RAW RH          
+156,F/T/S REFLECTOR,ThermoPlastic,Reflector,,F014007917,F014007919,FTS REFLECTOR RAW RH          ,                              ,B299      ,B,          ,          ,FTS REFLECTOR METAL.RH        
+157,F/T/S REFLECTOR,ThermoPlastic,Reflector,,F014008260,F014008262,FTS REFLECTOR RAW LH          ,                              ,D46T HL   ,B,          ,FTS RAW   ,FTS REF METALISED LH          
+158,F/T/S REFLECTOR,ThermoPlastic,Reflector,,F014008261,F014008263,FTS REFLECTOR RAW RH          ,                              ,D46T HL   ,B,          ,FTS RAW   ,FTS REF METALISED RH          
+159,F/T/S REFLECTOR,ThermoPlastic,Reflector,,F014007749,F014007751,REFLECTOR RAW LH (FTS)        ,                              ,YW1       ,P,          ,          ,REFLECTOR METALISED(FTS)      
+160,F/T/S REFLECTOR,ThermoPlastic,Reflector,,F014007750,F014007752,REFLECTOR RAW RH(FTS)         ,                              ,YW1       ,P,          ,          ,REFLECTOR METALISED(FTS)      
+161,YW1 REAR COMBI REFLECTOR,ThermoPlastic,Reflector,,F114000525,F114000443,REFLECTOR LH                  ,                              ,YW1 RLAMP ,M,          ,          ,REFLECTOR LH METALISED        
+162,YW1 REAR COMBI REFLECTOR,ThermoPlastic,Reflector,,F114000526,F114000444,REFLECTOR RH                  ,                              ,YW1 RLAMP ,M,          ,          ,REFLECTOR RH METALISED        
+163,YW1 BEZEL (ECE),ThermoPlastic,Bezel,,F114000523,F114000439,BEZEL LH                      ,                              ,YW1 RLAMP ,M,          ,          ,BEZEL LH METALISED            
+164,YW1 BEZEL(ECE),ThermoPlastic,Bezel,,F114000524,F114000440,BEZEL RH                      ,                              ,YW1 RLAMP ,M,          ,          ,BEZEL RH METALISED            
+165,YWI BEZEL (SAE),ThermoPlastic,Bezel,,F114000527,F114000441,BEZEL LH(SAE)                 ,                              ,YW1 RLAMP ,M,          ,          ,BEZEL LH METALISED(SAE)       
+166,YW1 BEZEL (SAE),ThermoPlastic,Bezel,,F114000528,F114000442,BEZEL RH(SAE)                 ,                              ,YW1 RLAMP ,M,          ,          ,BEZEL RH METALISED(SAE)       
+167,YW1 BEZEL (JPN),ThermoPlastic,Bezel,,F114000521,F114000455,BEZEL LH (JPN)                ,                              ,YW1 RLAMP ,M,          ,          ,BEZEL METALISED LH(JPN)       
+168,YW1 BEZEL (JPN),ThermoPlastic,Bezel,,F114000522,F114000456,BEZEL RH (JPN)                ,                              ,YW1 RLAMP ,M,          ,          ,BEZEL METALISED RH(JPN)       
+169,YW1 BEZEL (S/STEEL),ThermoPlastic,Bezel,,F014007725,F014007727,BEZEL RAW LH                  ,                              ,YW1 H/L   ,M,          ,          ,BEZEL METALISED LH            
+170,YW1 BEZEL (S/STEEL),ThermoPlastic,Bezel,,F014007726,F014007728,BEZEL RAW RH                  ,                              ,YW1       ,M,          ,          ,BEZEL METALISED RH            

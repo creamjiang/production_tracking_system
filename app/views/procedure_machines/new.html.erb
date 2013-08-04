@@ -1,0 +1,19 @@
+<h1>New procedure_machine</h1>
+
+<% form_for(@procedure_machine) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :routing_procedure_id %><br />
+    <%= f.text_field :routing_procedure_id %>
+  </p>
+  <p>
+    <%= f.label :machine_id %><br />
+    <%= f.text_field :machine_id %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', procedure_machines_path %>

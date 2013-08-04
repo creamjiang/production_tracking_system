@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  prms_export_id: 1
+  routing_procedure_id: 1
+  warehouse_id: 1
+  export_quantity: 1
+
+two:
+  prms_export_id: 1
+  routing_procedure_id: 1
+  warehouse_id: 1
+  export_quantity: 1

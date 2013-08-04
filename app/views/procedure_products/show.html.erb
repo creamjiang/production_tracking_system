@@ -1,0 +1,18 @@
+<% title "Procedure Product" %>
+
+<p>
+  <strong>Generic Name:</strong>
+  <%=h @procedure_product.generic_name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%=h @procedure_product.description %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_procedure_product_path(@procedure_product) %> |
+  <%= link_to "Destroy", @procedure_product, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", procedure_products_path %> |
+  <%= link_to "New Generic Name", new_procedure_product_path %>
+</p>

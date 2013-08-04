@@ -1,0 +1,39 @@
+<h1>New bin_type</h1>
+
+<% form_for(@bin_type) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description, :size => '40x2' %>
+  </p>
+  <p>
+    <%= f.label :maximum_load %><br />
+    <%= f.text_field :maximum_load %>
+  </p>
+    <p>
+    <%= f.label :bin_barcode_format %><br />
+    <%= f.select :bin_barcode_format, BinType::BARCODE_FORMATS %>
+  </p>
+  <p>
+    <%= f.label :bin_barcode_text %><br />
+    <%= f.text_field :bin_barcode_text %>
+  </p>
+  <p>
+    <%= f.label :product_barcode_format %><br />
+    <%= f.select :product_barcode_format, BinType::BARCODE_FORMATS %>
+  </p>
+  <p>
+    <%= f.label :product_barcode_text %><br />
+    <%= f.text_field :product_barcode_text %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'View All', bin_types_path %>

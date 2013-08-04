@@ -1,0 +1,24 @@
+<h1>Editing prms_export</h1>
+
+<% form_for(@prms_export) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :export_date %><br />
+    <%= f.date_select :export_date %>
+  </p>
+  <p>
+    <%= f.label :remark %><br />
+    <%= f.text_field :remark %>
+  </p>
+  <p>
+    <%= f.label :administrator_id %><br />
+    <%= f.text_field :administrator_id %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @prms_export %> |
+<%= link_to 'Back', prms_exports_path %>

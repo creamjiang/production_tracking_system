@@ -1,0 +1,71 @@
+<script language="javascript" type="text/javascript">
+
+function detect_mac_address(){
+         var obj = new ActiveXObject("WbemScripting.SWbemLocator");
+	var s = obj.ConnectServer(".");
+	var properties = s.ExecQuery("SELECT * FROM Win32_NetworkAdapterConfiguration");
+	var e = new Enumerator (properties);
+
+	var output;
+
+	while(!e.atEnd())
+
+	{
+		e.moveNext();
+		var p = e.item ();
+    	if(!p) continue;
+    var mystring = new String(p.Caption);
+    var myregExp = 'Ethernet'; //"Ethernet"
+    var answerIdx = mystring.search(myregExp);
+
+
+    if(answerIdx != -1 && p.MACAddress != null)
+    {
+		output=p.MACAddress;
+	}
+     else
+     {
+      var mystring = new String(p.Caption);
+      var myregExp = 'Intel'; //"Ethernet"
+      var answerIdx = mystring.search(myregExp);
+
+      if(answerIdx != -1 && p.MACAddress != null)
+            {
+		output=p.MACAddress;
+	     }
+      else
+         {
+          var mystring = new String(p.Caption);
+          var myregExp = 'Realtek'; //"Ethernet"
+          var answerIdx = mystring.search(myregExp);
+
+        if(answerIdx != -1 && p.MACAddress != null)
+            {
+		output=p.MACAddress;
+	     }
+         };
+
+
+      };
+
+  }
+  return output;
+}
+
+function submit_mac(){
+
+
+   output = detect_mac_address();
+
+  window.setTimeout('window.location="http://'+location.host+'/login/production_index?mac_address='+output+'"; ',500);
+
+
+}
+
+function showMacAddress(){
+
+	 output = detect_mac_address();
+  	 document.getElementById("machine_mac_address").value = output;
+}
+
+</script>	

@@ -1,0 +1,23 @@
+<p>
+  <b>Routing Process:</b>
+  <%=h @machine_down_reason.routing_process.name %>
+</p>
+
+<p>
+  <b>Code:</b>
+  <%=h @machine_down_reason.code %>
+</p>
+<p>
+  <b>Alias:</b>
+  <%=h @machine_down_reason.alias %>
+</p>
+<p>
+  <b>Description:</b>
+  <%=h @machine_down_reason.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_machine_down_reason_path(@machine_down_reason) %> |
+<%= link_to 'Destroy', @machine_down_reason, :confirm => 'Are you sure?', :method => :delete %> |
+<%= link_to 'View All', machine_down_reasons_path %> | 
+<%= link_to 'New machine_down_reason', new_machine_down_reason_path %>

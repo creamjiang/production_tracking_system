@@ -1,0 +1,15 @@
+<table width="100%">
+		<td align="center">
+<h3>Images of Reject Code</h3>	
+			  <ul class="gallery">
+			  	
+               	<% for photo in @photos %>
+                  <li>		
+				    <img src="<%= photo.data.url(:thumb) %>" alt="Reject Code" /></a>
+	              </li>
+	           <% end %>
+			   
+              </ul>
+			
+		</td>
+	</table>

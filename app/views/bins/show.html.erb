@@ -1,0 +1,25 @@
+<p>
+  <b>Bin ID:</b>
+  <%=h @bin.bin_number %>
+</p>
+
+<p>
+  <b>Bin type:</b>
+  <%= link_to @bin.bin_type.name, @bin.bin_type %>
+</p>
+
+<p>
+  <b>Bin status:</b>
+  <%=h @bin.bin_status.name rescue @bin.bin_status_id %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @bin.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_bin_path(@bin) %> |
+<%= link_to 'Destroy', @bin, :confirm => 'Are you sure?', :method => :delete %> |
+<%= link_to 'View All', bins_path %> | 
+<%= link_to 'New bin', new_bin_path %>

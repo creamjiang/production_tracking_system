@@ -1,0 +1,80 @@
+<%= render :partial => '/shared/header'%>
+
+<% form_tag :action => "submit_entry" do %>
+
+<% unless is_reviewer? %>
+  <table style="width: 100%;" border=1>
+    <tr>
+	<td style="background-color:#CCFFCC;text-align:center;">Product <%= select "option", "accept_product_id", @products.map {|a| [a.product.part_name, a.id]}%>
+   	  Accept quantity <%= text_field_tag "accept_quantity" %>
+	</td>
+	<td style="background-color:#E6E6E6;text-align:center;">Product <%= select "option", "hold_product_id", @products.map {|h| [h.product.part_name, h.id]}%>
+	  Hold quantity
+	  <%= text_field_tag "hold_quantity"  %>
+	</td>
+    </tr>
+  </table>
+<% end %>
+
+<table style="width: 100%;background-color:#FFCCCC;" border=1>
+  <tr>
+   <td>
+	<table style="width: 100%">
+	  <tr>
+	    <th style="width:25%;text-align:left">Product</th>
+	    <th style="width:25%;text-align:left">Process </th>
+	    <th style="width:25%;text-align:left">Reject Code</th>
+	    <th style="width:25%;text-align:right">Quantity </th>
+	  </tr>
+	</table>
+   </td>
+   <td>
+	<table style="width: 100%">
+ 	  <tr>
+	    <th style="width:25%;text-align:left">Product</th>
+	    <th style="width:25%;text-align:left">Process </th>
+	    <th style="width:25%;text-align:left">Reject Code</th>
+	    <th style="width:25%;text-align:right">Quantity </th>
+	  </tr>
+	</table>
+   </td>
+ </tr>
+
+  <% (1..20).to_a.in_groups_of(2) do |rows| %>
+    <tr>
+       <% for i in rows %>
+	  <td>
+	     <table style="width: 100%">
+		<tr>
+ 		   <td style="width:25%;text-align:left;">
+		      <%= select "reject", "#{i.to_s}_product_id", @products.map {|r| [r.product.part_name, r.id]}  %>
+		   </td>
+		   <td style="width:25%;text-align:center;">
+		      <%= select("reject", "#{i.to_s}_process_id", @processes.map {|p| [p.name, p.id]}, {:include_blank => true }, :onChange => remote_function(:url => {:action => 'show_reject_codes'}, :with => "'id=' + this.value + '&select_id=#{i}'") ) %>
+		   </td>
+		   <td valign="bottom" style="width:25%;text-align:center;">
+		      <div id='reject_code_<%= i.to_s %>'>
+			<%= render :partial => 'reject_codes', :locals => {:i => i, :reject_codes => @reject_codes} %>
+		      </div>
+		   </td>
+		   <td style="width:25%;text-align:right;">
+		      <%= text_field_tag "#{i.to_s}_reject_quantity", {}, :size => 5, :maxlength => 5 %>
+		   </td>
+		</tr>
+	      </table>
+			
+	</td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
+
+<table width="100%">
+  <tr>
+     <td align=center style="background-color:#CCCCFF;">
+	<%= submit_tag "Submit", {:disable_with => "Please Wait ....."} %>
+     </td>
+  </tr>
+</table>
+<% end %>
+

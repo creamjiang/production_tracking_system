@@ -1,0 +1,15 @@
+<p>
+  <b>Machine:</b>
+  <%=h @operator.machine_id %>
+</p>
+
+<p>
+  <b>Employee:</b>
+  <%=h @operator.employee_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_operator_path(@operator) %> |
+<%= link_to 'Destroy', @operator, :confirm => 'Are you sure?', :method => :delete %> |
+<%= link_to 'Back', operators_path %> |
+<%= link_to 'New operator', new_operator_path %>

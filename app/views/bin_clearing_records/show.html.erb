@@ -1,0 +1,17 @@
+<p>
+  <b>Employee:</b>
+  <%=h @bin_clearing_record.employee.name %>
+</p>
+
+<p>
+  <b>Bin:</b>
+  <%=h @bin_clearing_record.bin.bin_number %>
+</p>
+
+<p>
+  <b>Date Clearing:</b>
+  <%=h @bin_clearing_record.created_at.strftime("%d-%m-%Y %H:%M") %>
+</p>
+
+
+<%= link_to 'View All', bin_clearing_records_path %>

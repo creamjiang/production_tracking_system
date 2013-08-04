@@ -1,0 +1,31 @@
+<% content_for :head do %>
+<style type="text/css">
+  .button {font-family:verdana, tahoma, sans-serif;font-size: 1em;width:120px;height:40px;line-height:20px;}
+</style>
+<% end %>
+
+<%= render '/shared/header'  %>
+
+
+<h2 align="center" style="color:red">Choose a machine down reason</h2>
+
+<table width="100%" align="center">
+	<% @reasons.in_groups_of(5, false) do |rs| %>
+	<tr>
+<% for reason in rs %>	
+	
+		<td>
+		  <div align="center">
+		  	<em><%= reason.description %></em>
+		  <%= button_to reason.code, {:action => "confirm_down_reason", :id => reason}, :class => 'button' %>	
+	      
+		  </div>	
+		</td>
+<% end %>
+</tr>
+<% end %>
+
+	
+</table>
+	<br />
+<%= will_paginate @reasons %>

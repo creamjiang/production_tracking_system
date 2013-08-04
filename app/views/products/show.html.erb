@@ -1,0 +1,82 @@
+
+<p>
+  <b>Part number:</b>
+  <%=h @product.part_number %>
+</p>
+
+<p>
+  <b>Part name:</b>
+  <%=h @product.part_name %>
+</p>
+
+<p>
+  <b>Part Description:</b>
+  <%=h @product.description %>
+</p>
+
+<p>
+  <b>Side:</b>
+  <%=h @product.side %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%=h @product.category.name %>
+</p>
+
+<p>
+  <b>Generic Name:</b>
+  <%=h @product.generic_name %>
+</p>
+
+<p>
+  <b>Reject Area Category:</b>
+  <%=h @product.reject_area_category %>
+</p>
+
+<p>
+  <b>Customer:</b>
+  <%=h @product.customer %>
+</p>
+
+<p>
+    <b>Technology </b>
+    <%= @product.technology %>
+  </p>
+  
+  <p>
+    <b> Processed Parts </b>
+    <%= @product.processed_parts %>
+  </p>
+  
+  <p>
+    <b> Processed Part Description </b>
+    <%= @product.processed_part_description %>
+  </p>
+  
+  
+  
+  
+  
+  <p>
+    <b>PRMS Description </b>
+    <%= @product.prms_description %>
+  </p>
+  
+  <p>
+    <b>PRMS Description 1</b>
+    <%= @product.prms_description_1 %>
+  </p>
+
+ <p>
+	<b>Image </b> <br />
+	<%= image_tag @product.avatar.url(:thumb) %>
+	</p>
+
+
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Destroy', @product, :confirm => 'Are you sure?', :method => :delete %> |
+<%= link_to 'View All', products_path %> |
+
+<%= link_to 'New product', new_product_path %>

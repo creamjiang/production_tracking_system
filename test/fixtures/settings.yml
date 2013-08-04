@@ -1,0 +1,7 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  clear_bin_with_scanner: false
+
+two:
+  clear_bin_with_scanner: false

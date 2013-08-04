@@ -1,0 +1,94 @@
+<% content_for :head do %>
+
+<style type="text/css">
+<!--
+
+.yellowThing {background-color: #FF9; }
+.whiteThing { background-color: #FFF; }
+.redThing { background-color: #F00; }
+//-->
+</style>
+
+<%= javascript_include_tag("smo") %>
+<% end %>
+
+<br />
+<%= link_to 'Edit', edit_swap_group_path(@swap_group) %> |
+<%= link_to 'Back', swap_groups_path %>
+<br />
+
+<p>
+  <b>Name:</b>
+  <%=h @swap_group.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @swap_group.description %>
+</p>
+
+<br/>
+<hr />
+<br/>
+
+<% form_tag(remove_process_swap_group_path(@swap_group)) do %>
+<table>
+  <tr>
+     <th><input type="checkbox" name="checkall" onclick="checkUncheckAll(this);"/></th>
+    <th>Process Name</th>
+    <th>Description</th>
+  </tr>
+  
+  <% for pro in @swap_group.swap_group_items %>
+  <tr class="<%= cycle("list0", "list1") %>">
+    <td align="center"><%= check_box_tag "process["+pro.id.to_s+"][selected]"  %></td>
+    <td><%= pro.routing_process.name %></td>
+    <td><%= pro.routing_process.description %></td>
+    
+  </tr>
+  <% end %>
+  <tr>
+    <td align="center"><%= submit_tag("Remove") unless @swap_group.swap_group_items.empty? %></td>
+    <td></td><td></td>
+  </tr>
+</table>
+<% end %>
+ <br />
+ <hr>
+ <br />
+ 
+ <% form_tag(attach_process_swap_group_path(@swap_group)) do %>
+ <table>
+  <tr>
+    <th colspan="5" style="color:yellow" align="center">Choose Process to add</th>
+  </tr>
+  <tr>
+    <th><input type="checkbox" name="checkall" onclick="checkUncheckAll(this);"/></th>
+    <th>Part Number</th>
+    <th>Part Name</th>
+    
+  </tr>
+  <% for e in @processes %>
+  <tr onmouseover="this.className='yellowThing';" onmouseout="this.className='whiteThing';">
+    <td align="center"><%= check_box_tag "process["+e.id.to_s+"][selected]"  %></td>
+    <td><%= e.name %></td>
+    <td><%= e.description %></td>
+    
+  </tr>
+  <% end %>
+  
+ </table>
+ <br />
+ 
+ <!--<a href="#" onclick="checkAll()">Check All</a> | <a href="#" onclick="uncheckAll()">Uncheck All</a>
+ <br />-->
+   <%= submit_tag("Attach Process to group") unless @processes.size.zero? %>
+
+<% end %>
+
+<br />
+
+
+
+
+

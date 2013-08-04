@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title><%= h(yield(:title) || "PT System") %></title>
+    <%= stylesheet_link_tag 'application', 'bluetabs' %>
+	<%= javascript_include_tag :defaults %>
+
+  </head>
+  <body>
+    <div id="container">
+    	<div id="header" style="background-color:black;width:100%">
+          <img src="/images/al_logo.gif" alt="AUTOMOTIVE LIGHTING" border="0"></img>
+         <br /><br />
+        </div>
+	<br />
+<h3>Transaction for <%= @item.routing_procedure.fullname  %> </h3>
+<h4>Product : <%= @item.product.fullname  %></h4>
+<%= will_paginate @sources %>
+<br />
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Transaction Date</th>
+    <th>Machine</th>
+    <th>Employee</th>
+    <th>Shift</th>
+    <th>Status</th>
+    <th>Quantity</th>
+
+  </tr>
+  <% @sources.each do |c| %>
+
+  <tr class="<%= cycle("list0", "list1")%>">
+    <td align="center"><%= c.procedure_transaction.id  %></td>
+    <td><%= c.procedure_transaction.transaction_date  %> </td>
+    <td><%= c.procedure_transaction.machine.machine_number  %> </td>
+    <td><%= c.procedure_transaction.employee.name  %> </td>
+    <td><%= c.procedure_transaction.shift.name rescue "-"  %> </td>
+    <td align="center"><%= c.procedure_transaction.status_name  %> </td>
+    <td align="center"><%= c.quantity  %> </td>
+  </tr>
+  <% end %>
+
+</table>
+<br />
+<%= will_paginate @sources %>
+Total Quantity : <%= @total %>
+
+    </div>
+  </body>
+</html>
+

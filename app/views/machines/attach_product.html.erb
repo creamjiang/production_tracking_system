@@ -1,0 +1,157 @@
+<% content_for :head do %>
+
+<style type="text/css">
+<!--
+
+.yellowThing {background-color: #FF9; }
+.whiteThing { background-color: #FFF; }
+.redThing { background-color: #F00; }
+//-->
+</style>
+
+<%= javascript_include_tag("smo") %>
+
+<% end %>
+
+<br />
+
+<%= link_to 'Show', @machine %> |
+<%= link_to 'View All', machines_path %>
+<br />
+<p>
+  <b>Machine number:</b>
+  <%=h @machine.machine_number %>
+</p>
+
+<p>
+  <b>Asset number:</b>
+  <%=h @machine.asset_number %>
+</p>
+
+<p>
+  <b>Mac Address:</b>
+  <%=h @machine.mac_address %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @machine.description %>
+</p>
+
+<br />
+<hr/>
+<br />
+
+<% form_tag(update_visible_machine_path(@machine)) do %>
+<table>
+	<tr>
+            <th>Part Name</th>
+            <th>Part Number</th>
+            <th>Category</th>
+            <th>Side</th>
+            <% if is_ict_admin? %>
+              <th>Routing Procedure</th>
+              <th>Bin Type</th>
+            <% end %>
+            <th>Visible</th>
+
+	    <th>Action</th>
+
+	</tr>
+
+	<% for pro in @machine.attached_products %>
+	<tr class="<%= cycle("list0", "list1") %>">
+		<td><%= pro.product.part_name %></td>
+		<td><%= pro.product.part_number %></td>
+		<td><%= pro.product.category.name rescue "" %></td>
+		<td><%= pro.product.side %></td>
+                <% if is_ict_admin? %>
+                  <td><%= select_tag("attached_product[#{pro.id.to_s}][routing_procedure_id]", options_from_collection_for_select(@procedures, :id, :fullname, pro.routing_procedure_id)) %></td>
+                  <td><%= select_tag("attached_product[#{pro.id.to_s}][bin_type_id]", options_from_collection_for_select(@bin_types, :id, :name, pro.bin_type_id)) %></td>
+		<% end %>
+                <td align="center">
+		  <%= hidden_field_tag('seen[]', pro.id) -%>
+                  <%= check_box_tag 'activated[]', pro.id, pro.visible -%>
+	        </td>
+
+		<td class="action">
+		  <% unless is_application_admin? or is_supervisor? %>
+		    <%= link_to "Remove", remove_product_machine_path(@machine, :product_id => pro) %>
+		  <% end %>
+	       </td>
+	</tr>
+	<% end %>
+	<tr>
+		<td colspan="5"></td>
+		<td align="center">
+			<%= submit_tag "Update" %>
+		</td>
+		<td></td>
+	</tr>
+
+</table>
+<% end %>
+ <br />
+ <hr />
+ <br />
+
+ <% unless is_application_admin? or is_supervisor? %>
+
+ <% form_for @search do |f| %>
+<table>
+	<tr>
+	  <th>Part number</th>
+	  <th>Part name</th>
+	  <th>Side</th>
+          <th>Generic Name</th>
+          <th>Category</th>
+	  <th>Action</th>
+    </tr>
+	<tr>
+	  <td> <%= f.text_field :part_number_like %></td>
+	  <td><%= f.text_field :part_name_like %></td>
+	  <td> <%= f.select :side_equals, Product::SIDE_CHOICES, {:include_blank => true} %>	</td>
+	  <td> <%= f.select :generic_name_equals, ProcedureProduct.all(:order => "generic_name").map {|c| [c.generic_name, c.generic_name]}, {:include_blank => true} %></td>
+	  <td> <%= f.select :category_id_equals, Category.all.map {|c| [c.name, c.id]}, {:include_blank => true} %></td>
+	  <td align="center">	<%= f.submit "Filter" %></td>
+	</tr>
+</table>
+<% end %>
+
+ <br />
+ <% form_tag(add_product_machine_path(@machine)) do %>
+ <table>
+ 	<tr>
+ 		<th colspan="5" style="color:yellow" align="center">Choose Product to add</th>
+ 	</tr>
+	<tr>
+		<th><input type="checkbox" name="checkall" onclick="checkUncheckAll(this);"/></th>
+		<th>Part Number</th>
+		<th>Part Name</th>
+		<th>Category</th>
+		<th>Side</th>
+	</tr>
+	<% for e in @products %>
+	<tr onmouseover="this.className='yellowThing';" onmouseout="this.className='whiteThing';">
+		<td align="center"><%= check_box_tag "product["+e.id.to_s+"][selected]"  %></td>
+		<td><%= e.part_number %></td>
+		<td><%= e.part_name %></td>
+		<td><%= e.category.name rescue "" %></td>
+		<td><%= e.side %></td>
+	</tr>
+	<% end %>
+
+ </table>
+ <br />
+
+ <% unless @products.size.zero? %>
+ <!--<a href="#" onclick="checkAll()">Check All</a> | <a href="#" onclick="uncheckAll()">Uncheck All</a>
+ <br />-->
+
+ <%= submit_tag "Attach Product to Machine" %>
+
+<% end %>
+
+<% end %>
+<% end %>
+<br />

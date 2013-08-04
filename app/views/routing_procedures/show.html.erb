@@ -1,0 +1,34 @@
+<p>
+  <b>Routing:</b>
+  <%=h @routing_procedure.routing.name %>
+</p>
+
+<p>
+  <b>Routing process:</b>
+  <%=h @routing_procedure.routing_process.name %>
+</p>
+
+<p>
+  <b>Machine:</b>
+  <%= %>
+</p>
+
+<p>
+  <b>Employee:</b>
+  <%=  %>
+</p>
+
+<p>
+  <b>Product:</b>
+  <%=h @routing_procedure.product.part_name %><br />
+  <%= image_tag @routing_procedure.product.avatar.url(:thumb) %>
+</p>
+
+<p>
+  <b>Sequence:</b>
+  <%=h @routing_procedure.position %>
+</p>
+
+
+
+<%= link_to 'Back', @routing %>

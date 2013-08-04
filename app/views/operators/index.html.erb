@@ -1,0 +1,24 @@
+<br />
+
+<%= link_to 'New operator', new_operator_path %>
+<br />
+<h1>Listing operators</h1>
+
+<table>
+  <tr>
+    <th>Machine</th>
+    <th>Employee</th>
+  </tr>
+
+<% @operators.each do |operator| %>
+  <tr class="<%= cycle("list0", "list1")%>">
+    <td><%=h operator.machine_id %></td>
+    <td><%=h operator.employee_id %></td>
+    <td class="action"><%= link_to 'Show', operator %>
+    <%= link_to 'Edit', edit_operator_path(operator) %>
+    <%= link_to 'Destroy', operator, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />

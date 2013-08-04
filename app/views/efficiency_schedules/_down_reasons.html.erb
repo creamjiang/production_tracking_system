@@ -1,0 +1,4 @@
+<p>
+    Down Code<br />
+    <%= select("efficiency_schedule" , "machine_down_reason_id", reasons.map {|r| [r.description, r.id]}, {:include_blank => true}) %>
+</p>
