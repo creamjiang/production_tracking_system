@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121030065806) do
+ActiveRecord::Schema.define(:version => 20131112074036) do
 
 # Could not dump table "account_statements" because of following StandardError
 #   Unknown type 'year(4)' for column 'account_year'
@@ -149,18 +149,19 @@ ActiveRecord::Schema.define(:version => 20121030065806) do
   add_index "containers", ["product_id"], :name => "index_containers_on_product_id"
 
   create_table "daily_transactions", :id => false, :force => true do |t|
-    t.integer  "id",                                                   :null => false
-    t.date     "transaction_date",                                     :null => false
-    t.integer  "routing_id",                       :default => 0,      :null => false
-    t.integer  "routing_process_id",               :default => 0,      :null => false
-    t.integer  "product_id",                       :default => 0,      :null => false
-    t.string   "generic_name",       :limit => 50, :default => "None", :null => false
-    t.string   "side",               :limit => 1,  :default => "Z",    :null => false
-    t.string   "reject_code",        :limit => 15, :default => "None", :null => false
-    t.integer  "quantity",                         :default => 0
+    t.integer  "id",                                                                                 :null => false
+    t.date     "transaction_date",                                                                   :null => false
+    t.integer  "routing_id",                                                     :default => 0,      :null => false
+    t.integer  "routing_process_id",                                             :default => 0,      :null => false
+    t.integer  "product_id",                                                     :default => 0,      :null => false
+    t.string   "generic_name",       :limit => 50,                               :default => "None", :null => false
+    t.string   "side",               :limit => 1,                                :default => "Z",    :null => false
+    t.string   "reject_code",        :limit => 15,                               :default => "None", :null => false
+    t.integer  "quantity",                                                       :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "reject_area",        :limit => 2,  :default => "00"
+    t.string   "reject_area",        :limit => 2,                                :default => "00"
+    t.decimal  "part_cost",                        :precision => 6, :scale => 2
   end
 
   add_index "daily_transactions", ["reject_area"], :name => "index_daily_transactions_on_reject_area"
@@ -348,6 +349,7 @@ ActiveRecord::Schema.define(:version => 20121030065806) do
     t.boolean  "down",                            :default => false
     t.string   "mac_address",       :limit => 45
     t.integer  "entry_category_id",               :default => 0
+    t.string   "scan_folder"
   end
 
   add_index "machines", ["entry_category_id"], :name => "index_machines_on_entry_category_id"
@@ -453,24 +455,25 @@ ActiveRecord::Schema.define(:version => 20121030065806) do
   end
 
   create_table "procedure_transactions", :force => true do |t|
-    t.integer  "routing_procedure_id",               :default => 0
-    t.integer  "employee_id",                        :default => 0
-    t.integer  "product_id",                         :default => 0
-    t.integer  "machine_id",                         :default => 0
-    t.integer  "routing_id",                         :default => 0
-    t.integer  "routing_process_id",                 :default => 0
-    t.integer  "bin_id",                             :default => 0
-    t.integer  "bin_type_id",                        :default => 0
-    t.integer  "status",               :limit => 2,  :default => 0
+    t.integer  "routing_procedure_id",                                             :default => 0
+    t.integer  "employee_id",                                                      :default => 0
+    t.integer  "product_id",                                                       :default => 0
+    t.integer  "machine_id",                                                       :default => 0
+    t.integer  "routing_id",                                                       :default => 0
+    t.integer  "routing_process_id",                                               :default => 0
+    t.integer  "bin_id",                                                           :default => 0
+    t.integer  "bin_type_id",                                                      :default => 0
+    t.integer  "status",               :limit => 2,                                :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "container_id",                       :default => 0
-    t.integer  "reject_code_id",                     :default => 0
+    t.integer  "container_id",                                                     :default => 0
+    t.integer  "reject_code_id",                                                   :default => 0
     t.date     "transaction_date"
-    t.integer  "shift_id",                           :default => 0
-    t.integer  "quantity",                           :default => 1
-    t.string   "generic_name",         :limit => 90, :default => "None"
-    t.string   "reject_area",          :limit => 2,  :default => "00"
+    t.integer  "shift_id",                                                         :default => 0
+    t.integer  "quantity",                                                         :default => 1
+    t.string   "generic_name",         :limit => 90,                               :default => "None"
+    t.string   "reject_area",          :limit => 2,                                :default => "00"
+    t.decimal  "part_cost",                          :precision => 6, :scale => 2
   end
 
   add_index "procedure_transactions", ["bin_id"], :name => "index_procedure_transactions_on_bin_id"
@@ -510,7 +513,7 @@ ActiveRecord::Schema.define(:version => 20121030065806) do
   create_table "products", :force => true do |t|
     t.string   "part_number",                :limit => 45
     t.string   "description",                :limit => 45
-    t.integer  "category_id",                              :default => 0
+    t.integer  "category_id",                                                            :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "customer",                   :limit => 45
@@ -520,14 +523,16 @@ ActiveRecord::Schema.define(:version => 20121030065806) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.integer  "containers_count",                         :default => 0
-    t.string   "generic_name",               :limit => 45, :default => "0"
+    t.integer  "containers_count",                                                       :default => 0
+    t.string   "generic_name",               :limit => 45,                               :default => "0"
     t.string   "technology",                 :limit => 45
     t.string   "processed_parts",            :limit => 45
     t.string   "processed_part_description", :limit => 45
     t.string   "prms_description",           :limit => 45
     t.string   "prms_description_1",         :limit => 45
-    t.integer  "reject_area_category",       :limit => 1,  :default => 8
+    t.integer  "reject_area_category",       :limit => 1,                                :default => 8
+    t.decimal  "part_cost",                                :precision => 6, :scale => 2
+    t.decimal  "part_weight",                              :precision => 6, :scale => 2
   end
 
   add_index "products", ["reject_area_category"], :name => "index_products_on_reject_area"
@@ -621,19 +626,20 @@ ActiveRecord::Schema.define(:version => 20121030065806) do
   end
 
   create_table "transaction_summaries", :force => true do |t|
-    t.integer  "employee_id",          :default => 0
-    t.integer  "machine_id",           :default => 0
-    t.integer  "product_id",           :default => 0
-    t.integer  "routing_procedure_id", :default => 0
-    t.integer  "routing_process_id",   :default => 0
-    t.integer  "routing_id",           :default => 0
-    t.integer  "shift_id",             :default => 0
-    t.integer  "good_unit",            :default => 0
-    t.integer  "reject_unit",          :default => 0
-    t.integer  "hold_unit",            :default => 0
+    t.integer  "employee_id",                                        :default => 0
+    t.integer  "machine_id",                                         :default => 0
+    t.integer  "product_id",                                         :default => 0
+    t.integer  "routing_procedure_id",                               :default => 0
+    t.integer  "routing_process_id",                                 :default => 0
+    t.integer  "routing_id",                                         :default => 0
+    t.integer  "shift_id",                                           :default => 0
+    t.integer  "good_unit",                                          :default => 0
+    t.integer  "reject_unit",                                        :default => 0
+    t.integer  "hold_unit",                                          :default => 0
     t.date     "processing_date"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "part_cost",            :precision => 6, :scale => 2
   end
 
   add_index "transaction_summaries", ["employee_id"], :name => "index_transaction_summaries_on_employee_id"

@@ -11,7 +11,7 @@ img {
 	margin: 0;
 	padding: 0;
 	width: 90%;
-	padding-left:100px;
+	padding-left:30px;
 
 
 }
@@ -85,6 +85,16 @@ body {
 		document.getElementById("hold_"+num).style.display="block";
 		document.getElementById("hold_running_"+num).style.display="none";
 		playGood();
+	}
+
+	function running_checkout(num) {
+		document.getElementById("checkout_"+num).style.display="none";
+		document.getElementById("checkout_running_"+num).style.display="block";
+	}
+
+	function show_checkout(num) {
+		document.getElementById("checkout_"+num).style.display="block";
+		document.getElementById("checkout_running_"+num).style.display="none";
 	}
 
 </script>

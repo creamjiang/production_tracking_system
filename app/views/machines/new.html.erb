@@ -29,6 +29,11 @@
     <%= f.label :entry_category_id, "Data Entry Method" %><br />
     <%= f.select :entry_category_id, [["TouchSreen", 0], ["Data Entry", 1], ["Barcode Mode", 2]] %>
   </p>
+
+     <p>
+    <%= f.label :scan_folder %><br />
+    <%= f.text_field :scan_folder %>
+  </p>
   
   <p>
     <%= f.label :description %><br />

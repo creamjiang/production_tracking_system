@@ -20,9 +20,10 @@ class Machine < ActiveRecord::Base
   before_create :change_create_timezone
   before_update :change_update_timezone
     
-  attr_accessible :machine_number, :asset_number, :description, :mac_address, :entry_category_id
+  attr_accessible :machine_number, :asset_number, :description, :mac_address, :entry_category_id, :scan_folder
   validates_presence_of :machine_number, :asset_number, :mac_address
   validates_uniqueness_of :machine_number, :asset_number, :mac_address
+  validates_uniqueness_of :scan_folder, :allow_blank => true, :allow_nil => true
   
   TOUCHSCREEN = 0
   DATA_ENTRY = 1
@@ -155,32 +156,34 @@ class Machine < ActiveRecord::Base
   
   def find_or_generate_transaction_summary(input_quantity, product_id, employee_id, routing_procedure_id, routing_id, routing_process_id, processing_date, shift_id, status_id)
     found = transaction_summaries.first(:conditions => ["product_id = ? and shift_id = ? and processing_date = ?", product_id, shift_id, processing_date], :lock => true)
-    
+    product = Product.find product_id
     if found
       case status_id
-        when ProcedureTransaction::GOOD
-          found.good_unit += input_quantity
-        when ProcedureTransaction::ONHOLD
-          found.hold_unit += input_quantity
-          ColdStoreAccount.debit_on_hold_summary(input_quantity, product_id, processing_date)
-        when ProcedureTransaction::REJECT
-          found.reject_unit += input_quantity
-        end
-        found.save!
+      when ProcedureTransaction::GOOD
+        found.good_unit += input_quantity
+      when ProcedureTransaction::ONHOLD
+        found.hold_unit += input_quantity
+        ColdStoreAccount.debit_on_hold_summary(input_quantity, product_id, processing_date)
+      when ProcedureTransaction::REJECT
+        found.reject_unit += input_quantity
+      end
+      found.part_cost = product.part_cost
+      found.save!
 
     else
-       new_one = transaction_summaries.create(:product_id => product_id, :employee_id => employee_id, :routing_procedure_id => routing_procedure_id, :routing_id => routing_id, :routing_process_id => routing_process_id, :processing_date => processing_date, :shift_id => shift_id)    
-       new_one.lock!
-       case status_id
-        when ProcedureTransaction::GOOD
-          new_one.good_unit += input_quantity
-        when ProcedureTransaction::ONHOLD
-          new_one.hold_unit += input_quantity
-          ColdStoreAccount.debit_on_hold_summary(input_quantity, product_id, processing_date)
-        when ProcedureTransaction::REJECT
-          new_one.reject_unit += input_quantity
-        end
-        new_one.save!
+      new_one = transaction_summaries.create(:product_id => product_id, :employee_id => employee_id, :routing_procedure_id => routing_procedure_id, :routing_id => routing_id, :routing_process_id => routing_process_id, :processing_date => processing_date, :shift_id => shift_id)    
+      new_one.lock!
+      case status_id
+      when ProcedureTransaction::GOOD
+        new_one.good_unit += input_quantity
+      when ProcedureTransaction::ONHOLD
+        new_one.hold_unit += input_quantity
+        ColdStoreAccount.debit_on_hold_summary(input_quantity, product_id, processing_date)
+      when ProcedureTransaction::REJECT
+        new_one.reject_unit += input_quantity
+      end
+      new_one.part_cost = product.part_cost
+      new_one.save!
     end
     
     

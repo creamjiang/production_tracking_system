@@ -13,12 +13,12 @@ class Container < ActiveRecord::Base
   def verify_for_destroy
    deleted = false
       
-      if procedure_transactions.size.zero?
-        if machine_downtimes.size.zero?
-           destroy
-           deleted = true
-        end
+    if procedure_transactions.size.zero?
+      if machine_downtimes.size.zero?
+        destroy
+        deleted = true
       end
+    end
     
     deleted
   end

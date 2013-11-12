@@ -1,8 +1,8 @@
 <% @products.each do |c| %>
   <% if c.routing_procedure %>
-
+    <% working_state = c.working_states.first(:conditions => ["product_id = ? and machine_id = ? and routing_procedure_id = ?", c.product_id, session[:machine_id], c.routing_procedure_id]) %>
       <div id="main_menu<%= c.id.to_s %>" style="float: left">
-          <%= render :partial => "buttons", :locals => {:c => c} %>
+          <%= render :partial => "buttons", :locals => {:c => c, :working_state => working_state} %>
       </div>
 
      <!--  <div id="printers<%= c.id.to_s  %>" style="display: none;clear: left">

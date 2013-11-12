@@ -45,17 +45,16 @@
 <% form_tag(update_visible_machine_path(@machine)) do %>
 <table>
 	<tr>
-            <th>Part Name</th>
-            <th>Part Number</th>
-            <th>Category</th>
-            <th>Side</th>
-            <% if is_ict_admin? %>
-              <th>Routing Procedure</th>
-              <th>Bin Type</th>
-            <% end %>
-            <th>Visible</th>
-
-	    <th>Action</th>
+    <th>Part Name</th>
+    <th>Part Number</th>
+    <th>Category</th>
+    <th>Side</th>
+    <% if is_ict_admin? %>
+      <th>Routing Procedure</th>
+      <th>Bin Type</th>
+    <% end %>
+    <th>Visible</th>
+	  <th>Action</th>
 
 	</tr>
 
@@ -65,20 +64,20 @@
 		<td><%= pro.product.part_number %></td>
 		<td><%= pro.product.category.name rescue "" %></td>
 		<td><%= pro.product.side %></td>
-                <% if is_ict_admin? %>
-                  <td><%= select_tag("attached_product[#{pro.id.to_s}][routing_procedure_id]", options_from_collection_for_select(@procedures, :id, :fullname, pro.routing_procedure_id)) %></td>
-                  <td><%= select_tag("attached_product[#{pro.id.to_s}][bin_type_id]", options_from_collection_for_select(@bin_types, :id, :name, pro.bin_type_id)) %></td>
+    <% if is_ict_admin? %>
+      <td><%= select_tag("attached_product[#{pro.id.to_s}][routing_procedure_id]", options_from_collection_for_select(@procedures, :id, :fullname, pro.routing_procedure_id)) %></td>
+      <td><%= select_tag("attached_product[#{pro.id.to_s}][bin_type_id]", options_from_collection_for_select(@bin_types, :id, :name, pro.bin_type_id)) %></td>
 		<% end %>
-                <td align="center">
+    <td align="center">
 		  <%= hidden_field_tag('seen[]', pro.id) -%>
-                  <%= check_box_tag 'activated[]', pro.id, pro.visible -%>
-	        </td>
+      <%= check_box_tag 'activated[]', pro.id, pro.visible -%>
+	  </td>
 
 		<td class="action">
 		  <% unless is_application_admin? or is_supervisor? %>
 		    <%= link_to "Remove", remove_product_machine_path(@machine, :product_id => pro) %>
 		  <% end %>
-	       </td>
+	  </td>
 	</tr>
 	<% end %>
 	<tr>
@@ -103,8 +102,8 @@
 	  <th>Part number</th>
 	  <th>Part name</th>
 	  <th>Side</th>
-          <th>Generic Name</th>
-          <th>Category</th>
+    <th>Generic Name</th>
+    <th>Category</th>
 	  <th>Action</th>
     </tr>
 	<tr>

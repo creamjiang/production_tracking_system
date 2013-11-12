@@ -12,7 +12,7 @@ class BoxLabel < ActiveRecord::Base
 	delegate :part_number, :part_name, :description, :side, :to => :product
 
 	before_create :change_create_timezone
-    before_update :change_update_timezone
+  before_update :change_update_timezone
 
     private
     def change_create_timezone

@@ -21,7 +21,7 @@ class WorkingState < ActiveRecord::Base
   end
 
   def box_label_creator(employee_id, product_id, machine_id, boxing_date)
-    box = BoxLabel.new(:employee_id => employee_id, :product_id => product_id, :machine_id => machine_id, :quantity => maximum_load, :boxed_date_time => Time.now + 8.hours)
+    box = BoxLabel.new(:employee_id => employee_id, :product_id => product_id, :machine_id => machine_id, :quantity => loaded_unit, :boxed_date_time => Time.now + 8.hours)
     box.code = Engineer.generate_box_label_code(BoxLabel.last)
     box.save!
     label_items.each do |item|
@@ -34,6 +34,10 @@ class WorkingState < ActiveRecord::Base
 
   def full?
     loaded_unit >= maximum_load
+  end
+
+  def empty?
+    loaded_unit == 0
   end
 
   def reset

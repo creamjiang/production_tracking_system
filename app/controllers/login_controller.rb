@@ -91,10 +91,28 @@ class LoginController < ApplicationController
       redirect_to(:action => 'admin_index') 
     elsif is_operator?
       
-      current_user.update_login_record(params[:machine_id].to_i)
-      reset_session
-      flash[:notice] = "Successfully logout"
-      redirect_to(:action => 'index')
+
+      can_logout = true
+      machine = Machine.find(params[:machine_id])
+      if machine.is_barcode_mode?
+        machine.attached_products.active.each do |attached_product|
+          working_state = attached_product.working_states.first(:conditions => ["product_id = ? and machine_id = ? and routing_procedure_id = ?", attached_product.product_id, machine.id, attached_product.routing_procedure_id])
+          unless working_state.full? || working_state.empty?
+            can_logout = false
+            break
+          end
+        end
+      end
+
+      if can_logout
+        current_user.update_login_record(params[:machine_id].to_i)
+        reset_session
+        flash[:notice] = "Successfully logout"
+        redirect_to(:action => 'index')
+      else
+        flash[:error] = "Failed to logout due to incomplete box"
+        redirect_to(:controller => 'flow', :id => machine.id)
+      end
     
     elsif is_supervisor?
       

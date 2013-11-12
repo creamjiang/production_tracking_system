@@ -68,6 +68,16 @@
     <%= @product.prms_description_1 %>
   </p>
 
+  <p>
+    <b>Part Cost</b>
+    <%= @product.part_cost %>
+  </p>
+
+  <p>
+    <b>Part Weight</b>
+    <%= @product.part_weight %>
+  </p>
+
  <p>
 	<b>Image </b> <br />
 	<%= image_tag @product.avatar.url(:thumb) %>

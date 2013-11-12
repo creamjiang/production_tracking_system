@@ -24,10 +24,10 @@ class FlowController < ApplicationController
       end
       redirect_to(:action => 'home') if is_technician?
       
-     #rescue
-     #  flash[:error] = "No procedure assigned to this machine"
-     #  redirect_to root_path
-     #end
+    #rescue
+    #  flash[:error] = "No procedure assigned to this machine"
+    #  redirect_to root_path
+    #end
   end
  
   def home
@@ -159,8 +159,8 @@ class FlowController < ApplicationController
       @working_space.label_items.create!(:procedure_transaction_id => @p_transaction.id)
       if @machine.is_barcode_mode?
         if @working_space.full?
-          @working_space.reset
           @box = @working_space.box_label_creator(current_user_id, @product.id, @machine.id, get_the_actual_date)
+          @working_space.reset
         end
       end
     end
@@ -168,6 +168,7 @@ class FlowController < ApplicationController
 
     render :update do |page|
       page.replace_html('current_detail_'+@attached_product.id.to_s, :partial => 'attach_product', :locals => {:attach_product => @attached_product, :box_label => @box})
+      page.replace_html('product_detail_'+@attached_product.id.to_s, "#{@attached_product.product.part_name} (#{@attached_product.product.part_number}) - #{@working_space ? (@working_space.loaded_unit.to_s + ' / ' + @working_space.maximum_load.to_s) : nil}")
     end
     
   end
@@ -255,6 +256,20 @@ class FlowController < ApplicationController
       page.replace_html 'display_area', :partial => 'show_photos' #, :object => @person
     end
   end
+
+  def checkout
+    if @machine.is_barcode_mode?
+      if start_working(params[:id])
+        unless @working_space.full? || @working_space.empty?
+          @working_space.box_label_creator(current_user_id, @product.id, @machine.id, get_the_actual_date)
+          @working_space.reset
+          render :update do |page|
+            page.replace_html('product_detail_'+@attached_product.id.to_s, "#{@attached_product.product.part_name} (#{@attached_product.product.part_number}) - #{@working_space ? (@working_space.loaded_unit.to_s + ' / ' + @working_space.maximum_load.to_s) : nil}")
+          end
+        end
+      end
+    end
+  end
   
   def top_5_down_code
     find_machine
@@ -309,25 +324,25 @@ class FlowController < ApplicationController
   end
 
   def start_working(attach_product_id)
-      find_shift
-      @attached_product = AttachedProduct.find(attach_product_id)
-      @product = @attached_product.product
+    find_shift
+    @attached_product = AttachedProduct.find(attach_product_id)
+    @product = @attached_product.product
 
-      if @product
-        @working_space ||= @attached_product.working_states.first(:conditions => ["product_id = ? and machine_id = ? and routing_procedure_id = ?", @product.id, @machine.id, @attached_product.routing_procedure_id])
-        unless @working_space
-          #bin = Bin.check_available_bin(@product)
-          @working_space = @attached_product.working_states.create!(:maximum_load => @attached_product.bin_type.maximum_load, :bin_type_id => @attached_product.bin_type_id, :machine_id => @machine.id, :product_id => @product.id, :routing_procedure_id => @attached_product.routing_procedure_id)
-        end
-          @bin_type ||= @working_space.bin_type
-          @working_space.update_attributes!(:maximum_load => @bin_type.maximum_load) if @working_space.maximum_load != @bin_type.maximum_load
-          #@container ||= @bin.bin_type.containers.first(:conditions => ["product_id = ?", @product.id])
-          #todo : create workspace
-          #session[:working_id] = @working_space.id
-        return true
-      else
-        return false
+    if @product
+      @working_space ||= @attached_product.working_states.first(:conditions => ["product_id = ? and machine_id = ? and routing_procedure_id = ?", @product.id, @machine.id, @attached_product.routing_procedure_id])
+      unless @working_space
+        #bin = Bin.check_available_bin(@product)
+        @working_space = @attached_product.working_states.create!(:maximum_load => @attached_product.bin_type.maximum_load, :bin_type_id => @attached_product.bin_type_id, :machine_id => @machine.id, :product_id => @product.id, :routing_procedure_id => @attached_product.routing_procedure_id)
       end
+      @bin_type ||= @working_space.bin_type
+      @working_space.update_attributes!(:maximum_load => @bin_type.maximum_load) if @working_space.maximum_load != @bin_type.maximum_load
+      #@container ||= @bin.bin_type.containers.first(:conditions => ["product_id = ?", @product.id])
+      #todo : create workspace
+      #session[:working_id] = @working_space.id
+      true
+    else
+      false
+    end
   end
 
   def check_selection
@@ -364,6 +379,7 @@ class FlowController < ApplicationController
   def input_good_unit_for_data_entry(items, quantity)
     ActiveRecord::Base.transaction do
       @p_transaction = @product.procedure_transactions.new(:quantity => quantity, :reject_code_id => DailyTransaction::GOOD, :employee_id => current_user_id, :routing_procedure_id => @attached_product.routing_procedure_id, :routing_id => @attached_product.routing_id, :routing_process_id => @attached_product.routing_process_id, :machine_id => @machine.id, :bin_type_id => @bin_type.id, :status => ProcedureTransaction::GOOD, :transaction_date => items[:date], :shift_id => items[:shift_id])
+      @p_transaction.part_cost = @product.part_cost
       flush_operation(items[:date].to_s, quantity) #if Setting.first.enable_flush?
       @p_transaction.created_at = Time.parse(items[:date].to_s + " " + items[:hour].to_s + ":" + items[:minute].to_s + ":00") + 8.hours
       @p_transaction.save!
@@ -376,7 +392,7 @@ class FlowController < ApplicationController
   
   def input_good_unit
     ActiveRecord::Base.transaction do
-      @p_transaction = @product.procedure_transactions.create!(:quantity => 1, :reject_code_id => DailyTransaction::GOOD, :employee_id => current_user_id, :routing_procedure_id => @attached_product.routing_procedure_id, :routing_id => @attached_product.routing_id, :routing_process_id => @attached_product.routing_process_id, :machine_id => @machine.id, :bin_type_id => @bin_type.id, :status => ProcedureTransaction::GOOD, :transaction_date => get_the_actual_date, :shift_id => session[:shift_id])
+      @p_transaction = @product.procedure_transactions.create!(:part_cost => @product.part_cost, :quantity => 1, :reject_code_id => DailyTransaction::GOOD, :employee_id => current_user_id, :routing_procedure_id => @attached_product.routing_procedure_id, :routing_id => @attached_product.routing_id, :routing_process_id => @attached_product.routing_process_id, :machine_id => @machine.id, :bin_type_id => @bin_type.id, :status => ProcedureTransaction::GOOD, :transaction_date => get_the_actual_date, :shift_id => session[:shift_id])
       flush_operation(get_the_actual_date, 1)
       @machine.find_or_generate_transaction_summary(1, @product.id, current_user_id, @attached_product.routing_procedure_id, @attached_product.routing_id, @attached_product.routing_process_id, get_the_actual_date, session[:shift_id], ProcedureTransaction::GOOD)
       DailyTransaction.generate_summary("00", @product.id, @attached_product.routing_id, @attached_product.routing_process_id, get_the_actual_date, DailyTransaction::GOOD, 1)
@@ -387,6 +403,7 @@ class FlowController < ApplicationController
   def input_hold_unit_for_data_entry(items, quantity)
     ActiveRecord::Base.transaction do
       trans = @product.procedure_transactions.new(:quantity => quantity, :reject_code_id => DailyTransaction::ONHOLD, :employee_id => current_user_id, :routing_procedure_id => @attached_product.routing_procedure_id, :routing_id => @attached_product.routing_id, :routing_process_id => @attached_product.routing_process_id, :machine_id => @machine.id, :bin_type_id => @bin_type.id, :status => ProcedureTransaction::ONHOLD, :transaction_date => items[:date], :shift_id => items[:shift_id])
+      trans.part_cost = @product.part_cost
       trans.created_at = Time.parse(items[:date].to_s + " " + items[:hour].to_s + ":" + items[:minute].to_s + ":00") + 8.hours
       trans.save!
       trans.generate_cold_store(quantity, items[:date], ProcedureTransaction::ONHOLD, @product.id)
@@ -398,7 +415,7 @@ class FlowController < ApplicationController
   
   def input_hold_unit
     ActiveRecord::Base.transaction do
-      trans = @product.procedure_transactions.create!(:reject_code_id => DailyTransaction::ONHOLD, :employee_id => current_user_id, :routing_procedure_id => @attached_product.routing_procedure_id, :routing_id => @attached_product.routing_id, :routing_process_id => @attached_product.routing_process_id, :machine_id => @machine.id, :bin_type_id => @bin_type.id, :status => ProcedureTransaction::ONHOLD, :transaction_date => get_the_actual_date, :shift_id => session[:shift_id])
+      trans = @product.procedure_transactions.create!(:part_cost => @product.part_cost, :reject_code_id => DailyTransaction::ONHOLD, :employee_id => current_user_id, :routing_procedure_id => @attached_product.routing_procedure_id, :routing_id => @attached_product.routing_id, :routing_process_id => @attached_product.routing_process_id, :machine_id => @machine.id, :bin_type_id => @bin_type.id, :status => ProcedureTransaction::ONHOLD, :transaction_date => get_the_actual_date, :shift_id => session[:shift_id])
       trans.generate_cold_store(1, get_the_actual_date, ProcedureTransaction::ONHOLD, @product.id)
       @machine.find_or_generate_transaction_summary(1, @product.id, current_user_id, @attached_product.routing_procedure_id, @attached_product.routing_id, @attached_product.routing_process_id, get_the_actual_date, session[:shift_id], ProcedureTransaction::ONHOLD)
       DailyTransaction.generate_summary("00", @product.id, @attached_product.routing_id, @attached_product.routing_process_id, get_the_actual_date, DailyTransaction::ONHOLD, 1)
@@ -410,6 +427,7 @@ class FlowController < ApplicationController
     @routine_product = RoutineProduct.first(:conditions => ["routing_procedure_id = ? and product_id = ?", @attached_product.routing_procedure_id, @attached_product.product_id])
     ActiveRecord::Base.transaction do
       new_item = @product.procedure_transactions.new(:reject_area => @reject_area, :quantity => quantity, :reject_code_id => reject_code.id, :employee_id => current_user_id, :routing_procedure_id => @attached_product.routing_procedure_id, :routing_id => @attached_product.routing_id, :routing_process_id => @attached_product.routing_process_id, :machine_id => @machine.id, :bin_type_id => @bin_type.id, :status => ProcedureTransaction::REJECT, :transaction_date => items[:date], :shift_id => items[:shift_id])
+      new_item.part_cost = @product.part_cost
       new_item.created_at = Time.parse(items[:date].to_s + " " + items[:hour].to_s + ":" + items[:minute].to_s + ":00") + 8.hours
       flush_operation(items[:date].to_s, quantity) if @routine_product.reject_include? if @routine_product
       new_item.save!
@@ -423,7 +441,7 @@ class FlowController < ApplicationController
   def input_reject_unit(reject_code)
     @routine_product = RoutineProduct.first(:conditions => ["routing_procedure_id = ? and product_id = ?", @attached_product.routing_procedure_id, @attached_product.product_id])
     ActiveRecord::Base.transaction do
-      @product.procedure_transactions.create!(:reject_area => @reject_area, :reject_code_id => reject_code.id, :employee_id => current_user_id, :routing_procedure_id => @attached_product.routing_procedure_id, :routing_id => @attached_product.routing_id, :routing_process_id => @attached_product.routing_process_id, :machine_id => @machine.id, :bin_type_id => @bin_type.id, :status => ProcedureTransaction::REJECT, :transaction_date => get_the_actual_date, :shift_id => session[:shift_id])
+      @product.procedure_transactions.create!(:part_cost => @product.part_cost, :reject_area => @reject_area, :reject_code_id => reject_code.id, :employee_id => current_user_id, :routing_procedure_id => @attached_product.routing_procedure_id, :routing_id => @attached_product.routing_id, :routing_process_id => @attached_product.routing_process_id, :machine_id => @machine.id, :bin_type_id => @bin_type.id, :status => ProcedureTransaction::REJECT, :transaction_date => get_the_actual_date, :shift_id => session[:shift_id])
       flush_operation(get_the_actual_date, 1) if @routine_product.reject_include? if @routine_product
       @machine.find_or_generate_transaction_summary(1, @product.id, current_user_id, @attached_product.routing_procedure_id, @attached_product.routing_id, @attached_product.routing_process_id, get_the_actual_date, session[:shift_id], ProcedureTransaction::REJECT)
       DailyTransaction.generate_summary(@reject_area, @product.id, @attached_product.routing_id, @attached_product.routing_process_id, get_the_actual_date, reject_code.id, 1)

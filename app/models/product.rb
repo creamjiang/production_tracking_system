@@ -29,6 +29,7 @@ class Product < ActiveRecord::Base
   #validates_attachment_content_type :avatar, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"], :message => "has to be in jpeg or gif or png format"
   validates_presence_of :part_number, :part_name
   validates_uniqueness_of :part_number
+  validates_numericality_of :part_cost, :part_weight
   
   attr_accessor :good_unit, :hold_unit, :reject_unit, :shift, :processing_date, :yesterday_good_unit, :yesterday_reject_unit, :yesterday_hold_unit
   attr_accessor :yesterday_transactions, :today_transactions
@@ -84,7 +85,7 @@ class Product < ActiveRecord::Base
     deleted
   end
   
-   def self.generate_summary(products, shift_id, processing_date, machine_id)
+  def self.generate_summary(products, shift_id, processing_date, machine_id)
     products.each do |c|
 #      summary = c.product.transaction_summaries.first(:conditions => ["shift_id = ? and machine_id = ? and processing_date = ?", shift_id, machine_id, processing_date])
 #      yesterday_summary = c.product.transaction_summaries.first(:conditions => ["shift_id = ? and machine_id = ? and processing_date = ?", shift_id, machine_id, Date.parse(processing_date) - 1])
