@@ -67,6 +67,7 @@ class LoginController < ApplicationController
   end
  
   def admin_index
+    raise "Test error"
     if request.post?
       
       logged_user = Administrator.try_to_login(params[:name], params[:password])

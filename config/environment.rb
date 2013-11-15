@@ -30,6 +30,7 @@ Rails::Initializer.run do |config|
   #config.gem "mini_magick"
   config.gem "barby"
   config.gem "chunky_png"
+  config.gem "exception_notification", :version => '2.3.3.0'
   #config.gem "rest-client"
 
   # Only load the plugins named here, in the order given (default is alphabetical).
@@ -63,4 +64,16 @@ Rails::Initializer.run do |config|
   # config.i18n.default_locale = :de
 end
 
+#ExceptionNotifier.exception_recipients = %w(angmeng@gmail.com)                  # Accepts multiple e-mail addresses
+#ExceptionNotifier.sender_address       = %("APP Error" <yeongwei.tan@al-lighting.com>) # Replace APP with Application Name
+#ExceptionNotifier.email_prefix         = "[APP] "                               # Replace APP with Application Name
+#ExceptionNotifier.consider_local       = "132.241.xxx.xxx"                      # Accepts comma separated list of IPs
+ExceptionNotification::Notifier.exception_recipients = %w(laykuan.teh@al-lighting.com lim.am@icode-solution.com)
+# defaults to exception.notifier@default.com
+ExceptionNotification::Notifier.sender_address = %("Application Error" <app.error@al-lighting.com>)
+# defaults to "[ERROR] "
+ExceptionNotification::Notifier.email_prefix = "[APP Error] "
+
+
 require 'will_paginate'
+require 'exception_notification'
