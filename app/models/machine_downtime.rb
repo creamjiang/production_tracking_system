@@ -27,7 +27,7 @@ class MachineDowntime < ActiveRecord::Base
   end
     
   def period_of_downtime
-      fixed? ? distance_of_time_in_words(fixed_time, created_at) : distance_of_time_in_words(Time.now, created_at) rescue distance_of_time_in_words(Time.now, created_at)
+    fixed? ? distance_of_time_in_words(fixed_time, created_at) : distance_of_time_in_words(Time.now, created_at) rescue distance_of_time_in_words(Time.now, created_at)
   end
   
   private

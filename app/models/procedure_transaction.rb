@@ -52,7 +52,7 @@ class ProcedureTransaction < ActiveRecord::Base
     
     if found
       found.quantity += input_quantity
-      found.save!
+      found.save(false)
     else
       create_cold_store(:quantity => input_quantity, :on_hold_date => input_date, :status => input_status, :product_id => input_product_id)
     end

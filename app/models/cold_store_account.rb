@@ -10,7 +10,7 @@ class ColdStoreAccount < ActiveRecord::Base
     found = self.first(:conditions => ["product_id = ? and report_on = ?", product_id, report_date])
     if found
       found.debit += input_quantity
-      found.save
+      found.save(false)
     else
       ColdStoreAccount.create(:product_id => product_id, :report_on => report_date, :debit => input_quantity)
     end
@@ -20,7 +20,7 @@ class ColdStoreAccount < ActiveRecord::Base
     found = self.first(:conditions => ["product_id = ? and report_on = ?", product_id, report_date])
     if found
       found.credit += input_quantity
-      found.save!
+      found.save(false)
     else
       ColdStoreAccount.create(:product_id => product_id, :report_on => report_date, :credit => input_quantity)
     end

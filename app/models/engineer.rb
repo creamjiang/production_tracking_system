@@ -22,7 +22,8 @@ class Engineer
     end
   end
 
-  def self.generate_box_label_code(last_box_label)
+  def self.generate_box_label_code
+    last_box_label = BoxLabel.last
     first_section_code = Time.now.strftime("%y%m%d")
     if last_box_label
       if last_box_label.boxed_date_time.to_date == Date.today

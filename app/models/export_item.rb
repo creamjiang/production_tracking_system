@@ -23,26 +23,26 @@ class ExportItem < ActiveRecord::Base
         ac = product.account_statements.new(:routing_procedure_id => routing_procedure_id, :account_month => export_date.to_date.month, :account_year => export_date.to_date.year)
         found = product.account_statements.last(:conditions => ["routing_procedure_id = ? and account_month < ? and account_year <= ?", routing_procedure_id, export_date.to_date.month, export_date.to_date.year], :order => "account_year, account_month")
         ac.opening_balance = found.closing_balance if found
-        ac.save!
+        ac.save(false)
       end
       found = product.account_statements.all(:conditions => ["routing_procedure_id = ? and account_month >= ? and account_year > ?", routing_procedure_id, export_date.to_date.month, export_date.to_date.year], :order => "account_year, account_month")
       @balance = ac.closing_balance
       found.each do |f|
         f.opening_balance = @balance
-        f.save!
+        f.save(false)
         @balance = f.closing_balance
       end
       self.account_statement = ac
-      save!
+      save(false)
     end
 
       ac.lock!
       ac.quantity_out += transfered_quantity
-      ac.save!
+      ac.save(false)
       found = ProductBalance.first(:conditions => ["routing_procedure_id = ? and product_id = ?", routing_procedure_id, product_id])
       found = ProductBalance.new(:routing_procedure_id => routing_procedure_id, :product_id => product_id) unless found
       found.quantity_out += transfered_quantity
-      found.save!
+      found.save(false)
       
     
   end

@@ -13,10 +13,10 @@ class MachineDownReason < ActiveRecord::Base
   
   def verify_for_destroy
    deleted = false
-      if machine_downtimes.size.zero?
-         destroy
-         deleted = true
-      end
+    if machine_downtimes.size.zero?
+      destroy
+      deleted = true
+    end
     
     deleted
   end

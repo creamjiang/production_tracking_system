@@ -18,7 +18,7 @@ class PrmsExport < ActiveRecord::Base
       found = export_items.find(item_id)
       found.export_quantity = content[:export_quantity].to_i
       found.destination_id = content[:destination_id]
-      found.save!
+      found.save(false)
     end
   end
 
@@ -86,7 +86,7 @@ class PrmsExport < ActiveRecord::Base
 
               i.transfered_quantity = i.export_quantity
               i.posted = true
-              i.save!
+              i.save(false)
               i.update_balance
               output_word = ""
                 part = (i.product.part_number.strip)
@@ -161,7 +161,7 @@ class PrmsExport < ActiveRecord::Base
         self.document_content_type = "text/plain"
         self.document_updated_at = Time.now
         self.posted = true
-        save!
+        save(false)
       end
     end
     

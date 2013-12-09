@@ -103,7 +103,7 @@ class FlowController < ApplicationController
       downtime.save!
     end
     @machine.down = false
-    @machine.save!
+    @machine.save(false)
     if downtimes.size == 1
       flash[:notice] = "Machine Up"
     elsif downtimes.size > 1
@@ -114,24 +114,30 @@ class FlowController < ApplicationController
   end
   
   def submit_entry
-    attach_product_id = params[:attach_product_id] if params[:attach_product_id]
-    accept_quantity = params[:accept_quantity] if params[:accept_quantity]
-    hold_quantity = params[:hold_quantity] if params[:hold_quantity]
-    t = {}
-    t[:date] = Date.parse(params[:t_date])
-    t[:shift_id] = params[:shift_id]
-    t[:hour] = params[:date][:hour]
-    t[:minute] = params[:date][:minute]
-    
-    validate_entry_unit(attach_product_id, accept_quantity, ProcedureTransaction::GOOD, t) if attach_product_id
-    validate_entry_unit(attach_product_id, hold_quantity, ProcedureTransaction::ONHOLD, t) if attach_product_id
-    for num in (1..10)
-      reject_process_id = params["reject"]["#{num.to_s}_process_id"]
-      reject_code_id = params["reject"]["#{num.to_s}_reject_code_id_for_product_#{attach_product_id.to_s}"]
-      reject_quantity = params["#{num.to_s}_reject_quantity"]
-      reject_area = params["#{num.to_s}_reject_area"]
+    if start_working(params[:attach_product_id])
+      attach_product_id = params[:attach_product_id] if params[:attach_product_id]
+      accept_quantity = params[:accept_quantity] if params[:accept_quantity]
+      hold_quantity = params[:hold_quantity] if params[:hold_quantity]
+      t = {}
+      t[:date] = Date.parse(params[:t_date])
+      t[:shift_id] = params[:shift_id]
+      t[:hour] = params[:date][:hour]
+      t[:minute] = params[:date][:minute]
       
-      validate_reject_unit(reject_area, attach_product_id, reject_process_id, reject_code_id, reject_quantity, t)
+      validate_entry_unit(attach_product_id, accept_quantity, ProcedureTransaction::GOOD, t) if attach_product_id
+      validate_entry_unit(attach_product_id, hold_quantity, ProcedureTransaction::ONHOLD, t) if attach_product_id
+      for num in (1..10)
+        reject_process_id = params["reject"]["#{num.to_s}_process_id"]
+        reject_code_id = params["reject"]["#{num.to_s}_reject_code_id_for_product_#{attach_product_id.to_s}"]
+        reject_quantity = params["#{num.to_s}_reject_quantity"]
+        reject_area = params["#{num.to_s}_reject_area"]
+        
+        validate_reject_unit(reject_area, attach_product_id, reject_process_id, reject_code_id, reject_quantity, t)
+      end
+      @box = @working_space.box_label_creator(current_user_id, @product.id, @machine.id)
+      flash[:notice] = "Quantity successfully submited"
+    else
+      flash[:error] = "The machine failed to start working"
     end
     
     redirect_to :action => "index"
@@ -159,7 +165,7 @@ class FlowController < ApplicationController
       @working_space.label_items.create!(:procedure_transaction_id => @p_transaction.id)
       if @machine.is_barcode_mode?
         if @working_space.full?
-          @box = @working_space.box_label_creator(current_user_id, @product.id, @machine.id, get_the_actual_date)
+          @box = @working_space.box_label_creator(current_user_id, @product.id, @machine.id)
           @working_space.reset
         end
       end
@@ -335,7 +341,7 @@ class FlowController < ApplicationController
         @working_space = @attached_product.working_states.create!(:maximum_load => @attached_product.bin_type.maximum_load, :bin_type_id => @attached_product.bin_type_id, :machine_id => @machine.id, :product_id => @product.id, :routing_procedure_id => @attached_product.routing_procedure_id)
       end
       @bin_type ||= @working_space.bin_type
-      @working_space.update_attributes!(:maximum_load => @bin_type.maximum_load) if @working_space.maximum_load != @bin_type.maximum_load
+      @working_space.update_attributes(:maximum_load => @bin_type.maximum_load) if @working_space.maximum_load != @bin_type.maximum_load
       #@container ||= @bin.bin_type.containers.first(:conditions => ["product_id = ?", @product.id])
       #todo : create workspace
       #session[:working_id] = @working_space.id
@@ -382,7 +388,7 @@ class FlowController < ApplicationController
       @p_transaction.part_cost = @product.part_cost
       flush_operation(items[:date].to_s, quantity) #if Setting.first.enable_flush?
       @p_transaction.created_at = Time.parse(items[:date].to_s + " " + items[:hour].to_s + ":" + items[:minute].to_s + ":00") + 8.hours
-      @p_transaction.save!
+      @p_transaction.save(false)
       @machine.find_or_generate_transaction_summary(quantity, @product.id, current_user_id, @attached_product.routing_procedure_id, @attached_product.routing_id, @attached_product.routing_process_id, items[:date], items[:shift_id], ProcedureTransaction::GOOD)
       DailyTransaction.generate_summary("00", @product.id, @attached_product.routing_id, @attached_product.routing_process_id, items[:date], DailyTransaction::GOOD, quantity)
     end
@@ -405,7 +411,7 @@ class FlowController < ApplicationController
       trans = @product.procedure_transactions.new(:quantity => quantity, :reject_code_id => DailyTransaction::ONHOLD, :employee_id => current_user_id, :routing_procedure_id => @attached_product.routing_procedure_id, :routing_id => @attached_product.routing_id, :routing_process_id => @attached_product.routing_process_id, :machine_id => @machine.id, :bin_type_id => @bin_type.id, :status => ProcedureTransaction::ONHOLD, :transaction_date => items[:date], :shift_id => items[:shift_id])
       trans.part_cost = @product.part_cost
       trans.created_at = Time.parse(items[:date].to_s + " " + items[:hour].to_s + ":" + items[:minute].to_s + ":00") + 8.hours
-      trans.save!
+      trans.save(false)
       trans.generate_cold_store(quantity, items[:date], ProcedureTransaction::ONHOLD, @product.id)
       @machine.find_or_generate_transaction_summary(quantity, @product.id, current_user_id, @attached_product.routing_procedure_id, @attached_product.routing_id, @attached_product.routing_process_id, items[:date], items[:shift_id], ProcedureTransaction::ONHOLD)
       DailyTransaction.generate_summary("00", @product.id, @attached_product.routing_id, @attached_product.routing_process_id, items[:date], DailyTransaction::ONHOLD, quantity)
@@ -430,7 +436,7 @@ class FlowController < ApplicationController
       new_item.part_cost = @product.part_cost
       new_item.created_at = Time.parse(items[:date].to_s + " " + items[:hour].to_s + ":" + items[:minute].to_s + ":00") + 8.hours
       flush_operation(items[:date].to_s, quantity) if @routine_product.reject_include? if @routine_product
-      new_item.save!
+      new_item.save(false)
       
       @machine.find_or_generate_transaction_summary(quantity, @product.id, current_user_id, @attached_product.routing_procedure_id, @attached_product.routing_id, @attached_product.routing_process_id, items[:date], items[:shift_id], ProcedureTransaction::REJECT)
       DailyTransaction.generate_summary(@reject_area, @product.id, @attached_product.routing_id, @attached_product.routing_process_id, items[:date], reject_code.id, quantity)

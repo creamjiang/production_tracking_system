@@ -168,7 +168,7 @@ class Machine < ActiveRecord::Base
         found.reject_unit += input_quantity
       end
       found.part_cost = product.part_cost
-      found.save!
+      found.save(false)
 
     else
       new_one = transaction_summaries.create(:product_id => product_id, :employee_id => employee_id, :routing_procedure_id => routing_procedure_id, :routing_id => routing_id, :routing_process_id => routing_process_id, :processing_date => processing_date, :shift_id => shift_id)    
@@ -183,7 +183,7 @@ class Machine < ActiveRecord::Base
         new_one.reject_unit += input_quantity
       end
       new_one.part_cost = product.part_cost
-      new_one.save!
+      new_one.save(false)
     end
     
     

@@ -64,10 +64,10 @@ class Routing < ActiveRecord::Base
     if duplicate == 0
       procedure_machines.each {|d| 
         d.suspend = false
-        d.save
+        d.save(false)
       }
       self.suspend = false
-      save
+      save(false)
       result = 1
     else
       result = -1
@@ -78,10 +78,10 @@ class Routing < ActiveRecord::Base
   def disable_process
     procedure_machines.each {|d| 
         d.suspend = true
-        d.save
+        d.save(false)
       }
       self.suspend = true
-      save
+      save(false)
   end
   
   private

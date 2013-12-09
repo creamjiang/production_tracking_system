@@ -25,8 +25,8 @@ class Department < ActiveRecord::Base
    deleted = false
     
      if employees.size.zero?
-         destroy
-         deleted = true
+        destroy
+        deleted = true
      end unless builtin
         
     deleted

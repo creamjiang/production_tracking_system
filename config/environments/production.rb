@@ -35,9 +35,9 @@ config.action_mailer.smtp_settings = {
     :address => '10.102.4.25',
     :port=>25,
     :domain=>'al-lighting.com',
-    :user_name=>'laykuan.teh@al-lighting.com',
-    :password=>'Al@72088',
-    #:authentication=>:none,
+    #:user_name=>'laykuan.teh@al-lighting.com',
+    #:password=>'Al@72088',
+    :authentication=>:none,
     # :enable_starttls_auto => true
   }
 

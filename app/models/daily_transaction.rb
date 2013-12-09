@@ -45,7 +45,7 @@ class DailyTransaction < ActiveRecord::Base
     if found
       found.quantity += selected_quantity
       found.part_cost = product.part_cost
-      found.save!
+      found.save(false)
     else
       DailyTransaction.create(:part_cost => product.part_cost, :reject_area => reject_area, :side => selected_side,:generic_name => product.generic_name,:product_id => selected_product_id, :routing_id => selected_routing_id, :routing_process_id => selected_routing_process_id, :transaction_date => selected_date, :reject_code => reject_code, :quantity => selected_quantity)
     end

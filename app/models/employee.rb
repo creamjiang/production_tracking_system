@@ -119,7 +119,7 @@ class Employee < ActiveRecord::Base
     login = login_records.first(:conditions => ["machine_id = ? and logout = false", machine_id])
     if login
       login.logout = true
-      login.save!
+      login.save(false)
     end
   end
   

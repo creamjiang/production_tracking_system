@@ -17,16 +17,20 @@ class WorkingState < ActiveRecord::Base
   
   def loaded_one_unit
     self.loaded_unit += 1
-    save!
+    save(false)
   end
 
-  def box_label_creator(employee_id, product_id, machine_id, boxing_date)
-    box = BoxLabel.new(:employee_id => employee_id, :product_id => product_id, :machine_id => machine_id, :quantity => loaded_unit, :boxed_date_time => Time.now + 8.hours)
-    box.code = Engineer.generate_box_label_code(BoxLabel.last)
-    box.save!
-    label_items.each do |item|
-      item.box_label_id = box.id
-      item.save!
+  def box_label_creator(employee_id, product_id, machine_id, input_qty = 0, batch = false)
+    input_qty = loaded_unit unless batch
+    
+    box = BoxLabel.new(:employee_id => employee_id, :product_id => product_id, :machine_id => machine_id, :quantity => input_qty, :boxed_date_time => Time.now + 8.hours)
+    box.code = Engineer.generate_box_label_code
+    box.save(false)
+    unless batch
+      label_items.each do |item|
+        item.box_label_id = box.id
+        item.save(false)
+      end
     end
     LabelEngine.new(box).generate_label_content
     box
@@ -42,7 +46,7 @@ class WorkingState < ActiveRecord::Base
 
   def reset
     self.loaded_unit = 0
-    save!
+    save(false)
   end
   
   private

@@ -97,10 +97,10 @@ class ColdStore < ActiveRecord::Base
       c.on_hold_date = on_hold_date
       c.product_id = product_id
       c.quantity = amount
-      c.save!
+      c.save(false)
       self.quantity -= amount
     end
-    save!
+    save(false)
     t = procedure_transaction
     convert_time = Time.parse(current_date.strftime("%Y-%m-%d") + " " + Time.now.strftime("%H:%M:%S")) + 8.hours
     if t
@@ -126,10 +126,10 @@ class ColdStore < ActiveRecord::Base
       c.on_hold_date = on_hold_date
       c.product_id = product_id
       c.quantity = amount
-      c.save!
+      c.save(false)
       self.quantity -= amount
     end
-      save!
+      save(false)
       t = procedure_transaction
       convert_time = Time.parse(current_date.strftime("%Y-%m-%d") + " " + Time.now.strftime("%H:%M:%S")) + 8.hours
       if t
