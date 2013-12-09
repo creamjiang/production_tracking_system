@@ -70,9 +70,9 @@ end
 #ExceptionNotifier.consider_local       = "132.241.xxx.xxx"                      # Accepts comma separated list of IPs
 ExceptionNotification::Notifier.exception_recipients = %w(laykuan.teh@al-lighting.com lim.am@icode-solution.com)
 # defaults to exception.notifier@default.com
-ExceptionNotification::Notifier.sender_address = %("Application Error" <app.error@al-lighting.com>)
+ExceptionNotification::Notifier.sender_address = %("Application" <aykuan.teh@al-lighting.com>)
 # defaults to "[ERROR] "
-ExceptionNotification::Notifier.email_prefix = "[APP Error] "
+ExceptionNotification::Notifier.email_prefix = "[ALMA ICT] "
 
 
 require 'will_paginate'
