@@ -22,20 +22,18 @@ class Engineer
     end
   end
 
-  def self.generate_box_label_code
-    last_box_label = BoxLabel.last
-    first_section_code = Time.now.strftime("%y%m%d")
-    if last_box_label
-      if last_box_label.boxed_date_time.to_date == Date.today
-        running_num = last_box_label.code.split("-")[1].to_i + 1
-      elsif last_box_label.boxed_date_time.to_date < Date.today
-        running_num = 1
-      end
-    else
-      running_num = 1
-    end
-    second_section_code = running_num.to_s.rjust(5, "0")
-    first_section_code + "-" + second_section_code
+  def self.generate_box_label_code(part_number, actual_date, qty)
+    setting = Setting.first
+    setting.lock!
+    setting.last_label_running_number += 1
+    setting.save!
+    running_num = setting.last_label_running_number
+
+    running_num = running_num.to_s.rjust(4, "0")
+    qty = qty.to_s.rjust(4, "0")
+    part_number = part_number.ljust(15, " ")
+    last_section_code = "#{actual_date}#{running_num}"
+    "#{part_number}#{qty}#{last_section_code}"
   end
   
 end

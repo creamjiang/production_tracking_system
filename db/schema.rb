@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131112074036) do
+ActiveRecord::Schema.define(:version => 20131213004427) do
 
 # Could not dump table "account_statements" because of following StandardError
 #   Unknown type 'year(4)' for column 'account_year'
@@ -604,6 +604,7 @@ ActiveRecord::Schema.define(:version => 20131112074036) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "enable_flush",              :default => false
+    t.integer  "last_label_running_number", :default => 0
   end
 
   create_table "shift_items", :force => true do |t|

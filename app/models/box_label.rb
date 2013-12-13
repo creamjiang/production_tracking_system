@@ -8,6 +8,7 @@ class BoxLabel < ActiveRecord::Base
 	attr_accessible :employee_id, :product_id, :machine_id, :quantity, :boxed_date_time
 
 	delegate :name, :to => :employee, :prefix => true
+	delegate :employee_number, :to => :employee, :prefix => false
 	delegate :machine_number, :to => :machine
 	delegate :part_number, :part_name, :description, :side, :to => :product
 

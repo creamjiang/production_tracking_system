@@ -134,7 +134,7 @@ class FlowController < ApplicationController
         
         validate_reject_unit(reject_area, attach_product_id, reject_process_id, reject_code_id, reject_quantity, t)
       end
-      @box = @working_space.box_label_creator(current_user_id, @product.id, @machine.id)
+      @box = @working_space.box_label_creator(get_the_actual_date, current_user_id, @product.id, @machine.id, accept_quantity, true)
       flash[:notice] = "Quantity successfully submited"
     else
       flash[:error] = "The machine failed to start working"
@@ -165,7 +165,7 @@ class FlowController < ApplicationController
       @working_space.label_items.create!(:procedure_transaction_id => @p_transaction.id)
       if @machine.is_barcode_mode?
         if @working_space.full?
-          @box = @working_space.box_label_creator(current_user_id, @product.id, @machine.id)
+          @box = @working_space.box_label_creator(get_the_actual_date, current_user_id, @product.id, @machine.id)
           @working_space.reset
         end
       end
@@ -267,7 +267,7 @@ class FlowController < ApplicationController
     if @machine.is_barcode_mode?
       if start_working(params[:id])
         unless @working_space.full? || @working_space.empty?
-          @working_space.box_label_creator(current_user_id, @product.id, @machine.id, get_the_actual_date)
+          @working_space.box_label_creator(get_the_actual_date, current_user_id, @product.id, @machine.id)
           @working_space.reset
           render :update do |page|
             page.replace_html('product_detail_'+@attached_product.id.to_s, "#{@attached_product.product.part_name} (#{@attached_product.product.part_number}) - #{@working_space ? (@working_space.loaded_unit.to_s + ' / ' + @working_space.maximum_load.to_s) : nil}")
