@@ -100,7 +100,7 @@ class LoginController < ApplicationController
           unless working_state.full? || working_state.empty?
             can_logout = false
             break
-          end
+          end if working_state
         end
       end
 

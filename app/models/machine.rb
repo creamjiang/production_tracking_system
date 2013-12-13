@@ -23,7 +23,7 @@ class Machine < ActiveRecord::Base
   attr_accessible :machine_number, :asset_number, :description, :mac_address, :entry_category_id, :scan_folder
   validates_presence_of :machine_number, :asset_number, :mac_address
   validates_uniqueness_of :machine_number, :mac_address #, :asset_number
-  validates_uniqueness_of :scan_folder, :allow_blank => true, :allow_nil => true
+  #validates_uniqueness_of :scan_folder, :allow_blank => true, :allow_nil => true
   
   TOUCHSCREEN = 0
   DATA_ENTRY = 1
