@@ -20,12 +20,12 @@ class WorkingState < ActiveRecord::Base
     save(false)
   end
 
-  def box_label_creator(actual_date, emp_id, prod_id, mach_id, input_qty = 0, batch = false)
+  def box_label_creator(emp_id, prod_id, mach_id, input_qty = 0, batch = false)
     input_qty = loaded_unit unless batch
     
     box = BoxLabel.new(:employee_id => emp_id, :product_id => prod_id, :machine_id => mach_id, :quantity => input_qty, :boxed_date_time => Time.now + 8.hours)
     passed_product = Product.find prod_id
-    box.code = Engineer.generate_box_label_code(passed_product.part_number, actual_date.delete("-"), input_qty)
+    box.code = Engineer.generate_box_label_code(passed_product.part_number, Date.today.strftime("%y%m%d"), input_qty)
     box.save(false)
     unless batch
       label_items.each do |item|
