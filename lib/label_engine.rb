@@ -35,7 +35,7 @@ class LabelEngine
   end
 
   def generate_label_content
-    directories = Dir.entries(@scan_path)
+    directories = Dir.entries(@mounted_root_path)
     result = directories.reject {|d| d =~ /\.+/ }
     unless result.blank?
   	  File.open(@commander_triggering_path, "w") do |f2|
