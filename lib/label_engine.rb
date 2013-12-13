@@ -23,11 +23,11 @@ class LabelEngine
   	# end
     case @side
     when "Left"
-      @side_code = "L"
+      @side_code = "LH"
     when "Right"
-      @side_code = "R"
+      @side_code = "RH"
     when "Common"
-      @side_code = "C"
+      @side_code = "CMN"
     end
     @commander_triggering_path = "#{@scan_path}/#{@box_label.id}.txt"
   	@date = @box_label.boxed_date_time.strftime("%d-%m-%Y")
