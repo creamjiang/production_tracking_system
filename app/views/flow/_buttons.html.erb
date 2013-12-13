@@ -43,24 +43,19 @@
         <td>
           <%= link_to (image_tag("reject.png", :size => "100x100", :border => 0)), {:action => "select_reject_area", :id => c.id} %>
         </td>
-        <% if @machine.is_barcode_mode? %>
-          <td>
-          <%= link_to_remote (image_tag("checkout.png", :size => "100x100", :border => 0)), :url => {:action => "checkout", :id => c.id},
+        <%# if @machine.is_barcode_mode? %>
+          <!-- <td> -->
+          <%#= link_to_remote (image_tag("checkout.png", :size => "100x100", :border => 0)), :url => {:action => "checkout", :id => c.id},
                                   :confirm => "Are you sure ?",
                                   :html => {:id => "checkout_#{c.id.to_s}"},
                                   :loading => "running_checkout(#{c.id.to_s})",
                                   :complete => "show_checkout(#{c.id.to_s})"
-          %>
-          <div id="checkout_running_<%= c.id.to_s %>" style="display:none;">
-             <%= image_tag("running.png", :size => "100x100", :border => 0) %>
+          #%>
+         <!--  <div id="checkout_running_<%= c.id.to_s %>" style="display:none;">
+             <%#= image_tag("running.png", :size => "100x100", :border => 0) %>
            </div>
-          <%#= link_to_function (image_tag("printer.png", :size => "100x100", :border => 0)) do |page|
-                   page[("main_menu"+c.id.to_s).to_sym].visual_effect :slide_up
-                   page[("printers"+c.id.to_s).to_sym].visual_effect :slide_down
-
-                 end
-             %>
-          </td>
-        <% end %>
+         
+          </td> -->
+        <%# end %>
       </tr>
     </table>
