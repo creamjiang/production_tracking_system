@@ -114,7 +114,7 @@ class FlowController < ApplicationController
   end
   
   def submit_entry
-    if start_working(params[:attach_product_id])
+    # if start_working(params[:attach_product_id])
       attach_product_id = params[:attach_product_id] if params[:attach_product_id]
       accept_quantity = params[:accept_quantity] if params[:accept_quantity]
       hold_quantity = params[:hold_quantity] if params[:hold_quantity]
@@ -134,11 +134,11 @@ class FlowController < ApplicationController
         
         validate_reject_unit(reject_area, attach_product_id, reject_process_id, reject_code_id, reject_quantity, t)
       end
-      @box = @working_space.box_label_creator(current_user_id, @product.id, @machine.id, accept_quantity, true)
+      # @box = @working_space.box_label_creator(current_user_id, @product.id, @machine.id, accept_quantity, true)
       flash[:notice] = "Quantity successfully submited"
-    else
-      flash[:error] = "The machine failed to start working"
-    end
+    # else
+    #   flash[:error] = "The machine failed to start working"
+    # end
     
     redirect_to :action => "index"
   end

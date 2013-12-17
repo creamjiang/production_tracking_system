@@ -26,9 +26,10 @@
 		<td align="center">
 	   <%= f.select :product_id_equals, Product.all(:order => "part_number").map {|d| [d.part_number, d.id]}, {:include_blank => true} %>		
 		</td>
-		<td align="center"> <%= f.select :bin_id_equals, Bin.all(:order => "bin_number").map {|g| [g.bin_number, g.id]}, {:include_blank => true} %></td>
+		<td align="center"> <%= f.text_field :bin_id_equals %>
+		<%#= f.select :bin_id_equals, Bin.all(:order => "bin_number").map {|g| [g.bin_number, g.id]}, {:include_blank => true} %></td>
 		<td align="center"> <%= f.select :bin_type_id_equals, BinType.all(:order => "name").map {|h| [h.name, h.id]}, {:include_blank => true} %></td>
-		<td align="center"> <%= calendar_date_select_tag "created_at", session[:date] %></td>
+		<td align="center"> <%= f.calendar_date_select :created_at_greater_than_or_equal_to %> to <%= f.calendar_date_select :created_at_less_than_or_equal_to %> <%#= calendar_date_select_tag "created_at", session[:date] %></td>
 		<td align="center">	<%= f.submit "search" %></td>
 		
 	</tr>
@@ -51,13 +52,13 @@
 
 <% @procedure_transactions.each do |procedure_transaction| %>
   <tr class="<%= cycle("list0", "list1")%>">
-    <td><%=h procedure_transaction.employee.name %></td>
-    <td><%=h procedure_transaction.product.part_name %></td>
-    <td><%=h procedure_transaction.machine.machine_number %></td>
-    <td><%=h procedure_transaction.bin.bin_number %></td>
-    <td><%=h procedure_transaction.bin_type.name %></td>
+    <td><%=h procedure_transaction.employee.name rescue "-" %></td>
+    <td><%=h procedure_transaction.product.part_name rescue "-" %></td>
+    <td><%=h procedure_transaction.machine.machine_number rescue "-" %></td>
+    <td><%=h procedure_transaction.bin.bin_number rescue "-" %></td>
+    <td><%=h procedure_transaction.bin_type.name rescue "-" %></td>
     <td align="center">
-    	 <%=h procedure_transaction.status_name %>
+    	 <%=h procedure_transaction.status_name rescue "-" %>
 	</td>
 	<td align="center"><%=h procedure_transaction.created_at.utc.strftime("%d-%m-%Y %H:%M") %></td>
    </tr>

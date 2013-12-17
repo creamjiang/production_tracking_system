@@ -32,6 +32,27 @@ class Administrator < ActiveRecord::Base
     result.sort_by { |c| c.part_name }
   end
 
+  def products
+    result = []
+    routing_procedures.each do |r|
+      r.attached_products.each do |p|
+        result << p.product
+      end
+    end
+    result.uniq.sort_by { |c| c.part_number }
+  end
+
+  def belongs_products(targets)
+    result = []
+    own_products = products
+    targets.each do |p|
+      if own_products.include? p
+        result << p
+      end
+    end
+    result
+  end
+
   def routing_procedures_on_hold_products
     result = []
     products_ids = []
@@ -89,6 +110,19 @@ class Administrator < ActiveRecord::Base
       end
     end
     result.sort_by {|c| c.machine_number}
+  end
+
+  def belongs_operators
+    result = []
+    
+    routing_procedures.each do |rp|
+      rp.machines.each do |m|
+        m.employees.each do |em|
+          result << em
+        end
+      end
+    end
+    result.uniq.sort_by {|c| c.employee_number}
   end
   
   def password

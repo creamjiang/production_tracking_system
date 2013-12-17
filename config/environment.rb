@@ -24,12 +24,12 @@ Rails::Initializer.run do |config|
   #config.gem 'thoughtbot-paperclip', :lib => 'paperclip', :source => 'http://gems.github.com' 
   
   config.gem 'paperclip', :version => "2.3.9"
-  config.gem "searchlogic"
+  config.gem "searchlogic", :version => "2.5.15"
   config.gem 'will_paginate', :version => '~> 2.3.15'
   config.gem "calendar_date_select"
   #config.gem "mini_magick"
-  config.gem "barby"
-  config.gem "chunky_png"
+  #config.gem "barby"
+  #config.gem "chunky_png"
   config.gem "exception_notification", :version => '2.3.3.0'
   #config.gem "rest-client"
 

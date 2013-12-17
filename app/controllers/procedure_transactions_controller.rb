@@ -4,24 +4,24 @@ class ProcedureTransactionsController < ApplicationController
   # GET /procedure_transactions
   # GET /procedure_transactions.xml
   def index
-      @search = ProcedureTransaction.search(params[:search])
-        if params[:created_at]
-          if params[:created_at].blank?
-            session[:date] = nil
-          else
-            session[:date] = Date.parse(params[:created_at]).strftime("%Y-%m-%d")
-          end
-        end
-       if params[:search]
-         if session[:date]
-           @procedure_transactions = @search.all(:include => [:employee, :product, :machine, :bin, :bin_type], :conditions => ["transaction_date = ?", session[:date]]).paginate(:page => params[:page], :per_page => 50)
-         else
-           @procedure_transactions = @search.all(:include => [:employee, :product, :machine, :bin, :bin_type]).paginate(:page => params[:page], :per_page => 50)
-         end
-       else
-         @procedure_transactions = []
-       end
-         
+    @search = ProcedureTransaction.search(params[:search])
+     #  if params[:created_at]
+     #    if params[:created_at].blank?
+     #      session[:date] = nil
+     #    else
+     #      session[:date] = Date.parse(params[:created_at]).strftime("%Y-%m-%d")
+     #    end
+     #  end
+     # if params[:search]
+     #   if session[:date]
+     #     @procedure_transactions = @search.all(:include => [:employee, :product, :machine, :bin, :bin_type], :conditions => ["transaction_date = ?", session[:date]]).paginate(:page => params[:page], :per_page => 50)
+     #   else
+     #     @procedure_transactions = @search.all(:include => [:employee, :product, :machine, :bin, :bin_type]).paginate(:page => params[:page], :per_page => 50)
+     #   end
+     # else
+     #   @procedure_transactions = []
+     # end
+    @procedure_transactions = @search.all(:include => [:employee, :product, :machine, :bin, :bin_type]).paginate(:page => params[:page], :per_page => 50)
     
     respond_to do |format|
       format.html # index.html.erb

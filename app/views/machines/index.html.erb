@@ -48,22 +48,22 @@
   <tr class="<%= cycle("list0", "list1")%>">
     <td><%=h machine.machine_number %></td>
     <td><%=h machine.asset_number %></td>
-	<td><%=h machine.mac_address %></td>
-        <td><%=h machine.data_mode %></td>
+	  <td><%=h machine.mac_address %></td>
+    <td><%=h machine.data_mode %></td>
 
-	<% unless is_application_admin? or is_supervisor? %>
-	  <td align="center"><%= link_to "Edit", attach_employee_machine_path(machine) %></td>
-	<% end %>
-	<td align="center"><%= link_to "Edit", attach_product_machine_path(machine) %></td>
+  	<% unless is_application_admin? or is_supervisor? %>
+  	  <td align="center"><%= link_to "Edit", attach_employee_machine_path(machine) %></td>
+  	<% end %>
+	  <td align="center"><%= link_to "Edit", attach_product_machine_path(machine) %></td>
 	
-	<% unless is_application_admin? or is_supervisor? %>
-	  <td align="center"><%= link_to "Edit", attach_shift_machine_path(machine) %></td>
-	  <td class="action"><%= link_to 'Show', machine %>
-      <%= link_to 'Edit', edit_machine_path(machine) %>
-	<% if is_admin? %>
-      <%= link_to 'Destroy', machine, :confirm => 'Are you sure?', :method => :delete %>
-	<% end %>
-	  </td>
+  	<% unless is_application_admin? or is_supervisor? %>
+  	  <td align="center"><%= link_to "Edit", attach_shift_machine_path(machine) %></td>
+  	  <td class="action"><%= link_to 'Show', machine %>
+        <%= link_to 'Edit', edit_machine_path(machine) %>
+    	<% if is_admin? %>
+          <%= link_to 'Destroy', machine, :confirm => 'Are you sure?', :method => :delete %>
+    	<% end %>
+  	  </td>
     <% end %>    
   </tr>
 <% end %>

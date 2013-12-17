@@ -16,10 +16,14 @@
     </tr>
 	<tr>
 		<td align="center"> <%= f.text_field :code_equals %></td>
-		<td align="center"> <%= f.text_field :product_part_number_equals %></td>
+    <% if is_ict_admin? %>
+		  <td align="center"> <%= f.text_field :product_part_number_equals %></td>
+    <% else %>
+      <td align="center"> <%= f.collection_select :product_id_equals, @products, :id, :part_number, {:include_blank => true} %></td>
+    <% end %>
 		<td align="center"> <%= f.collection_select :machine_id_equals, @machines, :id, :machine_number, {:include_blank => true} %></td>
 		<td align="center"> <%= f.collection_select :employee_id_equals, @employees, :id, :employee_number, {:include_blank => true} %></td>
-		<td align="center"> From <%= f.calendar_date_select :boxed_date_time_gte %> to <%= f.calendar_date_select :boxed_date_time_lte %></td>
+		<td align="center"> From <%= f.calendar_date_select :boxed_date_time_greater_than_or_equal_to %> to <%= f.calendar_date_select :boxed_date_time_less_than_or_equal_to %></td>
 		<td align="center">	<%= f.submit "search" %></td>
 	</tr>
 </table>
@@ -45,7 +49,7 @@
 	<td><%=h box.machine_number %></td>
     <td align="center"><%=h box.quantity %></td>
     <td align="center"><%=h box.boxed_date_time.strftime("%d-%m-%Y %H:%M") %></td>
-     <td align="center"><%= link_to "Print", print_barcode_box_label_path(box), :confirm => "Are you sure?" %></td>
+     <td align="center"><%= link_to "Print Label", print_barcode_box_label_path(box), :confirm => "Are you sure?" %></td>
   </tr>
 <% end %>
 </table>

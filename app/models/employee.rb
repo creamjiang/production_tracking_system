@@ -18,6 +18,23 @@ class Employee < ActiveRecord::Base
   before_create :change_create_timezone
   before_update :change_update_timezone
 
+  def routing_procedures_on_hold_products
+    result = []
+    products_ids = []
+    machines.each do |machine|
+      ProcedureMachine.all("machine_id = ?", machine.id).each do |procedure_machine|
+        r = procedure_machine.routing_procedure
+        r.attached_products.each do |p|
+          if ColdStore.product_quantity(p.product_id) > 0
+            products_ids << p.product_id
+            result << p
+          end unless products_ids.include?(p.product_id)
+        end
+      end
+    end
+    result.sort_by { |c| c.part_name }
+  end
+
   def belongs_machines(targets)
     result = []
     search = machines

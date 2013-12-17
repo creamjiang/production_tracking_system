@@ -9,7 +9,7 @@ class MachinesController < ApplicationController
 
       @machines = @search.all(:order => "machine_number").paginate(:page => params[:page], :per_page => 50)
     elsif is_supervisor?
-      @search = Product.search(params[:search])
+      @search = Machine.search(params[:search])
       @machines = current_user.belongs_machines(@search.all)
       @machines = @machines.paginate(:page => params[:page], :per_page => 30)
     elsif is_application_admin?
@@ -221,7 +221,7 @@ class MachinesController < ApplicationController
       found.save!
     end
     
-    flash[:notice] = "Updated"
+    flash[:notice] = "Visible machines Updated"
     redirect_to(attach_product_machine_path(machine))
   end
   

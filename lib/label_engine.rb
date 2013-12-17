@@ -30,8 +30,9 @@ class LabelEngine
       @side_code = "CMN"
     end
     @commander_triggering_path = "#{@scan_path}/#{@box_label.id}.txt"
-  	@date = @box_label.boxed_date_time.strftime("%d-%m-%Y")
-  	@time = @box_label.boxed_date_time.strftime("%H:%M")
+    label_datetime = @box_label.boxed_date_time
+  	@date = label_datetime.strftime("%d-%m-%Y")
+  	@time = label_datetime.strftime("%H:%M")
   end
 
   def generate_label_content
