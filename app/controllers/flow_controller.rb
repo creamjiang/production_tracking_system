@@ -143,6 +143,24 @@ class FlowController < ApplicationController
     redirect_to :action => "index"
   end
 
+  def print_label
+    if params[:label][:quantity].blank?
+      flash[:error] = "Quantity cannot be blank"
+    else
+      if params[:label][:quantity].strip =~ /\D/
+        flash[:error] = "You cannot enter non digit character"
+      else
+        if start_working(params[:id])
+          @box = @working_space.box_label_creator(current_user_id, @product.id, @machine.id, params[:label][:quantity], true)
+          flash[:notice] = "Label has been sent to printer"
+        else
+          flash[:error] = "The machine failed to start working"
+        end
+      end
+    end
+    redirect_to :action => "index"
+  end
+
   def barcode
     item = AttachedProduct.find(params[:id])
     if params[:category_id].to_i == 1

@@ -15,10 +15,20 @@
                   </td>
                   <td>
                      <%= link_to_remote image_tag("input.png", :size => "100x100"), {}, :onclick => "Effect.toggle('data_entry_#{c.id.to_s}', 'appear')" %>
+                      
+                  </td>
+                  <td>
+                    <% form_tag "/flow/print_label/#{c.id}" do %>
+                       Quantity
+                      <%= text_field_tag "label[quantity]" %>
+                      <%#= hidden_field_tag "label[product_id]", c.product_id %>
+                      <%#= hidden_field_tag "label[machine_id]", @machine.id %>
+                      <%= submit_tag "Print Label", :style => "width:125px;", :confirm => "Confirm witht he input quantity ?" %>
+                    <% end %>
                   </td>
                 </tr>
                 <tr>
-                  <td colspan="2">
+                  <td colspan="3">
                      <%= link_to_remote (c.product.part_name + " (" + c.product.part_number + ")"), {}, :onclick => "Effect.toggle('data_entry_#{c.id.to_s}', 'appear')" %>
                   </td>
                 </tr>
