@@ -19,11 +19,11 @@
                   </td>
                   <td>
                     <% form_tag "/flow/print_label/#{c.id}" do %>
-                       Quantity
+                       Label Quantity
                       <%= text_field_tag "label[quantity]" %>
                       <%#= hidden_field_tag "label[product_id]", c.product_id %>
                       <%#= hidden_field_tag "label[machine_id]", @machine.id %>
-                      <%= submit_tag "Print Label", :style => "width:125px;", :confirm => "Confirm witht he input quantity ?" %>
+                      <%= submit_tag "Print Label", :style => "width:125px;", :confirm => "Confirm with the label quantity ?" %>
                     <% end %>
                   </td>
                 </tr>

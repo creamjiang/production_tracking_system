@@ -144,15 +144,20 @@ class FlowController < ApplicationController
   end
 
   def print_label
-    if params[:label][:quantity].blank?
+    quantity = params[:label][:quantity]
+    if quantity.blank?
       flash[:error] = "Quantity cannot be blank"
     else
-      if params[:label][:quantity].strip =~ /\D/
+      if quantity.strip =~ /\D/
         flash[:error] = "You cannot enter non digit character"
       else
         if start_working(params[:id])
-          @box = @working_space.box_label_creator(current_user_id, @product.id, @machine.id, params[:label][:quantity], true)
-          flash[:notice] = "Label has been sent to printer"
+          total = 0
+          quantity.to_i.times do
+            @box = @working_space.box_label_creator(current_user_id, @product.id, @machine.id, @working_space.maximum_load, true)
+            total += @working_space.maximum_load
+          end
+          flash[:notice] = "#{quantity} labels have been sent to printer, total quantity of part is #{total}."
         else
           flash[:error] = "The machine failed to start working"
         end
