@@ -93,16 +93,16 @@ class LoginController < ApplicationController
       
 
       can_logout = true
-      machine = Machine.find(params[:machine_id])
-      if machine.is_barcode_mode?
-        machine.attached_products.active.each do |attached_product|
-          working_state = attached_product.working_states.first(:conditions => ["product_id = ? and machine_id = ? and routing_procedure_id = ?", attached_product.product_id, machine.id, attached_product.routing_procedure_id])
-          unless working_state.full? || working_state.empty?
-            can_logout = false
-            break
-          end if working_state
-        end
-      end
+      # machine = Machine.find(params[:machine_id])
+      # if machine.is_barcode_mode?
+      #   machine.attached_products.active.each do |attached_product|
+      #     working_state = attached_product.working_states.first(:conditions => ["product_id = ? and machine_id = ? and routing_procedure_id = ?", attached_product.product_id, machine.id, attached_product.routing_procedure_id])
+      #     unless working_state.full? || working_state.empty?
+      #       can_logout = false
+      #       break
+      #     end if working_state
+      #   end
+      # end
 
       if can_logout
         current_user.update_login_record(params[:machine_id].to_i)
