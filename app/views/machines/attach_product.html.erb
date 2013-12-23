@@ -7,6 +7,7 @@
 .whiteThing { background-color: #FFF; }
 .redThing { background-color: #F00; }
 //-->
+
 </style>
 
 <%= javascript_include_tag("smo") %>
@@ -65,8 +66,8 @@
 		<td><%= pro.product.category.name rescue "" %></td>
 		<td><%= pro.product.side %></td>
     <% if is_ict_admin? %>
-      <td><%= select_tag("attached_product[#{pro.id.to_s}][routing_procedure_id]", options_from_collection_for_select(@procedures, :id, :fullname, pro.routing_procedure_id)) %></td>
-      <td><%= select_tag("attached_product[#{pro.id.to_s}][bin_type_id]", options_from_collection_for_select(@bin_types, :id, :name, pro.bin_type_id)) %></td>
+      <td><%= select_tag("attached_product[#{pro.id.to_s}][routing_procedure_id]", options_from_collection_for_select(@procedures, :id, :fullname, pro.routing_procedure_id), :style=>"width: 120px;") %></td>
+      <td><%= select_tag("attached_product[#{pro.id.to_s}][bin_type_id]", options_from_collection_for_select(@bin_types, :id, :name, pro.bin_type_id), :style=>"width: 120px;") %></td>
 		<% end %>
     <td align="center">
 		  <%= hidden_field_tag('seen[]', pro.id) -%>
