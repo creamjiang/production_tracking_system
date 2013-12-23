@@ -44,7 +44,7 @@
           <%= link_to (image_tag("reject.png", :size => "100x100", :border => 0)), {:action => "select_reject_area", :id => c.id} %>
         </td>
         <% if @machine.is_barcode_mode? %>
-          <td style="padding-left: 50px;">
+          <td>
           <%= link_to_remote (image_tag("checkout.png", :size => "60x60", :border => 0)), :url => {:action => "checkout", :id => c.id},
                                   :confirm => "Print label with quantity #{working_state.loaded_unit}/#{working_state.maximum_load} ?",
                                   :html => {:id => "checkout_#{c.id.to_s}"},

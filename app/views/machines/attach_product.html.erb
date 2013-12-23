@@ -115,8 +115,8 @@
 	  <td> <%= f.text_field :part_number_like %></td>
 	  <td><%= f.text_field :part_name_like %></td>
 	  <td> <%= f.select :side_equals, Product::SIDE_CHOICES, {:include_blank => true} %>	</td>
-	  <td> <%= f.select :generic_name_equals, ProcedureProduct.all(:order => "generic_name").map {|c| [c.generic_name, c.generic_name]}, {:include_blank => true} %></td>
-	  <td> <%= f.select :category_id_equals, Category.all.map {|c| [c.name, c.id]}, {:include_blank => true} %></td>
+	  <td> <%= f.select :generic_name_equals, ProcedureProduct.all(:order => "generic_name").map {|c| [c.generic_name, c.generic_name]}, {:include_blank => true}, :style=>"width: 120px;" %></td>
+	  <td> <%= f.select :category_id_equals, Category.all.map {|c| [c.name, c.id]}, {:include_blank => true }, :style=>"width: 120px;" %></td>
 	  <td align="center">	<%= f.submit "Filter" %></td>
 	</tr>
 </table>
