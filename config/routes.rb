@@ -65,7 +65,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :machines, :member => {:attach_employee => :get, :attach_product => :get, :add_operator => :post, 
                                        :add_product => :post,  :remove_employee => [:get, :post],  :remove_product => :get, 
                                        :update_visible => :post, :attach_shift => :get, :add_shift => :post, 
-                                       :remove_shift => [:get, :post], :update_process => :post},
+                                       :remove_shift => [:get, :post], :update_process => :post, :initial_bin => :get},
                             :collection => {:update_process_info => :post}
 
   map.resources :materials

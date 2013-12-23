@@ -293,5 +293,16 @@ class MachinesController < ApplicationController
     flash[:notice] = "Update Successfully"
     redirect_to(machines_url)
   end
+
+  def initial_bin
+    attached_product = AttachedProduct.find params[:id]
+    working_space = attached_product.working_states.first(:conditions => ["product_id = ? and machine_id = ? and routing_procedure_id = ?", attached_product.product_id, attached_product.machine_id, attached_product.routing_procedure_id])
+    unless working_space
+      working_space = attached_product.working_states.create!(:maximum_load => attached_product.bin_type.maximum_load, :bin_type_id => attached_product.bin_type_id, :machine_id => attached_product.machine_id, :product_id => attached_product.product_id, :routing_procedure_id => attached_product.routing_procedure_id)
+    end
+    working_space.update_attributes(:maximum_load => attached_product.bin_type.maximum_load, :loaded_unit => 0) if working_space.maximum_load != attached_product.bin_type.maximum_load
+    flash[:notice] = "Initialize bin completed"
+    redirect_to :back
+  end
   
 end

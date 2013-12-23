@@ -43,7 +43,7 @@
 
 <p>
     <b>Mode</b>
-    <%= f.select :entry_category_id, [["Data Entry", 1], ["Barcode Mode", 2], ["TouchSreen", 0]] %>
+    <%= f.select :entry_category_id, [["Data Entry", 1], ["Barcode Mode", 2], ["TouchSreen", 0]] %> <em>Please make sure the machine is ready for the mode you want to change</em>
   </p>
   <p>
     <%= f.submit 'Update', :confirm => "Confirm to change the machine mode ?" %>
@@ -89,6 +89,7 @@
 		<td class="action">
 		  <% unless is_application_admin? or is_supervisor? %>
 		    <%= link_to "Remove", remove_product_machine_path(@machine, :product_id => pro) %>
+		    <%= link_to "Initialize", initial_bin_machine_path(pro), :confirm => "Confirm to initialize ?" %>
 		  <% end %>
 	  </td>
 	</tr>
