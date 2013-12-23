@@ -19,6 +19,8 @@
 <%= link_to 'Show', @machine %> |
 <%= link_to 'View All', machines_path %>
 <br />
+<% form_for(@machine) do |f| %>
+  <%= f.error_messages %>
 <p>
   <b>Machine number:</b>
   <%=h @machine.machine_number %>
@@ -38,6 +40,15 @@
   <b>Description:</b>
   <%=h @machine.description %>
 </p>
+
+<p>
+    <b>Mode</b>
+    <%= f.select :entry_category_id, [["Data Entry", 1], ["Barcode Mode", 2], ["TouchSreen", 0]] %>
+  </p>
+  <p>
+    <%= f.submit 'Update', :confirm => "Confirm to change the machine mode ?" %>
+  </p>
+<% end %>
 
 <br />
 <hr/>
@@ -69,6 +80,7 @@
       <td><%= select_tag("attached_product[#{pro.id.to_s}][routing_procedure_id]", options_from_collection_for_select(@procedures, :id, :fullname, pro.routing_procedure_id), :style=>"width: 120px;") %></td>
       <td><%= select_tag("attached_product[#{pro.id.to_s}][bin_type_id]", options_from_collection_for_select(@bin_types, :id, :name, pro.bin_type_id), :style=>"width: 120px;") %></td>
 		<% end %>
+		
     <td align="center">
 		  <%= hidden_field_tag('seen[]', pro.id) -%>
       <%= check_box_tag 'activated[]', pro.id, pro.visible -%>

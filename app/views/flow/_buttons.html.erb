@@ -46,7 +46,7 @@
         <% if @machine.is_barcode_mode? %>
           <td>
           <%= link_to_remote (image_tag("checkout.png", :size => "60x60", :border => 0)), :url => {:action => "checkout", :id => c.id},
-                                  :confirm => "Print label with quantity #{working_state.loaded_unit}/#{working_state.maximum_load} ?",
+                                  :confirm => "Print label with current quantity ?",
                                   :html => {:id => "checkout_#{c.id.to_s}"},
                                   :loading => "running_checkout(#{c.id.to_s})",
                                   :complete => "show_checkout(#{c.id.to_s})"

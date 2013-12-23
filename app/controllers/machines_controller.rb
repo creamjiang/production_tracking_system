@@ -80,7 +80,7 @@ class MachinesController < ApplicationController
     respond_to do |format|
       if @machine.update_attributes(params[:machine])
         flash[:notice] = 'Machine was successfully updated.'
-        format.html { redirect_to(@machine) }
+        format.html { redirect_to(:back) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
