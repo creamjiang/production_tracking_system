@@ -15,7 +15,7 @@ config.log_level = :error
 # Use a different logger for distributed setups
 # config.logger = SyslogLogger.new
 # config.logger = Logger.new(config.log_path, 50, 1.megabyte)
-config.logger = Logger.new(config.log_path, 'daily')
+# config.logger = Logger.new(config.log_path, 'daily')
 
 # Use a different cache store in production
 # config.cache_store = :mem_cache_store

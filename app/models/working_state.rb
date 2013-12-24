@@ -33,7 +33,7 @@ class WorkingState < ActiveRecord::Base
         item.save(false)
       end
     end
-    #LabelEngine.new(box).generate_label_content
+    LabelEngine.new(box).generate_label_content
     box
   end
 
