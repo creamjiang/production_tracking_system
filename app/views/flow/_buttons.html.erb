@@ -24,7 +24,8 @@
                 </td>
               </tr>
               <tr>
-                <td colspan="2" id="product_detail_<%= c.id.to_s %>"><%= c.product.part_name %> (<%= c.product.part_number %>) - <%= working_state ? "#{working_state.loaded_unit} / #{working_state.maximum_load}" : "" %></td>
+                <td colspan="2" id="product_detail_<%= c.id.to_s %>"><%= c.product.part_name %> (<%= c.product.part_number %>) - 
+                <span style="color:red;"><%= working_state ? "#{working_state.loaded_unit} / #{working_state.maximum_load}" : "" %></span></td>
 
               </tr>
             </table>

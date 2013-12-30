@@ -166,6 +166,29 @@ class FlowController < ApplicationController
     redirect_to :action => "index"
   end
 
+  def print_loose
+    quantity = params[:label][:quantity]
+    if quantity.blank?
+      flash[:error] = "Quantity cannot be blank"
+    else
+      if quantity.strip =~ /\D/
+        flash[:error] = "You cannot enter non digit character"
+      else
+        if start_working(params[:id])
+          if quantity.to_i >= @working_space.maximum_load
+            flash[:error] = "#{quantity} is equal or exceed maximum load of the bin"
+          else
+            @box = @working_space.box_label_creator(current_user_id, @product.id, @machine.id, quantity.to_i, true)
+            flash[:notice] = "Total quantity of #{quantity} printed"
+          end
+        else
+          flash[:error] = "The machine failed to start working"
+        end
+      end
+    end
+    redirect_to :action => "index"
+  end
+
   def barcode
     item = AttachedProduct.find(params[:id])
     if params[:category_id].to_i == 1
@@ -196,7 +219,7 @@ class FlowController < ApplicationController
 
     render :update do |page|
       page.replace_html('current_detail_'+@attached_product.id.to_s, :partial => 'attach_product', :locals => {:attach_product => @attached_product, :box_label => @box})
-      page.replace_html('product_detail_'+@attached_product.id.to_s, "#{@attached_product.product.part_name} (#{@attached_product.product.part_number}) - #{@working_space ? (@working_space.loaded_unit.to_s + ' / ' + @working_space.maximum_load.to_s) : nil}")
+      page.replace_html('product_detail_'+@attached_product.id.to_s, "#{@attached_product.product.part_name} (#{@attached_product.product.part_number}) - <span style='color:red;'>#{@working_space ? (@working_space.loaded_unit.to_s + ' / ' + @working_space.maximum_load.to_s) : nil} </span>")
     end
     
   end

@@ -33,7 +33,11 @@ class WorkingState < ActiveRecord::Base
         item.save(false)
       end
     end
-    LabelEngine.new(box).generate_label_content
+    begin
+      LabelEngine.new(box).generate_label_content
+    rescue Exception => e
+      logger.error "#{Time.now.to_s} : #{e.message}"
+    end
     box
   end
 

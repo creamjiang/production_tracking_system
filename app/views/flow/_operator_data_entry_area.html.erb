@@ -26,9 +26,18 @@
                       <%= submit_tag "Print Label", :style => "width:125px;", :confirm => "Confirm with the label quantity ?" %>
                     <% end %>
                   </td>
+                  <td>
+                    <% form_tag "/flow/print_loose/#{c.id}" do %>
+                       Loose Quantity
+                      <%= text_field_tag "label[quantity]" %>
+                      <%#= hidden_field_tag "label[product_id]", c.product_id %>
+                      <%#= hidden_field_tag "label[machine_id]", @machine.id %>
+                      <%= submit_tag "Print Loose", :style => "width:125px;", :confirm => "Confirm with the loose quantity ?" %>
+                    <% end %>
+                  </td>
                 </tr>
                 <tr>
-                  <td colspan="3">
+                  <td colspan="5">
                      <%= link_to_remote (c.product.part_name + " (" + c.product.part_number + ")"), {}, :onclick => "Effect.toggle('data_entry_#{c.id.to_s}', 'appear')" %>
                   </td>
                 </tr>
