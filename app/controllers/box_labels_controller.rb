@@ -5,9 +5,23 @@ class BoxLabelsController < ApplicationController
   	#   params[:search][:boxed_date_time_less_than_or_equal_to] = params[:search][:boxed_date_time_less_than_or_equal_to].to_date.strftime("%Y-%m-%d 23:59:59") if params[:search][:boxed_date_time_less_than_or_equal_to] && !params[:search][:boxed_date_time_less_than_or_equal_to].blank?
   	#   params[:search][:boxed_date_time_greater_than_or_equal_to] = params[:search][:boxed_date_time_greater_than_or_equal_to].to_date.strftime("%Y-%m-%d 00:00:00") if params[:search][:boxed_date_time_greater_than_or_equal_to] && !params[:search][:boxed_date_time_greater_than_or_equal_to].blank?
   	# end
-  	@search = BoxLabel.search(params[:search])
+    if params[:search]
+      if params[:search][:product_part_number_equals].blank?
+    	  @search = BoxLabel.search(params[:search])
+      else
+        part_number = params[:search].delete(:product_part_number_equals)
+        @search = BoxLabel.search(params[:search])
+      end
+    else
+      @search = BoxLabel.search(params[:search])
+    end
+
     if is_ict_admin?
-      @boxes  = @search.all(:order => "boxed_date_time DESC").paginate(:page => params[:page], :per_page => 20)
+      if part_number
+        @boxes  = @search.all(:joins => :product, :conditions => {"products.part_number" => part_number}, :order => "boxed_date_time DESC").paginate(:page => params[:page], :per_page => 20)
+      else
+        @boxes  = @search.all(:order => "boxed_date_time DESC").paginate(:page => params[:page], :per_page => 20)
+      end
     else
       @boxes  = current_user.belongs_products(@search.all).paginate(:page => params[:page], :per_page => 20)
     end
