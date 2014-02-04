@@ -10,7 +10,7 @@ class LabelEngine
     directories = Dir.entries(@mounted_root_path)
     result = directories.reject {|d| d =~ /\.+/ }
     if result.blank?
-      system "mount.cifs //10.102.224.191/BarcodeScan /mnt/windowseven -o user=cbk8pg2,password=ALPenang6*"
+      system "mount.cifs //10.102.224.191/BarcodeScan /mnt/windowseven -o user=MMEMEA/cbk8pg2,password=ALPenang6*"
     end
 
   	# case @side
