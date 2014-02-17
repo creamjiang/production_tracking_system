@@ -385,7 +385,7 @@ class FlowController < ApplicationController
         #bin = Bin.check_available_bin(@product)
         @working_space = @attached_product.working_states.create!(:maximum_load => @attached_product.bin_type.maximum_load, :bin_type_id => @attached_product.bin_type_id, :machine_id => @machine.id, :product_id => @product.id, :routing_procedure_id => @attached_product.routing_procedure_id)
       end
-      @bin_type ||= @working_space.bin_type
+      @bin_type ||= @attached_product.bin_type
       @working_space.update_attributes(:maximum_load => @bin_type.maximum_load, :loaded_unit => 0) if @working_space.maximum_load != @bin_type.maximum_load
       #@container ||= @bin.bin_type.containers.first(:conditions => ["product_id = ?", @product.id])
       #todo : create workspace
