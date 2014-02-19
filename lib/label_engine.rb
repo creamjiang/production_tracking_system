@@ -6,12 +6,12 @@ class LabelEngine
     @machine   = @box_label.machine
     @mounted_root_path = "/mnt/windowseven"
     @scan_path = "#{@mounted_root_path}/#{@machine.scan_folder}"
-    system "ls /mnt/windowseven"
-    directories = Dir.entries(@mounted_root_path)
-    result = directories.reject {|d| d =~ /\.+/ }
-    if result.blank?
-      system "mount.cifs //10.102.216.180/BarcodeScan /mnt/windowseven -o user=MMEMEA/cbk8pg2,password=ALPenang6*"
-    end
+    # system "ls /mnt/windowseven"
+    # directories = Dir.entries(@mounted_root_path)
+    # result = directories.reject {|d| d =~ /\.+/ }
+    # if result.blank?
+    #   system "mount.cifs //10.102.216.180/BarcodeScan /mnt/windowseven -o user=MMEMEA/cbk8pg2,password=ALPenang6*"
+    # end
 
   	# case @side
   	# when "Left"
@@ -36,12 +36,17 @@ class LabelEngine
   end
 
   def generate_label_content
-    directories = Dir.entries(@mounted_root_path)
-    result = directories.reject {|d| d =~ /\.+/ }
-    unless result.blank?
+    begin
+      directories = Dir.entries(@mounted_root_path)
+      result = directories.reject {|d| d =~ /\.+/ }
+      system "mount.cifs //10.102.216.180/BarcodeScan /mnt/windowseven -o user=MMEMEA/cbk8pg2,password=ALPenang6*" if result.blank?
+        
+
   	  File.open(@commander_triggering_path, "w") do |f2|
   	    f2.puts "#{@box_label.code},#{@box_label.part_number},#{@box_label.description},#{@box_label.machine_number},#{@box_label.quantity},#{@date},#{@time},#{@box_label.employee_number},#{@side_code},#{@box_label.code[-10..-1]}"
   	  end
+    rescue Exception => exc
+      logger.error("Label engine generate lable content error : #{exc.message}")
     end
   end
 

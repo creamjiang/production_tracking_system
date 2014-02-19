@@ -210,10 +210,10 @@ class FlowController < ApplicationController
       @working_space.loaded_one_unit
       @working_space.label_items.create!(:procedure_transaction_id => @p_transaction.id)
       
-        if @working_space.full?
-          @box = @working_space.box_label_creator(current_user_id, @product.id, @machine.id) if @machine.is_barcode_mode?
-          @working_space.reset
-        end
+      if @working_space.full?
+        @box = @working_space.box_label_creator(current_user_id, @product.id, @machine.id) if @machine.is_barcode_mode?
+        @working_space.reset
+      end
     end
     @product.today_transactions = @product.transaction_summaries.all(:conditions => ["machine_id = ? and processing_date = ?", @machine.id, get_the_actual_date], :order => "processing_date, shift_id")
 
