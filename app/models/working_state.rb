@@ -17,7 +17,7 @@ class WorkingState < ActiveRecord::Base
   
   def loaded_one_unit
     self.loaded_unit += 1
-    save(false)
+    save
   end
 
   def box_label_creator(emp_id, prod_id, mach_id, input_qty = 0, batch = false)
@@ -26,11 +26,11 @@ class WorkingState < ActiveRecord::Base
     box = BoxLabel.new(:employee_id => emp_id, :product_id => prod_id, :machine_id => mach_id, :quantity => input_qty, :boxed_date_time => Time.now)
     passed_product = Product.find prod_id
     box.code = Engineer.generate_box_label_code(passed_product.part_number, Date.today.strftime("%y%m%d"), input_qty)
-    box.save(false)
+    box.save
     unless batch
       label_items.each do |item|
         item.box_label_id = box.id
-        item.save(false)
+        item.save
       end
     end
     begin
@@ -51,7 +51,7 @@ class WorkingState < ActiveRecord::Base
 
   def reset
     self.loaded_unit = 0
-    save(false)
+    save
   end
   
   private
