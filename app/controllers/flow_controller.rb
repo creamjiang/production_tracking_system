@@ -317,8 +317,14 @@ class FlowController < ApplicationController
           render :update do |page|
             page.replace_html('product_detail_'+@attached_product.id.to_s, "#{@attached_product.product.part_name} (#{@attached_product.product.part_number}) - #{@working_space ? (@working_space.loaded_unit.to_s + ' / ' + @working_space.maximum_load.to_s) : nil}")
           end
+        else
+          return render :text => "Working space is full or empty."
         end
+      else
+        return render :text => "Machine cannot be start."
       end
+    else
+      return render :text => "Machine is not in barcode mode."
     end
   end
   
