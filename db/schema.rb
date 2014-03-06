@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131213004427) do
+ActiveRecord::Schema.define(:version => 20140306120529) do
 
 # Could not dump table "account_statements" because of following StandardError
 #   Unknown type 'year(4)' for column 'account_year'
@@ -85,11 +85,11 @@ ActiveRecord::Schema.define(:version => 20131213004427) do
   add_index "bins", ["bin_type_id"], :name => "index_bins_on_bin_type_id"
 
   create_table "box_labels", :force => true do |t|
-    t.string   "code",            :limit => 12
-    t.integer  "product_id",                    :default => 0, :null => false
-    t.integer  "machine_id",                    :default => 0, :null => false
-    t.integer  "quantity",                      :default => 0, :null => false
-    t.integer  "employee_id",                   :default => 0, :null => false
+    t.string   "code"
+    t.integer  "product_id",      :default => 0, :null => false
+    t.integer  "machine_id",      :default => 0, :null => false
+    t.integer  "quantity",        :default => 0, :null => false
+    t.integer  "employee_id",     :default => 0, :null => false
     t.datetime "boxed_date_time"
     t.datetime "created_at"
     t.datetime "updated_at"
