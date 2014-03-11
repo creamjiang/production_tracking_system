@@ -24,7 +24,7 @@ class Engineer
 
   def self.generate_box_label_code(part_number, actual_date, qty)
     setting = Setting.first
-    setting.lock!
+    #setting.lock!
     running_date = setting.running_date
     if running_date == Date.today
       setting.last_label_running_number += 1
