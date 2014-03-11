@@ -29,6 +29,7 @@ class Engineer
     if running_date == Date.today
       setting.last_label_running_number += 1
     else
+      setting.running_date = Date.today
       setting.last_label_running_number = 1
     end
     running_num = setting.last_label_running_number
