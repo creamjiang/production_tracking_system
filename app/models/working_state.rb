@@ -28,10 +28,8 @@ class WorkingState < ActiveRecord::Base
     box.code = Engineer.generate_box_label_code(passed_product.part_number, Date.today.strftime("%y%m%d"), input_qty)
     box.save
     unless batch
-      label_items.each do |item|
-        item.box_label_id = box.id
-        item.save
-      end
+      label_item = LabelItemEngine.new(id, box.id)
+      label_item.add_items
     end
     begin
       LabelEngine.new(box).generate_label_content
