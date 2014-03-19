@@ -46,7 +46,7 @@ class Administrator < ActiveRecord::Base
     result = []
     own_products = products
     targets.each do |p|
-      if own_products.include? p
+      if own_products.include? p.product
         result << p
       end
     end
