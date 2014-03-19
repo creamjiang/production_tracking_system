@@ -42,6 +42,10 @@ class Administrator < ActiveRecord::Base
     result.uniq.sort_by { |c| c.part_number }
   end
 
+  def products_ids
+    products.map(&:id)
+  end
+
   def belongs_products(targets)
     result = []
     own_products = products

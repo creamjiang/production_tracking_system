@@ -17,23 +17,20 @@ class BoxLabelsController < ApplicationController
       @search = BoxLabel.search(params[:search])
     end
 
+    
     if is_ict_admin?
+      @machines = Machine.all(:order => "machine_number")
+      @employees = Employee.all(:order => "employee_number")
       if part_number
         @boxes  = @search.all(:joins => :product, :conditions => {"products.part_number" => part_number}, :order => "boxed_date_time DESC").paginate(:page => params[:page], :per_page => 20)
       else
         @boxes  = @search.all(:order => "boxed_date_time DESC").paginate(:page => params[:page], :per_page => 20)
       end
     else
-      @boxes  = current_user.belongs_products(@search.all).paginate(:page => params[:page], :per_page => 20)
-    end
-    
-    if is_ict_admin?
-      @machines = Machine.all(:order => "machine_number")
-      @employees = Employee.all(:order => "employee_number")
-    else
       @products = current_user.products
       @machines = current_user.belongs_machines(Machine.all)
       @employees = current_user.belongs_operators
+      @boxes  = @search.all(:joins => :product, :conditions => ["products.id IN(?)", @products.map(&:id)], :order => "boxed_date_time DESC").paginate(:page => params[:page], :per_page => 20)
     end
   end
 
