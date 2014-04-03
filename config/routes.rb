@@ -1,6 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
 
-  map.resources :box_labels, :only => [:index, :show], :member => {:print_barcode => :get}
+  map.resources :box_labels, :only => [:index, :show, :edit, :update], :member => {:print_barcode => :get}
   map.resources :efficiency_schedules
 
   map.resources :prms_exports, :member => {:download => :get, :sources => :get, :update_items => :post, :post_items => :get}

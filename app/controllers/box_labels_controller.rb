@@ -38,6 +38,21 @@ class BoxLabelsController < ApplicationController
   	@box_label = BoxLabel.find params[:id]
   end
 
+  def edit
+    @box_label = BoxLabel.find params[:id]
+  end
+
+  def update
+    @box_label = BoxLabel.find params[:id]
+    if @box_label.update_attributes(params[:box_label])
+      flash[:notice] = "Update successfully"
+      redirect_to @box_label
+    else
+      render :action => "edit"
+    end
+
+  end
+
   def print_barcode
   	@box = BoxLabel.find params[:id]
   	LabelEngine.new(@box).generate_label_content

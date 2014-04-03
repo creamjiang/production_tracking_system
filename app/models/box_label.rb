@@ -5,7 +5,7 @@ class BoxLabel < ActiveRecord::Base
 	belongs_to :product
 	has_many   :label_items
 
-	attr_accessible :employee_id, :product_id, :machine_id, :quantity, :boxed_date_time
+	attr_accessible :employee_id, :product_id, :machine_id, :quantity, :boxed_date_time, :code
 
 	delegate :name, :to => :employee, :prefix => true
 	delegate :employee_number, :to => :employee
