@@ -21,7 +21,7 @@ class WorkingState < ActiveRecord::Base
   end
 
   def box_label_creator(emp_id, prod_id, mach_id, input_qty = 0, batch = false)
-    input_qty = loaded_unit unless batch
+    input_qty = maximum_load unless batch
     
     box = BoxLabel.new(:employee_id => emp_id, :product_id => prod_id, :machine_id => mach_id, :quantity => input_qty, :boxed_date_time => Time.now)
     passed_product = Product.find prod_id
@@ -31,11 +31,7 @@ class WorkingState < ActiveRecord::Base
       label_item = LabelItemEngine.new(id, box.id)
       label_item.add_items
     end
-    begin
-      LabelEngine.new(box).generate_label_content
-    rescue Exception => e
-      logger.error "#{Time.now.to_s} : #{e.message}"
-    end
+    LabelEngine.new(box).generate_label_content
     box
   end
 
