@@ -3,6 +3,22 @@
 <%= link_to 'New bin_type', new_bin_type_path %>
 <br />
 <br />
+<% form_for @search do |f| %>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Maximum load</th>
+    <th></th>
+    </tr>
+  <tr>
+    <td align="center"> <%= f.text_field :name_like %></td>
+    <td align="center"> <%= f.text_field :description_like %></td>
+    <td align="center"> <%= f.text_field :maximum_load_equals %></td>
+    <td align="center"> <%= f.submit "search" %></td>
+  </tr>
+</table>
+<% end %>
 
 <table>
   <tr>
@@ -28,3 +44,4 @@
 
 <br />
 
+<%= will_paginate @bin_types %>

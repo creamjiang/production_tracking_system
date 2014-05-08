@@ -4,7 +4,8 @@ class BinTypesController < ApplicationController
   # GET /bin_types
   # GET /bin_types.xml
   def index
-    @bin_types = BinType.all
+    @search = BinType.search(params[:search])
+    @bin_types = @search.all.paginate(:page => params[:page], :per_page => 20, :order_by => "name")
 
     respond_to do |format|
       format.html # index.html.erb
